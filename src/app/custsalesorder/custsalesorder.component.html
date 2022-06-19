@@ -1,0 +1,108 @@
+<body>    
+    <div class="wrapper collapsed">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <div class="top_menu">
+                <div class="logo">
+                    CUSTOMER DASHBOARD
+                </div>
+                <ul>
+                    <!-- <li><a href="#">
+                            <i class="fas fa-search"></i>
+                        </a></li> -->
+                    <li><a href="index.html">
+                            <i class="fas fa-user"></i>
+                        </a></li>
+                        <li><a href="signin.html">
+                            <i class="fas fa-sign-out-alt" id="btn-logout"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <ul>
+                <li><a href="index.html" class=active>
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a></li>
+                <li>
+                    <!-- <button class="dashsan" (click)="router.navigate(['/custfinancesheet']);"> -->
+                    <a (click)="router.navigate(['/custfinancesheet']);">
+                        <span class="icon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
+                        <span class="title">Financial Sheet</span>
+                    </a>
+                    <!-- </button> -->
+                </li>
+                <!-- <li><a href="demovideo.html">
+                        <span class="icon"><i class="fa fa-play"></i></span>
+                        <span class="title">Demo Video</span>
+                    </a></li> -->
+                <li><a href="contact.html">
+                        <span class="icon"><i class="fa fa-address-book"></i></span>
+                        <span class="title">Contact Us</span>
+                    </a></li>
+
+            </ul>
+        </div>
+
+        <div class="main_container">
+
+            <nav class="navbar">
+                <input class="form-control" type="text" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()"
+                placeholder="Enter first name to search">
+              </nav>
+            
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th scope="col" (click)="sort('SD_DOC')">Doc Number&nbsp;<i class="fa fa-sort"></i> </th>
+                        <th scope="col">Plant</th>
+                        <th scope="col">Creation Date</th>
+                        <th scope="col">Unit Of Measure</th>
+                        <th scope="col">Currency</th>
+                        <th scope="col">Document Type</th>
+                        <th scope="col">Document Status</th>
+                        <th scope="col">Item Number</th>
+                        <th scope="col">Material</th>
+                        <th scope="col">Net Value</th>
+                        <th scope="col">Purchase Number</th>
+                        <th scope="col">Required Quantity</th>
+                        <th scope="col">Sales Organization</th>
+                    
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of salesdet | orderBy : key : reverse | paginate:{itemsPerPage:4,currentPage:p};" class="">
+                       
+                        <td>{{item.SD_DOC}}</td>
+                        <td>{{item.PLANT}}</td>
+                        <td>{{item.CREATION_DATE}}</td>
+                        <td>{{item.BASE_UOM}}</td>
+                        <td>{{item.CURRENCY}}</td>
+                        <td>{{item.DOC_TYPE}}</td>
+                        <td>{{item.DOC_STATUS}}</td>
+                        <td>{{item.ITM_NUMBER}}</td>
+                        <td>{{item.MATERIAL}}</td>
+                        <td>{{item.NET_VALUE}}</td>
+                        <td>{{item.PURCH_NO}}</td>
+                        <td>{{item.REQ_QTY}}</td>
+                        <td>{{item.SALES_ORG}}</td>
+                       
+                      </tr>
+                </tbody>
+
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                
+              </table>
+
+
+        </div>
+    </div>
+
+</body>
+

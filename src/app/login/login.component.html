@@ -1,0 +1,28 @@
+<body>
+    <section class="side">
+        <img src="assets/images/loginred.svg" alt="">
+    </section>
+
+    <section class="main">
+        <div class="login-container">
+            <img src="assets/images/sapred.png">
+            <p class="title">Customer Portal</p>
+            <div class="separator"></div>
+            <p class="welcome-message">Please, provide login credential to proceed and have access to customer portal</p>
+
+            <form [formGroup]="login" class="login-form">
+                <div class="form-control">
+                    <input formControlName="username" type="text" placeholder="Username">
+                    <i class="fas fa-user icon"></i>
+                </div>
+                <div class="form-control">
+                    <input formControlName="password" type="password" placeholder="Password">
+                    <i class="fas fa-lock icon"></i>
+                </div>
+
+                <button (click)="submit()" class="submit">Login</button>
+            </form>
+        </div>
+    </section>
+    
+</body>

@@ -1,0 +1,145 @@
+<body>    
+    <div class="wrapper collapsed">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <div class="top_menu">
+                <div class="logo">
+                    SARA
+                </div>
+                <ul>
+                    <!-- <li><a href="#">
+                            <i class="fas fa-search"></i>
+                        </a></li> -->
+                    <li><a href="index.html">
+                            <i class="fas fa-user"></i>
+                        </a></li>
+                        <li><a href="signin.html">
+                            <i class="fas fa-sign-out-alt" id="btn-logout"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <ul>
+                <li><a href="/login" class=active>
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a></li>
+                    <li><a href="score.html">
+                        <span class="icon"><i class="fa fa-percent" aria-hidden="true"></i></span>
+                        <span class="title">Overall Scores</span>
+                    </a></li>
+                    <li><a href="demovideo.html">
+                        <span class="icon"><i class="fa fa-play"></i></span>
+                        <span class="title">Demo Video</span>
+                    </a></li>
+                    <li><a href="contact.html">
+                        <span class="icon"><i class="fa fa-address-book"></i></span>
+                        <span class="title">Contact Us</span>
+                    </a></li>
+
+            </ul>
+        </div>
+
+        <div class="main_container">
+            <h1>Credit Details</h1>
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <!-- <th scope="col">Clearing Date</th>
+                        <th scope="col">Valuation Difference</th> -->
+                        <th scope="col">Account Number</th>
+                        <th scope="col">Company Code</th>
+                        <th scope="col">Line Items</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Fiscal Year</th>
+                        <th scope="col">Account Type</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Material</th>
+                        <th scope="col">Unit Of Measure</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Plant</th>
+                        <th scope="col">Indicator</th>
+                       
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of credit_array"  class="table-success">
+ 
+                        <!-- <td>{{item.AUGDT}}</td>
+                        <td>{{item.BDIFF}}</td> -->
+                        <td>{{item.BELNR}}</td>
+                        <td>{{item.BUKRS}}</td>
+                        <td>{{item.BUZEI}}</td>
+                        <td>{{item.DMBTR}}</td>
+                        <td>{{item.GJAHR}}</td>
+                        <td>{{item.KOART}}</td>
+                        <td>{{item.KUNNR}}</td>
+                        <td>{{item.MATNR}}</td>
+                        <td>{{item.MEINS}}</td>
+                        <td>{{item.MENGE}}</td>
+                        <td>{{item.WERKS}}</td> 
+                         <td>{{item.XBILK}}</td>
+                        <!-- <td>{{item.STORE_LOC}}</td> -->
+                       
+                      </tr>
+                </tbody>
+              </table>
+              </div>
+
+              <div class="main_container">
+              <h1>Debit Details</h1>
+
+              <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <!-- <th scope="col">Clearing Date</th>
+                        <th scope="col">Valuation Difference</th> -->
+                        <th scope="col">Account Number</th>
+                        <th scope="col">Company Code</th>
+                        <th scope="col">Line Items</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Fiscal Year</th>
+                        <th scope="col">Account Type</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Material</th>
+                        <th scope="col">Unit Of Measure</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Plant</th>
+                        <th scope="col">Indicator</th>
+                       
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of debit_array"  class="table-success">
+ 
+                        <!-- <td>{{item.AUGDT}}</td>
+                        <td>{{item.BDIFF}}</td> -->
+                        <td>{{item.BELNR}}</td>
+                        <td>{{item.BUKRS}}</td>
+                        <td>{{item.BUZEI}}</td>
+                        <td>{{item.DMBTR}}</td>
+                        <td>{{item.GJAHR}}</td>
+                        <td>{{item.KOART}}</td>
+                        <td>{{item.KUNNR}}</td>
+                  <td>{{item.MATNR}}</td>
+                        <td>{{item.MEINS}}</td>
+                        <td>{{item.MENGE}}</td>
+                        <td>{{item.WERKS}}</td> 
+                         <td>{{item.XBILK}}</td>
+                        <!-- <td>{{item.STORE_LOC}}</td> -->
+                       
+                      </tr>
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+
+</body>
+

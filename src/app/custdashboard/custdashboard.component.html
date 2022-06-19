@@ -1,0 +1,161 @@
+<body>
+    <div class="wrapper collapsed">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <div class="top_menu">
+                <div class="logo">
+                    CUSTOMER DASHBOARD
+                </div>
+                <ul>
+                    <!-- <li><a href="#">
+                            <i class="fas fa-search"></i>
+                        </a></li> -->
+                    <li><a href="index.html">
+                            <i class="fas fa-user"></i>
+                        </a></li>
+                    <li><a href="signin.html">
+                            <i class="fas fa-sign-out-alt" id="btn-logout"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <ul>
+                <li><a href="index.html" class=active>
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a></li>
+                <li>
+                    <!-- <button class="dashsan" (click)="router.navigate(['/custfinancesheet']);"> -->
+                    <a (click)="router.navigate(['/custfinancesheet']);">
+                        <span class="icon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
+                        <span class="title">Financial Sheet</span>
+                    </a>
+                    <!-- </button> -->
+                </li>
+                <li>
+                    <a (click)="router.navigate(['/custprofile']);">
+                        <span class="icon"><i class="fa fa-user"></i></span>
+                        <span class="title">Demo Video</span>
+                    </a>
+                </li>
+                <li><a href="contact.html">
+                        <span class="icon"><i class="fa fa-address-book"></i></span>
+                        <span class="title">Contact Us</span>
+                    </a></li>
+
+            </ul>
+        </div>
+
+        <div class="main_container">
+            
+
+            <div class="m-4">
+                <div class="row row-cols-1 row-cols-md-3 g-5">
+                    <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/plant.png"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                    Inquiry Data
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                    An inquiry and quotation are the first documents in SAP SD which are a part of pre-sales business process. Inquiries and quotations help you to determine important sales related data and can be saved as documents.
+                                </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/custsalesorder']);">Click Here</button>
+                                <!-- <a class="logsan" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">Click Here</a> -->
+                                <!--<a class="btn btn-danger text-center" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">-->
+                                <!--	Click Here-->
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/shop.svg"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                    Sales Order Data
+                                </div>
+                                <!--<p>-->
+                                <!--	Apps Developer-->
+                                <!--</p>-->
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                    The sales order is a contractual agreement between a sales organization and a sold-to party about delivering products or providing a service for defined prices, quantities and times.
+                                </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/login']);">Click Here</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/ehsm.svg"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                Delivery List
+                                </div>
+                                <!--<p>-->
+                                <!--	Apps Developer-->
+                                <!--</p>-->
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                    Advertisements. With the availability of material or transport scheduling date, outbound delivery is required for due shipping lines. It involves shipping activities like picking of goods, transportation scheduling, etc.
+                                </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/login']);">Click Here</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+            <!-- <div class="item">
+                <div class="items">
+                    <img class="icons" src="images/autismicon.jpg" alt="selfreport"> <br>
+                    <p style="color: black;">AUTISM</p>
+                    <div class="goicon"> <a class="fa fa-chevron-circle-right fa-3x" id="go6"
+                            href="autism.html"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="items">
+                    <img class="icons" src="assets/images/bk.png" alt="selfreport"> <br>
+                    <p style="color: black;">DYSCALCULIA</p>
+
+                    <div class="goicon"> 
+                        <a class="fa fa-chevron-circle-right fa-3x" id="go3"
+                            href="dyscalculia.html"></a>
+                         </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $(".hamburger").click(function () {
+            $(".wrapper").toggleClass("collapsed");
+        });
+    });
+</script>
