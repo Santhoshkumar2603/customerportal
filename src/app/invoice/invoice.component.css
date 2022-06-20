@@ -1,0 +1,80 @@
+@page {
+    size: A4;
+    margin: 0;
+  }
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+    }
+    /* ... the rest of the rules ... */
+  }
+  
+  body{
+    background:#EEE;
+    /* font-size:0.9em !important; */
+  }
+  
+  .bigfont {
+    font-size: 3rem !important;
+  }
+  .invoice{
+    width:970px !important;
+    margin:50px auto;
+  }
+  
+  .logo {
+    float:left;
+    padding-right: 10px;
+    margin:10px auto;
+  }
+  
+  dt {
+  float:left;
+  }
+  dd {
+  float:left;
+  clear:right;
+  }
+  
+  .customercard {
+    min-width:98.5%;
+    /* margin-left: 0.5%; */
+  }
+  
+  .itemscard {
+    min-width:98.5%;
+    margin-left:0.5%;
+  }
+  
+  .logo {
+    max-width: 9.5rem;
+    max-height:7.4rem;
+    margin-top: -0.25rem;
+    margin-right: 20px;
+  }
+  
+  .invDetails {
+    margin-top: 0rem;
+  }
+  
+  .pageTitle {
+    margin-bottom: 0rem;
+  }
+  
+  .invoice-header{
+    padding-left: 4%;
+    margin-bottom: -90px;
+  }
+
+  .website{
+    padding-left: 120px;
+    padding-bottom: 90px;
+  }
+  .comname{
+    margin-bottom: 1rem;
+  }
+  li{
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }

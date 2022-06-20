@@ -30,7 +30,7 @@ export class CustinquiryComponent implements OnInit {
             console.log(response)
             this.Data = JSON.parse(JSON.stringify(response));
             
-            this.message=(this.Data.INV_DET.item);
+            this.message=(this.Data.INQ_DET.item);
             console.log(this.message);
 
           }

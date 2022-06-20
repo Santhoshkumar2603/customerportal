@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { CustomerIdService } from '../customer-id.service';
+import { TablevalueService } from '../tablevalue.service';
+
 
 @Component({
   selector: 'app-custinvoice',
@@ -17,7 +19,7 @@ export class CustinvoiceComponent implements OnInit {
   baseUrl : string='http://localhost:3000/custinvoice';
   Data: any;
 
-  constructor(private el: ElementRef, private renderer:Renderer2, private http:HttpClient,public router:Router, private customernumber:CustomerIdService) 
+  constructor(private el: ElementRef, private renderer:Renderer2, private http:HttpClient,public router:Router, private customernumber:CustomerIdService, private table:TablevalueService) 
   {}
 
   ngOnInit(): any {
@@ -37,7 +39,11 @@ export class CustinvoiceComponent implements OnInit {
         )
     }
     onInvoiceClick(data:any){
-      
+      console.log(data)
+      // sessionStorage.setItem('invoicetable',data);
+      this.table.setmessage(data);
+      this.router.navigateByUrl('/invoice');
+
     }
   ngAfterViewInit(){
 

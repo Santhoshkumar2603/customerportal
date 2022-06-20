@@ -1,1 +1,139 @@
-<p>invoice works!</p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<div class="container invoice">
+  <div class="invoice-header">
+    <div class="ui left aligned grid">
+      <div class="row">
+        <div class="left floated left aligned six wide column">
+          <div class="ui">
+            <h1 class = "ui header pageTitle">Invoice <small class = "ui sub header">With Credit</small></h1>
+            <h4 class="ui sub header">NO: 554775/R1 | Date: 01/01/2015</h4>
+          </div>
+        </div>
+        <div class="right floated left aligned six wide column">
+          <div class="ui">
+            <div class="column two wide right floated">
+              <img class="logo" src="../../assets/images/kaarlogo1.png" />
+              <div class="ui">
+                <h2 class ="ui header pageTitle" class="comname">KAAR TECHNOLOGIES</h2>
+                <h4 class="ui sub header invDetails" class="website">www.kaartech.com</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui segment cards">
+    <div class="ui card customercard">
+      <div class="content">
+        <div class="header">CUSTOMER DETAILS</div>
+      </div>
+      <div class="content">
+        <ul>
+          <li> <strong> Customer Id: </strong>{{custid}} </li>
+          <li><strong> Customer Name: </strong> {{custname}}</li>
+          <li><strong> Sales Document Number: </strong>{{salesdocnum}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ui card customercard">
+      <div class="content">
+        <div class="header">ACCOUNT DETAILS</div>
+      </div>
+      <div class="content">
+        <ul>
+          <li> <strong> Accounting Document Number: </strong> {{accdocnum}}</li>
+          <li><strong> Account Type: </strong> {{acctyp}}</li>
+          <li><strong> Fiscal Year: </strong> {{fiscalyear}}</li>
+          <li><strong> Credit/ Debit: </strong> {{cord}}</li>
+          <li><strong> Line Item Count: </strong> {{lineitemnum}}</li>
+          <li> <strong> Currency Type: </strong>{{currencytype}} </li>
+          <li><strong> Base Line Data: </strong> {{balsedate}}</li>
+          <li><strong> Last Dunned Data: </strong> {{lastduneddate}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ui card customercard">
+      <div class="content">
+        <div class="header">AMOUNT DETAILS</div>
+      </div>
+      <div class="content">
+  
+        <table class="ui celled table">
+          <!-- <caption>ACCOUNT DETAILS</caption> -->
+          <thead>
+            <tr>
+              <th class="text-center colfix">Local Currency Amount</th>
+              <th class="text-center colfix">Document Currency Amount</th>
+              <th class="text-center colfix">General Ledger Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            
+              
+              <td class="text-right">
+                <span class="mono">{{loccuramount}}</span>
+                <br>
+                <!-- <small class="text-muted">Before Tax</small> -->
+              </td>
+              <td class="text-right">
+                <span class="mono">{{doccuramount}}</span>
+                <br>
+                <!-- <small class="text-muted">18 Units</small> -->
+              </td>
+              <td class="text-right">
+                <span class="mono">{{generalledgeamount}}</span>
+                <br>
+                <!-- <small class="text-muted">Special -10%</small> -->
+              </td>
+             
+            </tr>
+
+  
+          </tbody>
+         <tfoot class="full-width">
+    <!-- <tr>
+      <th> Total: </th>
+      <th colspan="2"></th>
+      <th colspan = "1"> $500 </th>
+      <th colspan = "1"> $800 </th>
+      <th colspan = "1"> $20000.00 </th>
+    </tr> -->
+  </tfoot>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- <div class="ui card">
+      <div class="content center aligned text segment">
+        <small class="ui sub header"> Amount Due (AUD): </small>
+        <p class="bigfont"> $5000.25 </p>
+      </div>
+    </div> -->
+        <!-- <div class="ui card">
+      <div class="content">
+        <div class="header">Payment Details</div>
+      </div>
+      <div class="content">
+        <p> <strong> Account Name: </strong> "RJCA" </p>
+        <p> <strong> BSB: </strong> 111-111 </p>
+        <p> <strong>Account Number: </strong> 1234101 </p>
+      </div>
+    </div>
+    <div class="ui card">
+      <div class="content">
+        <div class="header">Notes</div>
+      </div>
+      <div class="content">
+        Payment is requested within 15 days of recieving this invoice.
+      </div>
+    </div> -->
+  </div>
+</div>

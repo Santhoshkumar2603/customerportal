@@ -11,6 +11,7 @@ import { CustprofileComponent } from './custprofile/custprofile.component';
 import { CustsalesorderComponent } from './custsalesorder/custsalesorder.component';
 import { DummytableComponent } from './dummytable/dummytable.component';
 import { HomeComponent } from './home/home.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 import { LoginComponent } from './login/login.component';
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:'custprofile', component:CustprofileComponent},
   {path:'custinquiry', component:CustinquiryComponent},
   {path:'custinvoice', component:CustinvoiceComponent},
+  {path:'invoice', component:InvoiceComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];

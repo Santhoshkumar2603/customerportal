@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
           // localStorage.setItem(''+user,''+password);
           console.log(user);
            this.customernumber.setmessage(user);
+           sessionStorage.setItem('custname',this.Data.E_NAME)
           this.router.navigateByUrl('/custdashboard');
         }
         else{

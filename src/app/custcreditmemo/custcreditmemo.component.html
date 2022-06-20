@@ -46,98 +46,113 @@
             </ul>
         </div>
 
-        <div class="main_container">
-            <h1>Credit Details</h1>
-            <table class="table table-striped ">
-                <thead>
-                    <tr>
-                        <!-- <th scope="col">Clearing Date</th>
-                        <th scope="col">Valuation Difference</th> -->
-                        <th scope="col">Account Number</th>
-                        <th scope="col">Company Code</th>
-                        <th scope="col">Line Items</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Fiscal Year</th>
-                        <th scope="col">Account Type</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Material</th>
-                        <th scope="col">Unit Of Measure</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Plant</th>
-                        <th scope="col">Indicator</th>
-                       
-                      </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of credit_array"  class="table-success">
- 
-                        <!-- <td>{{item.AUGDT}}</td>
-                        <td>{{item.BDIFF}}</td> -->
-                        <td>{{item.BELNR}}</td>
-                        <td>{{item.BUKRS}}</td>
-                        <td>{{item.BUZEI}}</td>
-                        <td>{{item.DMBTR}}</td>
-                        <td>{{item.GJAHR}}</td>
-                        <td>{{item.KOART}}</td>
-                        <td>{{item.KUNNR}}</td>
+
+      
+
+       
+            <div class="main_container">
+
+                <button (click)="toggle()" id="bt">
+                    {{buttonName}}
+                  </button>
+                  
+                <ng-container *ngIf="show">
+                <h1>Credit Details</h1>
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <!-- <th scope="col">Clearing Date</th>
+                            <th scope="col">Valuation Difference</th> -->
+                            <th scope="col">Account Number</th>
+                            <th scope="col">Company Code</th>
+                            <th scope="col">Line Items</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Fiscal Year</th>
+                            <th scope="col">Account Type</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Material</th>
+                            <th scope="col">Unit Of Measure</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Plant</th>
+                            <th scope="col">Indicator</th>
+                           
+                          </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of credit_array"  class="table-success">
+     
+                            <!-- <td>{{item.AUGDT}}</td>
+                            <td>{{item.BDIFF}}</td> -->
+                            <td>{{item.BELNR}}</td>
+                            <td>{{item.BUKRS}}</td>
+                            <td>{{item.BUZEI}}</td>
+                            <td>{{item.DMBTR}}</td>
+                            <td>{{item.GJAHR}}</td>
+                            <td>{{item.KOART}}</td>
+                            <td>{{item.KUNNR}}</td>
+                            <td>{{item.MATNR}}</td>
+                            <td>{{item.MEINS}}</td>
+                            <td>{{item.MENGE}}</td>
+                            <td>{{item.WERKS}}</td> 
+                             <td>{{item.XBILK}}</td>
+                            <!-- <td>{{item.STORE_LOC}}</td> -->
+                           
+                          </tr>
+                    </tbody>
+                  </table>
+                  </ng-container>
+                  
+          
+        
+
+              <ng-container *ngIf="hide">
+               
+                    <h1>Debit Details</h1>
+      
+                    <table class="table table-striped ">
+                      <thead>
+                          <tr>
+                              <!-- <th scope="col">Clearing Date</th>
+                              <th scope="col">Valuation Difference</th> -->
+                              <th scope="col">Account Number</th>
+                              <th scope="col">Company Code</th>
+                              <th scope="col">Line Items</th>
+                              <th scope="col">Amount</th>
+                              <th scope="col">Fiscal Year</th>
+                              <th scope="col">Account Type</th>
+                              <th scope="col">Customer</th>
+                              <th scope="col">Material</th>
+                              <th scope="col">Unit Of Measure</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col">Plant</th>
+                              <th scope="col">Indicator</th>
+                             
+                            </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let item of debit_array"  class="table-success">
+       
+                              <!-- <td>{{item.AUGDT}}</td>
+                              <td>{{item.BDIFF}}</td> -->
+                              <td>{{item.BELNR}}</td>
+                              <td>{{item.BUKRS}}</td>
+                              <td>{{item.BUZEI}}</td>
+                              <td>{{item.DMBTR}}</td>
+                              <td>{{item.GJAHR}}</td>
+                              <td>{{item.KOART}}</td>
+                              <td>{{item.KUNNR}}</td>
                         <td>{{item.MATNR}}</td>
-                        <td>{{item.MEINS}}</td>
-                        <td>{{item.MENGE}}</td>
-                        <td>{{item.WERKS}}</td> 
-                         <td>{{item.XBILK}}</td>
-                        <!-- <td>{{item.STORE_LOC}}</td> -->
-                       
-                      </tr>
-                </tbody>
-              </table>
-              </div>
+                              <td>{{item.MEINS}}</td>
+                              <td>{{item.MENGE}}</td>
+                              <td>{{item.WERKS}}</td> 
+                               <td>{{item.XBILK}}</td>
+                              <!-- <td>{{item.STORE_LOC}}</td> -->
+                             
+                            </tr>
+                      </tbody>
+                    </table>
 
-              <div class="main_container">
-              <h1>Debit Details</h1>
-
-              <table class="table table-striped ">
-                <thead>
-                    <tr>
-                        <!-- <th scope="col">Clearing Date</th>
-                        <th scope="col">Valuation Difference</th> -->
-                        <th scope="col">Account Number</th>
-                        <th scope="col">Company Code</th>
-                        <th scope="col">Line Items</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Fiscal Year</th>
-                        <th scope="col">Account Type</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Material</th>
-                        <th scope="col">Unit Of Measure</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Plant</th>
-                        <th scope="col">Indicator</th>
-                       
-                      </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of debit_array"  class="table-success">
- 
-                        <!-- <td>{{item.AUGDT}}</td>
-                        <td>{{item.BDIFF}}</td> -->
-                        <td>{{item.BELNR}}</td>
-                        <td>{{item.BUKRS}}</td>
-                        <td>{{item.BUZEI}}</td>
-                        <td>{{item.DMBTR}}</td>
-                        <td>{{item.GJAHR}}</td>
-                        <td>{{item.KOART}}</td>
-                        <td>{{item.KUNNR}}</td>
-                  <td>{{item.MATNR}}</td>
-                        <td>{{item.MEINS}}</td>
-                        <td>{{item.MENGE}}</td>
-                        <td>{{item.WERKS}}</td> 
-                         <td>{{item.XBILK}}</td>
-                        <!-- <td>{{item.STORE_LOC}}</td> -->
-                       
-                      </tr>
-                </tbody>
-              </table>
-
+            </ng-container>
         </div>
     </div>
 

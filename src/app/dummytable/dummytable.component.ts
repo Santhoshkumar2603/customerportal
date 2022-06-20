@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-dummytable',
@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DummytableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private el: ElementRef, private renderer:Renderer2) { }
+
+  public show:boolean = false;
+  public hide:boolean = true;
+  public buttonName:any = 'Show';
 
   ngOnInit(): void {
   }
+  ngAfterViewInit(){
+
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fce6d9');
+    
+    }
+
+    toggle() {
+      this.show = !this.show;
+      this.hide = !this.hide;
+  
+      // CHANGE THE NAME OF THE BUTTON.
+      if(this.show)  
+        this.buttonName = "Hide";
+      else
+        this.buttonName = "Show";
+    }
 
 }

@@ -54,4 +54,19 @@ Data: any;
     
     }
 
+    public show:boolean = false;
+  public hide:boolean = true;
+  public buttonName:any = 'Click to Credit Memo';
+
+    toggle() {
+      this.show = !this.show;
+      this.hide = !this.hide;
+  
+      // CHANGE THE NAME OF THE BUTTON.
+      if(this.show)  
+        this.buttonName = "Click to Debit Memo";
+      else
+        this.buttonName = "Click to Credit Memo";
+    }
+
 }
