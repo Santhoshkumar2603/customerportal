@@ -8,7 +8,7 @@
             </div>
             <div class="top_menu">
                 <div class="logo">
-                    SARA
+                    DELIVERY DETAILS 
                 </div>
                 <ul>
                     <!-- <li><a href="#">
@@ -48,7 +48,20 @@
 
         <div class="main_container">
 
-            <table class="table table-striped ">
+            <div class="table-wrapper">
+                <div class="table-title">
+                  <div class="row">
+                    <div class="colsan">
+                      <h2><b>Total Entries - {{total}}</b></h2>
+                      <form method="post">
+                        <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
+                        <input title="Search" value="" type="submit" class="button">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+            <table class="table table-hover ">
                 <thead>
                     <tr>
                         <th scope="col">Sales Order Item</th>
@@ -58,13 +71,13 @@
                         <th scope="col">Delivery Type</th>
                         <th scope="col">Delivery Date</th>
                         <th scope="col">Time Of Delivery</th>
-                        <th scope="col">Distribution Number</th>
+                        <th scope="col"(click)="sort('VBELN')">Distribution Number&nbsp;<i class="fa fa-sort"></i> </th>
                         <th scope="col">Sales Org</th>
                        
                       </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of array" class="">
+                    <tr *ngFor="let item of array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
 
                         <td>{{item.ARKTX}}</td>
                         <td>{{item.ERDAT}}</td>
@@ -79,6 +92,12 @@
                       </tr>
                 </tbody>
               </table>
+
+              <div class="page">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+
+              </div>
 
         </div>
     </div>

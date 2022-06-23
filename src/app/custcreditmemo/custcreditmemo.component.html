@@ -58,12 +58,26 @@
                   
                 <ng-container *ngIf="show">
                 <h1>Credit Details</h1>
-                <table class="table table-striped ">
+
+                <div class="table-wrapper">
+                    <div class="table-title">
+                      <div class="row">
+                        <div class="colsan">
+                          <h2><b>Sales Order Table</b></h2>
+                          <form method="post">
+                            <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC1" (ngModelChange)="search1()" class="textbox" placeholder="Search">
+                            <input title="Search" value="" type="submit" class="button">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+                <table class="table table-hover ">
                     <thead>
                         <tr>
                             <!-- <th scope="col">Clearing Date</th>
                             <th scope="col">Valuation Difference</th> -->
-                            <th scope="col">Account Number</th>
+                            <th scope="col" (click)="sort('BELNR')">Account Number&nbsp;<i class="fa fa-sort"></i> </th>
                             <th scope="col">Company Code</th>
                             <th scope="col">Line Items</th>
                             <th scope="col">Amount</th>
@@ -79,7 +93,7 @@
                           </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of credit_array"  class="table-success">
+                        <tr *ngFor="let item of credit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
      
                             <!-- <td>{{item.AUGDT}}</td>
                             <td>{{item.BDIFF}}</td> -->
@@ -100,6 +114,12 @@
                           </tr>
                     </tbody>
                   </table>
+
+
+                  <div class="page">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+                </div>
                   </ng-container>
                   
           
@@ -108,13 +128,25 @@
               <ng-container *ngIf="hide">
                
                     <h1>Debit Details</h1>
-      
-                    <table class="table table-striped ">
+
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                          <div class="row">
+                            <div class="colsan">
+                              <h2><b>Sales Order Table</b></h2>
+                              <form method="post">
+                                <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
+                                <input title="Search" value="" type="submit" class="button">
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                    <table class="table table-hover">
                       <thead>
                           <tr>
                               <!-- <th scope="col">Clearing Date</th>
                               <th scope="col">Valuation Difference</th> -->
-                              <th scope="col">Account Number</th>
+                              <th scope="col" (click)="sort('BELNR')">Account Number&nbsp;<i class="fa fa-sort"></i> </th>
                               <th scope="col">Company Code</th>
                               <th scope="col">Line Items</th>
                               <th scope="col">Amount</th>
@@ -130,7 +162,7 @@
                             </tr>
                       </thead>
                       <tbody>
-                          <tr *ngFor="let item of debit_array"  class="table-success">
+                          <tr *ngFor="let item of debit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};"  class="table-danger">
        
                               <!-- <td>{{item.AUGDT}}</td>
                               <td>{{item.BDIFF}}</td> -->
@@ -141,7 +173,7 @@
                               <td>{{item.GJAHR}}</td>
                               <td>{{item.KOART}}</td>
                               <td>{{item.KUNNR}}</td>
-                        <td>{{item.MATNR}}</td>
+                              <td>{{item.MATNR}}</td>
                               <td>{{item.MEINS}}</td>
                               <td>{{item.MENGE}}</td>
                               <td>{{item.WERKS}}</td> 
@@ -152,6 +184,10 @@
                       </tbody>
                     </table>
 
+                    <div class="page">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                    </div>
             </ng-container>
         </div>
     </div>

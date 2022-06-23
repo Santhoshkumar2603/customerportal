@@ -51,32 +51,29 @@
             <table class="table table-striped ">
                 <thead>
                     <tr>
-                        <th scope="col">Company Code</th>
-                        <th scope="col">Allocation Number</th>
-                        <th scope="col">Currency Type</th>
-                        <th scope="col">Local Amount</th>
-                        <th scope="col">Local Tax</th>
-                        <th scope="col">Baseline Data</th>
-                        <th scope="col">Object Type</th>
-                        <th scope="col">Payment Types</th>
-                        <th scope="col">Discount Amount</th>
+                        <th scope="col">Customer Id</th>
+                        <th scope="col">Sales Document Number</th>
+                        <th scope="col">Account Document Number</th>
+                        <!-- <th scope="col">Account Type</th> -->
+                        <th scope="col">Billing Date</th>
+                        <th scope="col">Due Date</th>
+                        <th scope="col">Payment Status</th>
+                        <th scope="col">Status Description</th>
+                        <!-- <th scope="col">Invoive Slip</th> -->
                        
                       </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of sample" class="">
-                       
-                        <td>{{item.COMP_CODE}}</td>
-                        <td>{{item.ALLOC_NMBR}}</td>
-                        <td>{{item.CURRENCY}}</td>
-                        <td>{{item.LC_AMOUNT}}</td>
-                        <td>{{item.LC_TAX}}</td>
-                        <td>{{item.BLINE_DATE}}</td>
-                        <td>{{item.OBJ_TYPE}}</td>
-                        <td>{{item.PMNTTRMS}}</td>
-                        <td>{{item.DISC_BASE}}</td>
-                       
-                       
+                    <tr *ngFor="let item of sales" (click)="onInvoiceClick(item)" class="">
+
+                        <td>{{item.KUNNR}}</td>
+                        <td>{{item.VBEL2}}</td>
+                        <td>{{item.BELNR}}</td>
+                        <td>{{item.ZFBDT}}</td>
+                        <td>{{item.MADAT}}</td>
+                        <td>{{sts}}</td>
+                        <td>{{stsdes}}</td>
+                        <!-- <td><button (click)="onInvoiceClick(item)">Click Here</button></td> -->
                       </tr>
                 </tbody>
               </table>

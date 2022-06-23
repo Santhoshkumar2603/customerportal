@@ -6,6 +6,7 @@ import { CustdeliveryComponent } from './custdelivery/custdelivery.component';
 import { CustfinancesheetComponent } from './custfinancesheet/custfinancesheet.component';
 import { CustinquiryComponent } from './custinquiry/custinquiry.component';
 import { CustinvoiceComponent } from './custinvoice/custinvoice.component';
+import { CustpaybillComponent } from './custpaybill/custpaybill.component';
 import { CustpaymentComponent } from './custpayment/custpayment.component';
 import { CustprofileComponent } from './custprofile/custprofile.component';
 import { CustsalesorderComponent } from './custsalesorder/custsalesorder.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'custinquiry', component:CustinquiryComponent},
   {path:'custinvoice', component:CustinvoiceComponent},
   {path:'invoice', component:InvoiceComponent},
+  {path:'custpaybill', component:CustpaybillComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];

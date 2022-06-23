@@ -1,8 +1,16 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { CustomerIdService } from '../customer-id.service';
 import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { TablevalueService } from '../tablevalue.service';
+import { TablevalueService} from '../tablevalue.service';
+
+
+// declare var require: any;
+
+// import * as pdfMake from "pdfmake/build/pdfmake";
+// import * as pdfFonts from "pdfmake/build/vfs_fonts";
+// const htmlToPdfmake = require("html-to-pdfmake");
+// (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-invoice',
@@ -10,6 +18,8 @@ import { TablevalueService } from '../tablevalue.service';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent implements OnInit {
+
+  
 
   custname: any;
   salesdocnum: any;
@@ -26,10 +36,10 @@ export class InvoiceComponent implements OnInit {
   generalledgeamount: any;
   invDet:any;
   custid:any;
-
+  livedate:any;
   constructor(private el: ElementRef, private renderer:Renderer2, private customernumber : CustomerIdService,public router:Router, private http:HttpClient, private table:TablevalueService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): any {
 
     this.invDet=this.table.getmessage();
     console.log(this.invDet)
@@ -50,6 +60,9 @@ export class InvoiceComponent implements OnInit {
   this.loccuramount=this.invDet.DMBTR;
   this.doccuramount=this.invDet.WRBTR;
   this.generalledgeamount=this.invDet.PSWBT;
+
+  let curr_date = new Date();
+  this.livedate=curr_date.toLocaleDateString();
 
   if(this.invDet.SHKZG === 'S')
   {
@@ -80,8 +93,17 @@ export class InvoiceComponent implements OnInit {
 
   ngAfterViewInit(){
 
-    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#EEE');
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fce6d9');
+   
     
     }
+  //   @ViewChild('pdfTable')
+  // pdfTable!: ElementRef;
+  //   pdf(){
+  //     const pdfTable = this.pdfTable.nativeElement;
+  //     var html = htmlToPdfmake(pdfTable.innerHTML);
+  //     const documentDefinition = { content: html };
+  //     pdfMake.createPdf(documentDefinition).download(); 
+  //   }
 
 }

@@ -43,7 +43,7 @@ export class CustinvoiceComponent implements OnInit {
       // sessionStorage.setItem('invoicetable',data);
       this.table.setmessage(data);
       this.router.navigateByUrl('/invoice');
-
+     
     }
   ngAfterViewInit(){
 

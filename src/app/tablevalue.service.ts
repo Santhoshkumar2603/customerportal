@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class TablevalueService {
 
   constructor() { }
-  table:any
+  table:any;
   setmessage(custno:any){
     this.table=custno;
   }

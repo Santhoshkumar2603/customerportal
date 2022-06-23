@@ -25,6 +25,8 @@ import { CustprofileComponent } from './custprofile/custprofile.component';
 import { CustinquiryComponent } from './custinquiry/custinquiry.component';
 import { CustinvoiceComponent } from './custinvoice/custinvoice.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { CustpaybillComponent } from './custpaybill/custpaybill.component';
+
 
 
 
@@ -48,6 +50,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
     CustinquiryComponent,
     CustinvoiceComponent,
     InvoiceComponent,
+    CustpaybillComponent,
 
   ],
   imports: [
@@ -62,6 +65,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
     Ng2OrderModule,
     NgxPaginationModule,
     FormsModule,
+    
   
   ],
   providers: [],

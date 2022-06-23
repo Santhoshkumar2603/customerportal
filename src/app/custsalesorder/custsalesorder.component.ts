@@ -20,7 +20,7 @@ export class CustsalesorderComponent implements OnInit {
   message:any;
  custnumber:any;
  p :number=1;  
- SD_DOC:any;
+  SD_DOC:any;
 
   ngOnInit():any{
    this.message= this.customernumber.getmessage()

@@ -18,6 +18,10 @@ debit_array:any=[]
 baseUrl : string='http://localhost:3000/credit';
 Data: any;
 
+p :number=1;  
+  SD_DOC:any;
+  SD_DOC1:any;
+
   constructor(private el: ElementRef, private renderer:Renderer2, private http:HttpClient,public router:Router, private customernumber:CustomerIdService) { }
 
   ngOnInit(): any {
@@ -38,8 +42,8 @@ Data: any;
             for(let i=1;i<this.debit.length;i++){
               this.debit_array[i-1]=this.debit[i]
             }
-            console.log(this.credit_array);
-            console.log(this.debit_array);
+            console.log(this.credit.BELNR);
+            console.log(this.debit.BELNR);
             
             
           }
@@ -68,5 +72,36 @@ Data: any;
       else
         this.buttonName = "Click to Credit Memo";
     }
+
+    search1(){
+      if(this.SD_DOC1 == "")
+      {
+        this.ngOnInit();
+      }
+      else{
+        this.credit_array = this.credit_array.filter((res: { BELNR: string; }) =>{
+          return res.BELNR.toLocaleLowerCase().match(this.SD_DOC1.toLocaleLowerCase());
+        })
+      }
+    }
+    search(){
+      if(this.SD_DOC == "")
+      {
+        this.ngOnInit();
+      }
+      else{
+        this.debit_array = this.debit_array.filter((res: { BELNR: string; }) =>{
+          return res.BELNR.toLocaleLowerCase().match(this.SD_DOC.toLocaleLowerCase());
+        })
+      }
+    }
+
+  key : string='SD_DOC';
+  reverse:boolean = false;
+  sort(key: string)
+  {
+    this.key=key;
+    this.reverse = !this.reverse;
+  }
 
 }

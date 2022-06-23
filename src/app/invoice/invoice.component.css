@@ -11,7 +11,7 @@
   }
   
   body{
-    background:#EEE;
+    background:#fce6d9;
     /* font-size:0.9em !important; */
   }
   
@@ -48,10 +48,10 @@
   }
   
   .logo {
-    max-width: 9.5rem;
-    max-height:7.4rem;
-    margin-top: -0.25rem;
-    margin-right: 20px;
+    max-width: 10.2rem;
+  max-height:8.2rem;
+  margin-top: -0.25rem;
+  margin-right: 20px;
   }
   
   .invDetails {
@@ -70,9 +70,11 @@
   .website{
     padding-left: 120px;
     padding-bottom: 90px;
+    font-size: 1rem;
   }
   .comname{
     margin-bottom: 1rem;
+    font-size: 1rem;
   }
   li{
     margin-top: 7px;

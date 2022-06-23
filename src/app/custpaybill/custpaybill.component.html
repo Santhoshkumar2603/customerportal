@@ -2,23 +2,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.com/libraries/pdfmake"></script>
 
 <div class="container invoice">
-  <!-- <div id="pdfTable" #pdfTable> -->
   <div class="invoice-header">
     <div class="ui left aligned grid">
       <div class="row">
         <div class="left floated left aligned six wide column">
           <div class="ui">
-            <h1 class = "ui header pageTitle">Invoice <small class = "ui sub header">With {{cord}}</small></h1>
-            <h4 class="ui sub header">Date: {{livedate}}</h4>
+            <h1 class = "ui header pageTitle">PAY SLIP <small class = "ui sub header">Date : {{livedate}}</small></h1>
+            <!-- <h2 class="ui sub header">Date : {{livedate}}</h2> -->
           </div>
         </div>
         <div class="right floated left aligned six wide column">
           <div class="ui">
             <div class="column two wide right floated">
-              <!-- <img class="logo" src="../../assets/images/kaarlogo1.png" /> -->
+              <img class="logo" src="../../assets/images/kaarlogo1.png" />
               <div class="ui">
                 <h5 class ="ui header pageTitle" class="comname">Level 8,Shyamala Towers, No 136, Arcot Road,Chennai-600093. <br>Tel: +91 (44) 4065 1500</h5>
                 <!-- <h4 class ="ui header pageTitle" class="comname">Tel: +91 (44) 4065 1500</h4> -->
@@ -30,8 +28,55 @@
       </div>
     </div>
   </div>
+
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="colsan">
+          <h2><b>Transaction Table</b></h2>
+          <!-- <form method="post">
+            <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
+            <input title="Search" value="" type="submit" class="button">
+          </form> -->
+        </div>
+      </div>
+    </div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <!-- <th scope="col" (click)="sort('SD_DOC')">Doc Number&nbsp;<i class="fa fa-sort"></i> </th> -->
+            <th scope="col">Sales Document</th>
+            <th scope="col">Account Document</th>
+            <th scope="col">Credit/ Debit</th>
+            <!-- <th scope="col">Currency Type</th> -->
+            <th scope="col">Billing Date</th>
+            <th scope="col">Due Date</th>
+        
+          </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of salesdet" class="">
+           
+            <td>{{item.VBEL2}}</td>
+            <td>{{item.BELNR}}</td>
+            <td>{{item.SHKZG}}</td>
+            <!-- <td>{{item.PSWSL}}</td> -->
+            <td>{{item.ZFBDT}}</td>
+            <td>{{item.MADAT}}</td>
+           
+           
+          </tr>
+    </tbody>
+
+   
+  </table>
+
+  
+  </div>
+
   <div class="ui segment cards">
-    <div class="ui card customercard">
+    <!-- <div class="ui card customercard">
       <div class="content">
         <div class="header">CUSTOMER DETAILS</div>
       </div>
@@ -59,11 +104,11 @@
           <li><strong> Last Dunned Data: </strong> {{lastduneddate}}</li>
         </ul>
       </div>
-    </div>
+    </div> -->
 
     <div class="ui card customercard">
       <div class="content">
-        <div class="header">AMOUNT DETAILS</div>
+        <div class="header">PAYMENT DETAILS</div>
       </div>
       <div class="content">
   
@@ -71,9 +116,12 @@
           <!-- <caption>ACCOUNT DETAILS</caption> -->
           <thead>
             <tr>
-              <th class="text-center colfix">Local Currency Amount</th>
-              <th class="text-center colfix">Document Currency Amount</th>
-              <th class="text-center colfix">General Ledger Amount</th>
+              <th class="text-center colfix">Net Quantity</th>
+              <th class="text-center colfix">Amount Paid</th>
+              <th class="text-center colfix">Balance Amount</th>
+              <th class="text-center colfix">Currency Type</th>
+              <th class="text-center colfix">Payment Aging Date</th>
+              <!-- <th class="text-center colfix">General</th> -->
             </tr>
           </thead>
           <tbody>
@@ -81,20 +129,31 @@
             
               
               <td class="text-right">
-                <span class="mono">{{loccuramount}}</span>
+                <span class="mono">{{lineitemnum}}</span>
                 <br>
                 <!-- <small class="text-muted">Before Tax</small> -->
               </td>
               <td class="text-right">
-                <span class="mono">{{doccuramount}}</span>
+                <span class="mono">{{loccuramount}}</span>
                 <br>
                 <!-- <small class="text-muted">18 Units</small> -->
               </td>
               <td class="text-right">
-                <span class="mono">{{generalledgeamount}}</span>
+                <span class="mono">{{doccuramount}}</span>
                 <br>
                 <!-- <small class="text-muted">Special -10%</small> -->
               </td>
+              <td class="text-right">
+                <span class="mono">{{currencytype}}</span>
+                <br>
+                <!-- <small class="text-muted">Special -10%</small> -->
+              </td>
+              <td class="text-right">
+                <span class="mono">{{aging}} days</span>
+                <br>
+                <!-- <small class="text-muted">Special -10%</small> -->
+              </td>
+              
              
             </tr>
 
@@ -114,32 +173,29 @@
       </div>
     </div>
 
-    <!-- <div class="ui card">
+    <div class="ui card">
       <div class="content center aligned text segment">
-        <small class="ui sub header"> Amount Due (AUD): </small>
-        <p class="bigfont"> $5000.25 </p>
+        <small class="ui sub header">Total Amount(In Rs) : </small>
+        <p class="bigfont"> Rs.{{generalledgeamount}}</p>
       </div>
-    </div> -->
-        <!-- <div class="ui card">
+    </div>
+        <div class="ui card">
       <div class="content">
         <div class="header">Payment Details</div>
       </div>
       <div class="content">
-        <p> <strong> Account Name: </strong> "RJCA" </p>
-        <p> <strong> BSB: </strong> 111-111 </p>
-        <p> <strong>Account Number: </strong> 1234101 </p>
+        <p> <strong> Account Document Number: </strong> {{accdocnum}} </p>
+        <p> <strong> Account Type </strong> {{acctyp}} </p>
+        <p> <strong>Curreny Type: </strong> {{currencytype}} </p>
       </div>
-    </div> -->
+    </div>
     <div class="ui card">
       <div class="content">
         <div class="header">Greeting !!!</div>
       </div>
       <div class="content">
-        THANK FOR BEING A PART OF KAAR TECHNOLOGIES.
+       THANK FOR BEING A PART OF KAAR TECHNOLOGIES.
       </div>
     </div> 
   </div>
 </div>
-<!-- </div> -->
-
-<!-- <button (click)="pdf()">Click</button> -->
