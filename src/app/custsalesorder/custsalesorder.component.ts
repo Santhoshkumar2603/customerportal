@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { CustomerIdService } from '../customer-id.service';
 import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+declare var $:any;
 
 
 
@@ -21,7 +22,7 @@ export class CustsalesorderComponent implements OnInit {
  custnumber:any;
  p :number=1;  
   SD_DOC:any;
-
+len:any;
   ngOnInit():any{
    this.message= this.customernumber.getmessage()
   // this.customernumber=(this.message[1]);
@@ -35,6 +36,7 @@ export class CustsalesorderComponent implements OnInit {
           console.log(response)
           this.Data = JSON.parse(JSON.stringify(response));
           this.salesdet=(this.Data.E_SALESORDER.item);
+          this.len=this.salesdet.length;
           console.log(this.salesdet);
           
           
@@ -45,7 +47,12 @@ export class CustsalesorderComponent implements OnInit {
 
   ngAfterViewInit(){
 
-    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fce6d9');
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fff0f0');
+    $(document).ready(function () {
+      $(".hamburger").click(function () {
+          $(".wrapper").toggleClass("collapsed");
+      });
+  });
     
     }
 

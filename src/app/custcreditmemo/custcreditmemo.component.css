@@ -10,7 +10,7 @@
   
   
   body{
-    background-color: #fce6d9;
+    background-color: #fff0f0;
     height: 100%;
    
   }
@@ -19,7 +19,7 @@
     padding: 0;
     margin: 10px;
     height: 100%;
-    background: #fce6d9;
+    background: #fff0f0;
   }
   
   .wrapper .top_navbar{
@@ -44,7 +44,7 @@
   .wrapper .top_navbar .hamburger div{
     width: 35px;
     height: 4px;
-    background: #F7B3BC;
+    background: #db5e76;
     margin: 5px 0;
     border-radius: 5px;
   }
@@ -85,7 +85,7 @@
   }
   
   .wrapper .top_navbar .top_menu ul li a:hover{
-    background: #F7B3BC;
+    background: #db5e76;
     color: #fff;
   }
   
@@ -110,7 +110,7 @@
       color: #fff;
       position: relative;
       margin-bottom: 1px;
-      color: #F7B3BC;
+      color: #db5e76;
       white-space: nowrap;
   }
   
@@ -121,7 +121,7 @@
     left: 0;
     width: 3px;
     height: 100%;
-    background: #F7B3BC;
+    background: #db5e76;
     display: none;
   }
   
@@ -136,7 +136,7 @@
   
   .wrapper .sidebar ul li a:hover,
   .wrapper .sidebar ul li a.active{
-    background: #F7B3Bc;
+    background: #db5e76;
     color: #fff;
   }
   
@@ -708,4 +708,15 @@
     background-color: rgba(0, 150, 136, 0.8);
   }
   
+  .logsan{
+    display: inline-block;
+    padding: 0.5em 1.7em;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    background-color: #b31734;
+  }
+  .logsan:hover{
+     background-color: #db5e76;
+  }
   

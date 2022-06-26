@@ -11,7 +11,7 @@
   }
   
   body{
-    background:#fce6d9;
+    background:#fff0f0;
     /* font-size:0.9em !important; */
   }
   
@@ -79,4 +79,16 @@
   li{
     margin-top: 7px;
     margin-bottom: 7px;
+  }
+
+
+  .pdfbtn{
+    padding-left: 20px;
+    padding-top: 19px;
+  }
+
+  @media print{
+    button{
+      display: none;
+    }
   }

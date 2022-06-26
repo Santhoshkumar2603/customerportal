@@ -14,7 +14,7 @@
                     <!-- <li><a href="#">
                             <i class="fas fa-search"></i>
                         </a></li> -->
-                    <li><a href="index.html">
+                    <li><a (click)="router.navigate(['/custprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
                     <li><a href="signin.html">
@@ -26,7 +26,7 @@
 
         <div class="sidebar">
             <ul>
-                <li><a href="index.html" class=active>
+                <li><a (click)="router.navigate(['/custdashboard']);" class=active>
                         <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                         <span class="title">Dashboard</span>
                     </a></li>
@@ -41,13 +41,13 @@
                 <li>
                     <a (click)="router.navigate(['/custprofile']);">
                         <span class="icon"><i class="fa fa-user"></i></span>
-                        <span class="title">Demo Video</span>
+                        <span class="title">Profile</span>
                     </a>
                 </li>
-                <li><a href="contact.html">
-                        <span class="icon"><i class="fa fa-address-book"></i></span>
-                        <span class="title">Contact Us</span>
-                    </a></li>
+                <li><a href="https://www.kaartech.com/contact-us/" target="_blank">
+                    <span class="icon"><i class="fa fa-address-book"></i></span>
+                    <span class="title">Contact Us</span>
+                </a></li>
 
             </ul>
         </div>
@@ -72,7 +72,7 @@
                                 <div class="text">
                                     An inquiry and quotation are the first documents in SAP SD which are a part of pre-sales business process. Inquiries and quotations help you to determine important sales related data and can be saved as documents.
                                 </div>
-                                <button type="button" class="logsan" (click)="router.navigate(['/custsalesorder']);">Click Here</button>
+                                <button type="button" class="logsan" (click)="router.navigate(['/custinquiry']);">Click Here</button>
                                 <!-- <a class="logsan" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">Click Here</a> -->
                                 <!--<a class="btn btn-danger text-center" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">-->
                                 <!--	Click Here-->
@@ -97,7 +97,7 @@
                                 <div class="text">
                                     The sales order is a contractual agreement between a sales organization and a sold-to party about delivering products or providing a service for defined prices, quantities and times.
                                 </div>
-                                <button type="button" class="logsan" (click)="router.navigate(['/login']);">Click Here</button>
+                                <button type="button" class="logsan" (click)="router.navigate(['/custsalesorder']);">Click Here</button>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="top-text">
                                 <div class="name">
-                                Delivery List
+                                    List Of Delivery
                                 </div>
                                 <!--<p>-->
                                 <!--	Apps Developer-->
@@ -118,7 +118,7 @@
                                 <div class="text">
                                     Advertisements. With the availability of material or transport scheduling date, outbound delivery is required for due shipping lines. It involves shipping activities like picking of goods, transportation scheduling, etc.
                                 </div>
-                                <button type="button" class="logsan" (click)="router.navigate(['/login']);">Click Here</button>
+                                <button type="button" class="logsan" (click)="router.navigate(['/custdelivery']);">Click Here</button>
                             </div>
                         </div>
                     </div>
@@ -150,12 +150,14 @@
 
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".hamburger").click(function () {
+                $(".wrapper").toggleClass("collapsed");
+            });
+        });
+    </script>
 
 </body>
-<script>
-    $(document).ready(function () {
-        $(".hamburger").click(function () {
-            $(".wrapper").toggleClass("collapsed");
-        });
-    });
-</script>

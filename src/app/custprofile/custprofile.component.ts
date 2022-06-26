@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { CustomerIdService } from '../customer-id.service';
 import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+declare var $: any;
 
 @Component({
   selector: 'app-custprofile',
@@ -58,7 +59,12 @@ export class CustprofileComponent implements OnInit {
 
   ngAfterViewInit(){
 
-    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fce6d9');
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fff0f0');
+    $(document).ready(function () {
+      $(".hamburger").click(function () {
+          $(".wrapper").toggleClass("collapsed");
+      });
+  });
     
     }
 

@@ -1,4 +1,5 @@
 <body>
+
     <div class="wrapper collapsed">
         <div class="top_navbar">
             <div class="hamburger">
@@ -14,7 +15,7 @@
                     <!-- <li><a href="#">
                             <i class="fas fa-search"></i>
                         </a></li> -->
-                    <li><a href="index.html">
+                    <li><a (click)="router.navigate(['/custprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
                     <li><a href="signin.html">
@@ -26,19 +27,19 @@
 
         <div class="sidebar">
             <ul>
-                <li><a href="index.html" class=active>
+                <li><a (click)="router.navigate(['/custdashboard']);">
                         <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                         <span class="title">Dashboard</span>
                     </a></li>
-                <li><a href="score.html">
-                        <span class="icon"><i class="fa fa-percent" aria-hidden="true"></i></span>
+                <li><a (click)="router.navigate(['/custfinancesheet']);" class=active>
+                        <span class="icon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
                         <span class="title">Overall Scores</span>
                     </a></li>
-                <li><a href="demovideo.html">
-                        <span class="icon"><i class="fa fa-play"></i></span>
+                <li><a (click)="router.navigate(['/custprofile']);">
+                        <span class="icon"><i class="fa fa-user"></i></span>
                         <span class="title">Demo Video</span>
                     </a></li>
-                <li><a href="contact.html">
+                    <li><a href="https://www.kaartech.com/contact-us/" target="_blank">
                         <span class="icon"><i class="fa fa-address-book"></i></span>
                         <span class="title">Contact Us</span>
                     </a></li>
@@ -50,7 +51,31 @@
             
 
             <div class="m-4">
-                <div class="row row-cols-1 row-cols-md-2 g-5">
+                <div class="row row-cols-1 row-cols-md-3 g-5">
+                    <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/plant.png"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                    Invoice Details
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                  
+                                    The invoice contains information such as customer details, amount to be paid, payment terms, shipping address, and so on. A customer invoice can be created in SAP S/4HANA Finance directly in accounts receivable or in sales and distribution using the order-to-cash business process.
+                                </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/custinvoice']);">Click Here</button>
+                                <!-- <a class="logsan" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">Click Here</a> -->
+                                <!--<a class="btn btn-danger text-center" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">-->
+                                <!--	Click Here-->
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
                     <div class="col">
                         <div class="card">
                             <div class="img">
@@ -67,7 +92,7 @@
                                   
 Aging involves categorizing a company's unpaid customer invoices and credit memos by date ranges. Schedules can be customized over various time frames, although typically these reports list invoices in 30-day groups, such as 30 days, 31–60 days, and 61–90 days past the due date.
                                 </div>
-                                <button type="button" class="logsan" (click)="router.navigate(['/custinvoice']);">Click Here</button>
+                                <button type="button" class="logsan" (click)="router.navigate(['/custpayment']);">Click Here</button>
                                 <!-- <a class="logsan" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">Click Here</a> -->
                                 <!--<a class="btn btn-danger text-center" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">-->
                                 <!--	Click Here-->
@@ -96,7 +121,7 @@ Aging involves categorizing a company's unpaid customer invoices and credit memo
                                 <div class="text">
                                 Debit memo: A sales document created on the basis of a customer complaint. This increases receivables in Financial Accounting.
                                 </div>
-                                <button type="button" class="logsan" (click)="router.navigate(['/login']);">Click Here</button>
+                                <button type="button" class="logsan" (click)="router.navigate(['/custcreditmemo']);">Click Here</button>
                             </div>
                         </div>
                     </div>
@@ -146,5 +171,15 @@ Aging involves categorizing a company's unpaid customer invoices and credit memo
 
         </div>
     </div>
+    
+  
+
+    <script>
+        $(document).ready(function () {
+            $(".hamburger").click(function () {
+                $(".wrapper").toggleClass("collapsed");
+            });
+        });
+    </script>
 
 </body>

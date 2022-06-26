@@ -111,7 +111,7 @@ export class CustpaybillComponent implements OnInit {
    }
 ngAfterViewInit(){
 
-  this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fce6d9');
+  this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fff0f0');
   
   }
 

@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CustomerIdService } from '../customer-id.service';
 // import { TablevalueService } from '../tablevalue.service';
 import { CustbillService } from '../custbill.service';
+declare var $:any;
 
 @Component({
   selector: 'app-custpayment',
@@ -24,6 +25,12 @@ export class CustpaymentComponent implements OnInit {
   sts: any = "";
   stsdes: any;
   kunnr: any;
+  p :number=1;  
+  SD_DOC:any;
+ 
+  livedate:any;
+  aging:any=[];
+  len:any;
 
 
   ngOnInit(): any {
@@ -39,12 +46,13 @@ export class CustpaymentComponent implements OnInit {
         this.message = (this.Data.INV_DET.item);
       
         //  this.tablevalue.setmessage(this.message.KUNNR,this.message.VBEL2);
-        //  console.log(this.message.KUNNR);
+        //  console.log(this.message.KUNNR); PSWSL
 
         let k = 0;
         for (let i = 0; i < this.message.length; i++) {
           if (this.message[i].KOART === "S") {
             this.sales[k++] = this.message[i];
+
           }
           if (this.message[i].SHKZG === 'S') {
             this.sts = "Completed";
@@ -56,6 +64,21 @@ export class CustpaymentComponent implements OnInit {
           }
 
         }
+        let m=0;
+        this.len=this.sales.length;
+        for(let i=0;i<this.sales.length;i++)
+        {
+          if(this.sales[i].PSWSL === "EUR"){
+          var due_date = new Date(this.sales[i].MADAT);
+          let curr_date = new Date();
+          this.livedate=curr_date.toLocaleDateString();
+          var time = curr_date.getTime() - due_date.getTime();
+          var day = time / (1000 * 3600 * 24);
+          if(Math.floor(day)>0){
+            this.sales[i].PSWSL = Math.floor(day);
+          } 
+          }
+        }
         console.log(this.message.SHKZG);
         
 
@@ -66,7 +89,12 @@ export class CustpaymentComponent implements OnInit {
 
   ngAfterViewInit() {
 
-    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body, 'backgroundColor', '#fce6d9');
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body, 'backgroundColor', '#fff0f0');
+    $(document).ready(function () {
+      $(".hamburger").click(function () {
+          $(".wrapper").toggleClass("collapsed");
+      });
+  });
 
   }
 
@@ -78,4 +106,25 @@ export class CustpaymentComponent implements OnInit {
     
     this.router.navigateByUrl('/custpaybill');
   }
+
+
+  search(){
+    if(this.SD_DOC == "")
+    {
+      this.ngOnInit();
+    }
+    else{
+      this.sales = this.sales.filter((res: { SD_DOC: string; }) =>{
+        return res.SD_DOC.toLocaleLowerCase().match(this.SD_DOC.toLocaleLowerCase());
+      })
+    }
+  }
+
+key : string='SD_DOC';
+reverse:boolean = false;
+sort(key: string)
+{
+  this.key=key;
+  this.reverse = !this.reverse;
+}
 }

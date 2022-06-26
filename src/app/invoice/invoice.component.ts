@@ -44,8 +44,6 @@ export class InvoiceComponent implements OnInit {
     this.invDet=this.table.getmessage();
     console.log(this.invDet)
     this.custid=this.invDet.KUNNR;
-      // this.message = this.customernumber.getmessage()
-    
    this.custname=sessionStorage.getItem('custname');
    console.log(this.custname)
   this.salesdocnum=this.invDet.VBEL2;
@@ -93,17 +91,13 @@ export class InvoiceComponent implements OnInit {
 
   ngAfterViewInit(){
 
-    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fce6d9');
-   
-    
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fff0f0');
+    // this.pdf();
+
     }
-  //   @ViewChild('pdfTable')
-  // pdfTable!: ElementRef;
-  //   pdf(){
-  //     const pdfTable = this.pdfTable.nativeElement;
-  //     var html = htmlToPdfmake(pdfTable.innerHTML);
-  //     const documentDefinition = { content: html };
-  //     pdfMake.createPdf(documentDefinition).download(); 
-  //   }
+  pdf(){
+    console.log("san")
+    window.print();
+  }
 
 }

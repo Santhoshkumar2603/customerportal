@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+declare var $: any;
 @Component({
   selector: 'app-custdashboard',
   templateUrl: './custdashboard.component.html',
@@ -13,7 +14,12 @@ export class CustdashboardComponent implements OnInit {
   }
   ngAfterViewInit(){
 
-    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fce6d9');
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fff0f0');
+    $(document).ready(function () {
+      $(".hamburger").click(function () {
+          $(".wrapper").toggleClass("collapsed");
+      });
+  });
     
     }
     // salesorder(){

@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { CustomerIdService } from '../customer-id.service';
+declare var $:any;
 
 @Component({
   selector: 'app-custcreditmemo',
@@ -21,7 +22,8 @@ Data: any;
 p :number=1;  
   SD_DOC:any;
   SD_DOC1:any;
-
+  lenc:any;
+  lend:any;
   constructor(private el: ElementRef, private renderer:Renderer2, private http:HttpClient,public router:Router, private customernumber:CustomerIdService) { }
 
   ngOnInit(): any {
@@ -42,6 +44,8 @@ p :number=1;
             for(let i=1;i<this.debit.length;i++){
               this.debit_array[i-1]=this.debit[i]
             }
+            this.lenc=this.credit_array.length;
+            this.lend=this.debit_array.length;
             console.log(this.credit.BELNR);
             console.log(this.debit.BELNR);
             
@@ -54,24 +58,33 @@ p :number=1;
 
   ngAfterViewInit(){
 
-    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fce6d9');
+    this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fff0f0');
+    $(document).ready(function () {
+      $(".hamburger").click(function () {
+          $(".wrapper").toggleClass("collapsed");
+      });
+  });
     
     }
 
     public show:boolean = false;
   public hide:boolean = true;
   public buttonName:any = 'Click to Credit Memo';
-
+  public title1:any= 'DEBIT MEMO';
     toggle() {
       this.show = !this.show;
       this.hide = !this.hide;
   
       // CHANGE THE NAME OF THE BUTTON.
-      if(this.show)  
+      if(this.show)  {
         this.buttonName = "Click to Debit Memo";
-      else
+        this.title1 = "CREDIT MEMO";
+      }
+      else{  
         this.buttonName = "Click to Credit Memo";
+        this.title1 = "DEBIT MEMO"
     }
+  }
 
     search1(){
       if(this.SD_DOC1 == "")

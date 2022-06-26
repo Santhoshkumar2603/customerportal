@@ -8,13 +8,13 @@
             </div>
             <div class="top_menu">
                 <div class="logo">
-                    SARA
+                    INVOICE DETAILS
                 </div>
                 <ul>
                     <!-- <li><a href="#">
                             <i class="fas fa-search"></i>
                         </a></li> -->
-                    <li><a href="index.html">
+                    <li><a (click)="router.navigate(['/custprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
                         <li><a href="signin.html">
@@ -26,51 +26,75 @@
 
         <div class="sidebar">
             <ul>
-                <li><a href="/login" class=active>
-                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-                        <span class="title">Dashboard</span>
-                    </a></li>
-                    <li><a href="score.html">
-                        <span class="icon"><i class="fa fa-percent" aria-hidden="true"></i></span>
-                        <span class="title">Overall Scores</span>
-                    </a></li>
-                    <li><a href="demovideo.html">
-                        <span class="icon"><i class="fa fa-play"></i></span>
-                        <span class="title">Demo Video</span>
-                    </a></li>
-                    <li><a href="contact.html">
-                        <span class="icon"><i class="fa fa-address-book"></i></span>
-                        <span class="title">Contact Us</span>
-                    </a></li>
-
+                <li><a (click)="router.navigate(['/custdashboard']);">
+                    <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                    <span class="title">Dashboard</span>
+                </a></li>
+            <li>
+                <!-- <button class="dashsan" (click)="router.navigate(['/custfinancesheet']);"> -->
+                <a (click)="router.navigate(['/custfinancesheet']);" class=active>
+                    <span class="icon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
+                    <span class="title">Financial Sheet</span>
+                </a>
+                <!-- </button> -->
+            </li>
+            <li>
+                <a (click)="router.navigate(['/custprofile']);">
+                    <span class="icon"><i class="fa fa-user"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li><a href="https://www.kaartech.com/contact-us/" target="_blank">
+                <span class="icon"><i class="fa fa-address-book"></i></span>
+                <span class="title">Contact Us</span>
+            </a></li>
             </ul>
         </div>
 
         <div class="main_container">
 
-            <table class="table table-striped">
+            <div class="table-wrapper">
+                <div class="table-title">
+                  <div class="row">
+                    <div class="colsan">
+                      <h2><b>Total Entries - {{len}}</b></h2>
+                      <form method="post">
+                        <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
+                        <input title="Search" value="" type="submit" class="button">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+            <table class="table table-hover">
                 <thead>
                     <tr>
       
                         <th scope="col">Customer Id</th>
-                        <th scope="col">Sales Document Number</th>
+                        <th scope="col" (click)="sort('SD_DOC')">Sales Document Number&nbsp;<i class="fa fa-sort"></i> </th>
+                        <!-- <th scope="col">Sales Document Number</th> -->
                         <th scope="col">Account Document Number</th>
-                        <th scope="col">Account Type</th>
+                        <!-- <th scope="col">Account Type</th> -->
                         <th scope="col">Invoive Slip</th>
                 
                       </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of message" class="">
+                    <tr *ngFor="let item of sales | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
 
                         <td>{{item.KUNNR}}</td>
                         <td>{{item.VBEL2}}</td>
                         <td>{{item.BELNR}}</td>
-                        <td>{{item.KOART}}</td>
-                        <td><button (click)="onInvoiceClick(item)">Click Here</button></td>
+                        <!-- <td>{{item.KOART}}</td> -->
+                        <td><button class="btn btn-danger" (click)="onInvoiceClick(item)">Click Here</button></td>
                       </tr>
                 </tbody>
               </table>
+
+              <div class="page">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+              </div>
 
         </div>
     </div>

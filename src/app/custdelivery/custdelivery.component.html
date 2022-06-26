@@ -8,13 +8,13 @@
             </div>
             <div class="top_menu">
                 <div class="logo">
-                    DELIVERY DETAILS 
+                    LIST OF DELIVERY
                 </div>
                 <ul>
                     <!-- <li><a href="#">
                             <i class="fas fa-search"></i>
                         </a></li> -->
-                    <li><a href="index.html">
+                    <li><a (click)="router.navigate(['/custprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
                         <li><a href="signin.html">
@@ -26,23 +26,28 @@
 
         <div class="sidebar">
             <ul>
-                <li><a href="/login" class=active>
-                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-                        <span class="title">Dashboard</span>
-                    </a></li>
-                    <li><a href="score.html">
-                        <span class="icon"><i class="fa fa-percent" aria-hidden="true"></i></span>
-                        <span class="title">Overall Scores</span>
-                    </a></li>
-                    <li><a href="demovideo.html">
-                        <span class="icon"><i class="fa fa-play"></i></span>
-                        <span class="title">Demo Video</span>
-                    </a></li>
-                    <li><a href="contact.html">
-                        <span class="icon"><i class="fa fa-address-book"></i></span>
-                        <span class="title">Contact Us</span>
-                    </a></li>
-
+                <li><a (click)="router.navigate(['/custdashboard']);" class=active>
+                    <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                    <span class="title">Dashboard</span>
+                </a></li>
+            <li>
+                <!-- <button class="dashsan" (click)="router.navigate(['/custfinancesheet']);"> -->
+                <a (click)="router.navigate(['/custfinancesheet']);">
+                    <span class="icon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
+                    <span class="title">Financial Sheet</span>
+                </a>
+                <!-- </button> -->
+            </li>
+            <li>
+                <a (click)="router.navigate(['/custprofile']);">
+                    <span class="icon"><i class="fa fa-user"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li><a href="https://www.kaartech.com/contact-us/" target="_blank">
+                <span class="icon"><i class="fa fa-address-book"></i></span>
+                <span class="title">Contact Us</span>
+            </a></li>
             </ul>
         </div>
 
