@@ -100,7 +100,9 @@
                       </tr>
                 </tbody>
               </table>
+              <div class="spinner-border text-danger" style="width:3rem;height:3rem;align-items: center;" role="status" [hidden]="spinner">
 
+            </div>
               <div class="page">
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>

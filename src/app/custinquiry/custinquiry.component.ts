@@ -20,11 +20,12 @@ export class CustinquiryComponent implements OnInit {
   p :number=1;  
   SD_DOC:any;
  len:any;
+ spinner=false;
   constructor(private el: ElementRef, private renderer:Renderer2, private http:HttpClient,public router:Router, private customernumber:CustomerIdService) 
   {}
 
   ngOnInit(): any {
-    this.received=  this.customernumber.getmessage()
+    this.received= localStorage.getItem('userid');
     console.log(this.received);
     return this.http.post(this.baseUrl,{
       customerno:this.received
@@ -36,7 +37,7 @@ export class CustinquiryComponent implements OnInit {
             this.message=(this.Data.INQ_DET.item);
             this.len=this.message.length;
             console.log(this.message);
-
+            this.spinner=true;
           }
         )
     }

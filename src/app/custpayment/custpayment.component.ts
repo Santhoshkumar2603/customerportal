@@ -32,6 +32,8 @@ export class CustpaymentComponent implements OnInit {
   aging:any=[];
   len:any;
 
+  spinner=false
+
 
   ngOnInit(): any {
     this.received = this.customernumber.getmessage()
@@ -48,6 +50,7 @@ export class CustpaymentComponent implements OnInit {
         //  this.tablevalue.setmessage(this.message.KUNNR,this.message.VBEL2);
         //  console.log(this.message.KUNNR); PSWSL
 
+        this.spinner=true;
         let k = 0;
         for (let i = 0; i < this.message.length; i++) {
           if (this.message[i].KOART === "S") {
@@ -64,6 +67,7 @@ export class CustpaymentComponent implements OnInit {
           }
 
         }
+        console.log(this.sales)
         let m=0;
         this.len=this.sales.length;
         for(let i=0;i<this.sales.length;i++)

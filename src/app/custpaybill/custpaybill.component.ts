@@ -2,6 +2,9 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { CustomerIdService } from '../customer-id.service';
 import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import jspdf from 'jspdf';  
+import html2canvas from 'html2canvas';  
+
 
 // import { TablevalueService } from '../tablevalue.service';
 import { CustbillService } from '../custbill.service';
@@ -114,6 +117,23 @@ ngAfterViewInit(){
   this.renderer.setStyle(this.el.nativeElement.ownerDocument.body,'backgroundColor', '#fff0f0');
   
   }
+  public pdf()  
+  {  
+    var data:any = document.getElementById('contentToConvert');  //Id of the table
+    html2canvas(data).then(canvas => {  
+      // Few necessary setting options  
+      let imgWidth = 208;   
+      let pageHeight = 295;    
+      let imgHeight = canvas.height * imgWidth / canvas.width;  
+      let heightLeft = imgHeight;  
+
+      const contentDataURL = canvas.toDataURL('image/png')  
+      let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF  
+      let position = 0;  
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
+      pdf.save('Payment_Bill.pdf'); // Generated PDF   
+    });  
+  }  
 
 }
 

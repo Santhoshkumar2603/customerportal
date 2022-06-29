@@ -5,7 +5,13 @@
 <script src="https://cdnjs.com/libraries/pdfmake"></script>
 
 
-<div class="container invoice">
+<div class="pdfbtn">
+  <button class="btn btn-danger" (click)="pdf()">Save as PDF
+    <i class="fas fa-file"></i>
+  </button>
+  </div>
+  
+<div class="container invoice" id="contentToConvert">
   <!-- <div id="pdfTable" #pdfTable> -->
   
  
@@ -14,7 +20,7 @@
       <div class="row">
         <div class="left floated left aligned six wide column">
           <div class="ui">
-            <h1 class = "ui header pageTitle">Invoice <small class = "ui sub header">With {{cord}}</small></h1>
+            <h1 class = "ui header pageTitle" style="color:#b31734">Invoice <small class = "ui sub header">With {{cord}}</small></h1>
             <h4 class="ui sub header">Date: {{livedate}}</h4>
           </div>
         </div>
@@ -36,7 +42,7 @@
   <div class="ui segment cards">
     <div class="ui card customercard">
       <div class="content">
-        <div class="header">CUSTOMER DETAILS</div>
+        <div class="header" style="color:#b31734">CUSTOMER DETAILS</div>
       </div>
       <div class="content">
         <ul>
@@ -48,7 +54,7 @@
     </div>
     <div class="ui card customercard">
       <div class="content">
-        <div class="header">ACCOUNT DETAILS</div>
+        <div class="header" style="color:#b31734">ACCOUNT DETAILS</div>
       </div>
       <div class="content">
         <ul>
@@ -66,7 +72,7 @@
 
     <div class="ui card customercard">
       <div class="content">
-        <div class="header">AMOUNT DETAILS</div>
+        <div class="header" style="color:#b31734">AMOUNT DETAILS</div>
       </div>
       <div class="content">
   
@@ -135,17 +141,13 @@
     </div> -->
     <div class="ui card">
       <div class="content">
-        <div class="header">Greeting !!!</div>
+        <div class="header" style="color:#b31734">Greeting !!!</div>
       </div>
       <div class="content">
         THANK FOR BEING A PART OF KAAR TECHNOLOGIES.
       </div>
     </div> 
-    <!-- <div class="pdfbtn">
-      <button class="btn btn-danger" (click)="pdf()">Save as PDF
-        <i class="fas fa-file"></i>
-      </button>
-      </div> -->
+   
   </div>
   
   

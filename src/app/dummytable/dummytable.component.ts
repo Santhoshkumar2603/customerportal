@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dummytable',
@@ -7,13 +8,15 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 })
 export class DummytableComponent implements OnInit {
 
-  constructor(private el: ElementRef, private renderer:Renderer2) { }
-
-  public show:boolean = false;
-  public hide:boolean = true;
-  public buttonName:any = 'Show';
+  constructor(private el: ElementRef, private renderer:Renderer2, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   ngAfterViewInit(){
 
@@ -21,15 +24,9 @@ export class DummytableComponent implements OnInit {
     
     }
 
-    toggle() {
-      this.show = !this.show;
-      this.hide = !this.hide;
-  
-      // CHANGE THE NAME OF THE BUTTON.
-      if(this.show)  
-        this.buttonName = "Hide";
-      else
-        this.buttonName = "Show";
-    }
-
 }
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'table.html',
+})
+export class DialogContentExampleDialog {}

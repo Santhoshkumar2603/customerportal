@@ -19,7 +19,7 @@ export class CustinvoiceComponent implements OnInit {
   baseUrl : string='http://localhost:3000/custinvoice';
   Data: any;
  sales:any=[];
-
+spinner=false
  p :number=1;  
   SD_DOC:any;
   len:any;
@@ -44,6 +44,7 @@ export class CustinvoiceComponent implements OnInit {
             this.sales[k++] = this.message[i];
           }
         }
+        this.spinner=true
         this.len=this.sales.length;
             console.log(this.message);
 

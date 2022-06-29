@@ -23,6 +23,7 @@ export class CustsalesorderComponent implements OnInit {
  p :number=1;  
   SD_DOC:any;
 len:any;
+spinner=false;
   ngOnInit():any{
    this.message= this.customernumber.getmessage()
   // this.customernumber=(this.message[1]);
@@ -38,7 +39,7 @@ len:any;
           this.salesdet=(this.Data.E_SALESORDER.item);
           this.len=this.salesdet.length;
           console.log(this.salesdet);
-          
+          this.spinner=true;
           
        
         }

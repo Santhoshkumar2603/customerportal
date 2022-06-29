@@ -1,0 +1,185 @@
+<body>
+
+    <div class="wrapper collapsed">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <div class="top_menu">
+                <div class="logo">
+                    VENDOR FINANCIAL SHEET
+                </div>
+                <ul>
+                    <!-- <li><a href="#">
+                            <i class="fas fa-search"></i>
+                        </a></li> -->
+                    <li><a (click)="router.navigate(['/vendprofile']);">
+                            <i class="fas fa-user"></i>
+                        </a></li>
+                    <li><a href="signin.html">
+                            <i class="fas fa-sign-out-alt" id="btn-logout"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <ul>
+                <li><a (click)="router.navigate(['/venddashboard']);">
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a></li>
+                <li><a (click)="router.navigate(['/vendfinancesheet']);" class=active>
+                        <span class="icon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
+                        <span class="title">Finance Sheet</span>
+                    </a></li>
+                <li><a (click)="router.navigate(['/vendprofile']);">
+                        <span class="icon"><i class="fa fa-user"></i></span>
+                        <span class="title">Profile</span>
+                    </a></li>
+                    <li><a href="https://www.kaartech.com/contact-us/" target="_blank">
+                        <span class="icon"><i class="fa fa-address-book"></i></span>
+                        <span class="title">Contact Us</span>
+                    </a></li>
+
+            </ul>
+        </div>
+
+        <div class="main_container">
+            
+
+            <div class="m-4">
+                <div class="row row-cols-1 row-cols-md-3 g-5">
+                    <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/invoice.svg"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                    Invoice Details
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                  
+                                    The invoice contains information such as customer details, amount to be paid, payment terms, shipping address, and so on. A customer invoice can be created in SAP S/4HANA Finance directly in accounts receivable or in sales and distribution using the order-to-cash business process.
+                                </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/vendinvoice']);">Click Here</button>
+                                <!-- <a class="logsan" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">Click Here</a> -->
+                                <!--<a class="btn btn-danger text-center" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">-->
+                                <!--	Click Here-->
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/payment.svg"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                    Payments and Aging
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                  
+Aging involves categorizing a company's unpaid customer invoices and credit memos by date ranges. Schedules can be customized over various time frames, although typically these reports list invoices in 30-day groups, such as 30 days, 31–60 days, and 61–90 days past the due date.
+                                </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/vendpayment']);">Click Here</button>
+                                <!-- <a class="logsan" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">Click Here</a> -->
+                                <!--<a class="btn btn-danger text-center" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">-->
+                                <!--	Click Here-->
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/credit.svg"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                    Credit/ Debit Memo
+                                </div>
+                                <!--<p>-->
+                                <!--	Apps Developer-->
+                                <!--</p>-->
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                    Credit memo: 
+                                    A sales document created on the basis of a customer complaint. This reduces receivables in Financial Accounting.
+                                </div>
+                                <div class="text">
+                                Debit memo: A sales document created on the basis of a customer complaint. This increases receivables in Financial Accounting.
+                                </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/vendcredeb']);">Click Here</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/ehsm.svg"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                    Employee Portal
+                                </div>
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                    Employee Portal is a feature-rich solution that allows employees and field staff to see the SAP Business One data they need in a web-based browser. You have complete control and flexibility over the presentation, content, and functionality of what each employee views.
+                                </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/login']);">Click Here</button>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                    
+                </div>
+            </div>
+
+            <!-- <div class="item">
+                <div class="items">
+                    <img class="icons" src="images/autismicon.jpg" alt="selfreport"> <br>
+                    <p style="color: black;">AUTISM</p>
+                    <div class="goicon"> <a class="fa fa-chevron-circle-right fa-3x" id="go6"
+                            href="autism.html"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="items">
+                    <img class="icons" src="assets/images/bk.png" alt="selfreport"> <br>
+                    <p style="color: black;">DYSCALCULIA</p>
+
+                    <div class="goicon"> 
+                        <a class="fa fa-chevron-circle-right fa-3x" id="go3"
+                            href="dyscalculia.html"></a>
+                         </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+    
+  
+
+    <script>
+        $(document).ready(function () {
+            $(".hamburger").click(function () {
+                $(".wrapper").toggleClass("collapsed");
+            });
+        });
+    </script>
+
+</body>

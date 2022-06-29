@@ -26,6 +26,17 @@ import { CustinquiryComponent } from './custinquiry/custinquiry.component';
 import { CustinvoiceComponent } from './custinvoice/custinvoice.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { CustpaybillComponent } from './custpaybill/custpaybill.component';
+import { VendpurchaseComponent } from './vendpurchase/vendpurchase.component';
+import { VendloginComponent } from './vendlogin/vendlogin.component';
+import { VendgoodsComponent } from './vendgoods/vendgoods.component';
+import { VendpaymentComponent } from './vendpayment/vendpayment.component';
+import { VendcredebComponent } from './vendcredeb/vendcredeb.component';
+import { VendprofileComponent } from './vendprofile/vendprofile.component';
+import { VenddashboardComponent } from './venddashboard/venddashboard.component';
+import { VendfinancesheetComponent } from './vendfinancesheet/vendfinancesheet.component';
+import { VendrfqComponent } from './vendrfq/vendrfq.component';
+import { VendinvoiceComponent } from './vendinvoice/vendinvoice.component';
+import { VendinvdetComponent } from './vendinvdet/vendinvdet.component';
 
 
 
@@ -51,6 +62,17 @@ import { CustpaybillComponent } from './custpaybill/custpaybill.component';
     CustinvoiceComponent,
     InvoiceComponent,
     CustpaybillComponent,
+    VendpurchaseComponent,
+    VendloginComponent,
+    VendgoodsComponent,
+    VendpaymentComponent,
+    VendcredebComponent,
+    VendprofileComponent,
+    VenddashboardComponent,
+    VendfinancesheetComponent,
+    VendrfqComponent,
+    VendinvoiceComponent,
+    VendinvdetComponent,
 
   ],
   imports: [

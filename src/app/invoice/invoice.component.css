@@ -88,7 +88,7 @@
   }
 
   @media print{
-    button{
+    .pdfbtn{
       display: none;
     }
   }

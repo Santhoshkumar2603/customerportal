@@ -3,13 +3,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<div class="container invoice">
+<div class="pdfbtn">
+  <button class="btn btn-danger" (click)="pdf()">Save as PDF
+    <i class="fas fa-file"></i>
+  </button>
+  </div>
+
+<div class="container invoice" id="contentToConvert">
   <div class="invoice-header">
     <div class="ui left aligned grid">
       <div class="row">
         <div class="left floated left aligned six wide column">
           <div class="ui">
-            <h1 class = "ui header pageTitle">PAY SLIP <small class = "ui sub header">Date : {{livedate}}</small></h1>
+            <h1 class = "ui header pageTitle" style="color:#b31734">PAY SLIP <small class = "ui sub header">Date : {{livedate}}</small></h1>
             <!-- <h2 class="ui sub header">Date : {{livedate}}</h2> -->
           </div>
         </div>
@@ -108,7 +114,7 @@
 
     <div class="ui card customercard">
       <div class="content">
-        <div class="header">PAYMENT DETAILS</div>
+        <div class="header" >PAYMENT DETAILS</div>
       </div>
       <div class="content">
   
@@ -175,7 +181,7 @@
 
     <div class="ui card">
       <div class="content center aligned text segment">
-        <small class="ui sub header">Total Amount(In Rs) : </small>
+        <small class="header" >Total Amount(In Rs) : </small>
         <p class="bigfont"> Rs.{{generalledgeamount}}</p>
       </div>
     </div>
@@ -191,7 +197,7 @@
     </div>
     <div class="ui card">
       <div class="content">
-        <div class="header">Greeting !!!</div>
+        <div class="header" >Greeting !!!</div>
       </div>
       <div class="content">
        THANK FOR BEING A PART OF KAAR TECHNOLOGIES.
@@ -199,3 +205,4 @@
     </div> 
   </div>
 </div>
+<!-- <button (click)="captureScreen()">Click</button> -->

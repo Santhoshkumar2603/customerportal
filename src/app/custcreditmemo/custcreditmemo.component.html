@@ -50,14 +50,10 @@
         </a></li>
         </ul>
         </div>
-
-
-      
-
        
             <div class="main_container">
 
-                <button class="logsan" (click)="toggle()" id="bt">
+                <button class="logsan" (click)="toggle()" id="bt1">
                     {{buttonName}}
                   </button>
                   
@@ -120,16 +116,16 @@
                     </tbody>
                   </table>
 
+                  <div class="spinner-border text-danger" style="width:3rem;height:3rem;align-items: center;" role="status" [hidden]="spinner">
+
+                  </div>
 
                   <div class="page">
                     <pagination-controls (pageChange)="p = $event"></pagination-controls>
                 </div>
                 </div>
                   </ng-container>
-                  
-          
-        
-
+                
               <ng-container *ngIf="hide">
                
                     <!-- <h1>Debit Details</h1> -->
@@ -189,6 +185,9 @@
                       </tbody>
                     </table>
 
+                    <div class="spinner-border text-danger" style="width:3rem;height:3rem;align-items: center;" role="status" [hidden]="spinner">
+
+                    </div>
                     <div class="page">
                         <pagination-controls (pageChange)="p = $event"></pagination-controls>
                     </div>

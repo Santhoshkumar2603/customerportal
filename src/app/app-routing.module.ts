@@ -14,6 +14,17 @@ import { DummytableComponent } from './dummytable/dummytable.component';
 import { HomeComponent } from './home/home.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { LoginComponent } from './login/login.component';
+import { VendcredebComponent } from './vendcredeb/vendcredeb.component';
+import { VenddashboardComponent } from './venddashboard/venddashboard.component';
+import { VendfinancesheetComponent } from './vendfinancesheet/vendfinancesheet.component';
+import { VendgoodsComponent } from './vendgoods/vendgoods.component';
+import { VendinvdetComponent } from './vendinvdet/vendinvdet.component';
+import { VendinvoiceComponent } from './vendinvoice/vendinvoice.component';
+import { VendloginComponent } from './vendlogin/vendlogin.component';
+import { VendpaymentComponent } from './vendpayment/vendpayment.component';
+import { VendprofileComponent } from './vendprofile/vendprofile.component';
+import { VendpurchaseComponent } from './vendpurchase/vendpurchase.component';
+import { VendrfqComponent } from './vendrfq/vendrfq.component';
 
 
 
@@ -32,6 +43,17 @@ const routes: Routes = [
   {path:'custinvoice', component:CustinvoiceComponent},
   {path:'invoice', component:InvoiceComponent},
   {path:'custpaybill', component:CustpaybillComponent},
+  {path:'vendpurchase', component:VendpurchaseComponent},
+  {path:'vendlogin', component:VendloginComponent},
+  {path:'vendgoods', component:VendgoodsComponent},
+  {path:'vendpayment', component:VendpaymentComponent},
+  {path:'vendcredeb', component:VendcredebComponent},
+  {path:'vendprofile', component:VendprofileComponent},
+  {path:'venddashboard', component:VenddashboardComponent},
+  {path:'vendfinancesheet', component:VendfinancesheetComponent},
+  {path:'vendrfq', component:VendrfqComponent},
+  {path:'vendinvoice', component:VendinvoiceComponent},
+  {path:'vendinvdet', component:VendinvdetComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];

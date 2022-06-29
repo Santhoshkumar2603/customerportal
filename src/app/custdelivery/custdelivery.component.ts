@@ -18,7 +18,7 @@ export class CustdeliveryComponent implements OnInit {
   custnumber:any
   baseUrl : string='http://localhost:3000/delivery';
   Data: any;
-
+  spinner=false;
 
   p :number=1;  
    SD_DOC:any;
@@ -44,6 +44,8 @@ export class CustdeliveryComponent implements OnInit {
             }
             this.total=this.array.length;
             console.log(this.array.VBELN);
+
+            this.spinner=true;
          
           }
         )

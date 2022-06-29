@@ -1,0 +1,193 @@
+<body>    
+    <div class="wrapper collapsed">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <div class="top_menu">
+                <div class="logo">
+                    REQUEST FOR QUOTATION
+                </div>
+                <ul>
+                    <!-- <li><a href="#">
+                            <i class="fas fa-search"></i>
+                        </a></li> -->
+                        <li><a (click)="router.navigate(['/vendprofile']);">
+                            <i class="fas fa-user"></i>
+                        </a></li>
+                        <li><a href="signin.html">
+                            <i class="fas fa-sign-out-alt" id="btn-logout"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <ul>
+                <li><a (click)="router.navigate(['/venddashboard']);" class=active>
+                    <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                    <span class="title">Dashboard</span>
+                </a></li>
+            <li>
+                <!-- <button class="dashsan" (click)="router.navigate(['/custfinancesheet']);"> -->
+                <a (click)="router.navigate(['/vendfinancesheet']);">
+                    <span class="icon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
+                    <span class="title">Financial Sheet</span>
+                </a>
+                <!-- </button> -->
+            </li>
+            <li>
+                <a (click)="router.navigate(['/vendprofile']);">
+                    <span class="icon"><i class="fa fa-user"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li><a href="https://www.kaartech.com/contact-us/" target="_blank">
+                <span class="icon"><i class="fa fa-address-book"></i></span>
+                <span class="title">Contact Us</span>
+            </a></li>
+            </ul>
+        </div>
+
+        <div class="main_container">
+
+            <ng-container *ngIf="show">
+                <button class="logsan" (click)="toggle()" id="bt1">
+                  {{buttonName}}
+                </button>
+              </ng-container>
+
+            <ng-container *ngIf="hide">
+              <div class="table-wrapper">
+                <div class="table-title">
+                  <div class="row">
+                    <div class="colsan">
+                      <h2><b>Total Entries - {{len}}</b></h2>
+                      <form method="post">
+                        <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
+                        <input title="Search" value="" type="submit" class="button">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" (click)="sort('EBELN')">Customer &nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BELNR')">Purchase Order &nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('EBELP')">Document Typen&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('VGABE')">Document Date &nbsp;<i class="fa fa-sort"></i></th>
+                        
+                        <th scope="col" (click)="sort('CPUDT')">Purchase Organization &nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('CPUDT')">Purchase Group&nbsp;<i class="fa fa-sort"></i></th>
+                     
+                        
+                        <th scope="col" (click)="sort('BWART')">Company Code&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BEWTP')">Quotation Start Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BEWTP')">Quotation End Date&nbsp;<i class="fa fa-sort"></i></th>
+                       
+                       </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of headerarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" (click)="onInvoiceClick(item)" class="">
+                       
+                       
+                        <td>{{item.CUSTOMER | number}}</td>
+                        <td>{{item.PO_NUMBER}}</td>
+                        <td>{{item.DOC_TYPE}}</td>
+                        <td>{{item.DOC_DATE}}</td>
+                        
+                        <td>{{item.PURCH_ORG}}</td>
+                        <td>{{item.PUR_GROUP}}</td>
+                        <td>{{item.CO_CODE}}</td>  
+                        <td>{{item.QUOT_DATE}}</td>
+                        <td>{{item.QUOT_DEAD}}</td>
+                       
+                      </tr>
+                </tbody>
+
+               
+              </table>
+              
+              <div class="spinner-border text-danger" style="width:3rem;height:3rem;align-items: center;" role="status" [hidden]="spinner">
+
+            </div>
+
+              <div class="page">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="show">
+                
+                <div class="table-wrapper">
+                    <div class="table-title">
+                      <div class="row">
+                        <div class="colsan">
+                          <h2><b>Total Entries - {{len}}</b></h2>
+                          <form method="post">
+                            <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
+                            <input title="Search" value="" type="submit" class="button">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" (click)="sort('EBELN')">Purchase Doc Number&nbsp;<i class="fa fa-sort"></i></th>
+                         
+                            <th scope="col" (click)="sort('EBELP')">Target Quantity&nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" (click)="sort('VGABE')">Material&nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" (click)="sort('BELNR')">Material Type&nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" (click)="sort('CPUDT')">Material Group&nbsp;<i class="fa fa-sort"></i></th>
+                         
+                            <th scope="col" (click)="sort('CPUTM')">Net Price &nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" (click)="sort('BWART')">Quantity &nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" (click)="sort('BEWTP')">Serial Number &nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" (click)="sort('BEWTP')">Description &nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" (click)="sort('BEWTP')">Storage Location &nbsp;<i class="fa fa-sort"></i></th>
+                           
+                           </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of listarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                           
+                           
+                            <td>{{item.PO_NUMBER}}</td>
+                            <td>{{item.TARGET_QTY}}</td>
+                            <td>{{item.MATERIAL | number}}</td>
+                            <td>{{item.MAT_TYPE}}</td>
+                            <td>{{item.MAT_GRP}}</td>
+                            <td>{{item.NET_PRICE}}</td>
+                            <td>{{item.QUANTITY}}</td>  
+                            <td>{{item.SER_NO}}</td>
+                            <td>{{item.SHORT_TEXT}}</td>
+                            <td>{{item.STORE_LOC}}</td>
+                           
+                          </tr>
+                    </tbody>
+    
+                   
+                  </table>
+                  
+                  <div class="spinner-border text-danger" style="width:3rem;height:3rem;align-items: center;" role="status" [hidden]="spinner">
+    
+                </div>
+    
+                  <div class="page">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+                  </div>
+            </ng-container>
+             
+
+        </div>
+    </div>
+
+</body>
+

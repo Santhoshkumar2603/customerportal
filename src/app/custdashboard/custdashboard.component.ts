@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 declare var $: any;
+
 @Component({
   selector: 'app-custdashboard',
   templateUrl: './custdashboard.component.html',
@@ -21,6 +22,10 @@ export class CustdashboardComponent implements OnInit {
       });
   });
     
+    }
+    logout(){
+      localStorage.clear();
+      this.router.navigateByUrl('/home');
     }
     // salesorder(){
 

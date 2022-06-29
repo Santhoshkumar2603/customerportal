@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   faTwitter = faTwitter;
   faYoutube = faYoutube;
 
+  
+
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private customernumber:CustomerIdService) { }
   
   login = this.fb.group({
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
   baseUrl : string='http://localhost:3000/login';
   
   Data: any;
+  f=true
   
   submit(){
     this.getLoginRes(parseInt(this.login.value.username), parseInt(this.login.value.password));
@@ -45,18 +48,30 @@ export class LoginComponent implements OnInit {
         console.log(this.Data);
         if(this.Data.E_BAPIRET["TYPE"] === 'S'){
           // localStorage.setItem(''+user,''+password);
-          console.log(user);
+          console.log(user.toString()+"vaaaaa");
+          // user1:string=user.toString();
+          localStorage.setItem('userid',user.toString());
            this.customernumber.setmessage(user);
            sessionStorage.setItem('custname',this.Data.E_NAME)
           this.router.navigateByUrl('/custdashboard');
         }
         else{
           console.log("Invalid");
+          this.f=false;
+          setTimeout(() => {
+            console.log('Test');
+            this.f=true
+            // this.timeout();
+        }, 3000);
+          
+          
           
         }
       }
     )
   }
+ 
+ 
 
 }
 

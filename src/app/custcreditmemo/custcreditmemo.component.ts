@@ -24,6 +24,8 @@ p :number=1;
   SD_DOC1:any;
   lenc:any;
   lend:any;
+
+  spinner=false
   constructor(private el: ElementRef, private renderer:Renderer2, private http:HttpClient,public router:Router, private customernumber:CustomerIdService) { }
 
   ngOnInit(): any {
@@ -48,6 +50,8 @@ p :number=1;
             this.lend=this.debit_array.length;
             console.log(this.credit.BELNR);
             console.log(this.debit.BELNR);
+
+            this.spinner=true;
             
             
           }
