@@ -21,13 +21,15 @@ country:any
 pcode:any
 phno:any
 Data:any
+prac:any
+dsgn:any
 k:number=0;
 
 baseUrl : string='http://localhost:3000/eprofile';
   ngOnInit(): any {
    
-    this.name=localStorage.getItem('vendname')
-    this.vendorid=localStorage.getItem('vendorid')
+    // this.name=localStorage.getItem('vendname')
+    this.vendorid=localStorage.getItem('empid')
     console.log(this.vendorid);
     
   return this.http.post(this.baseUrl,{
@@ -38,12 +40,15 @@ baseUrl : string='http://localhost:3000/eprofile';
           this.Data = JSON.parse(JSON.stringify(response));
         //   this.custid=this.Data.IT_OUTPUT.KUNNR;
          
-          this.addr=this. Data.VEND_PROFILE.ADDRESS
-        // this.name=this.Data.IT_OUTPUT.NAME1
-           this.city=this. Data.VEND_PROFILE.CITY
-            this. pcode=this.Data.VEND_PROFILE.PINCODE
-            this.country=this. Data.VEND_PROFILE.COUNTRY
-           this.phno=this. Data.VEND_PROFILE.TELEPHONE
+          this.addr=this. Data.EMP_DATA["STRAS"]
+          console.log(this.addr)
+         this.name=this.Data.EMP_DATA.ENAME
+           this.city=this. Data.EMP_DATA.ORT01
+            this. pcode=this.Data.EMP_DATA.PSTLZ
+            this.country=this. Data.EMP_DATA.COUNTRY
+           this.phno=this. Data.EMP_DATA.TELNR
+           this.dsgn=this.Data.EMP_DATA.PLANS_TXT
+           this.prac=this.Data.EMP_DATA.ORGEH_TXT
         }
       )
    

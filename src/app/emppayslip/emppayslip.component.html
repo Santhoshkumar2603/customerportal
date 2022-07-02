@@ -1,1 +1,105 @@
-<p>emppayslip works!</p>
+<body>    
+    <div class="wrapper collapsed">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <div class="top_menu">
+                <div class="logo">
+                    PAY SLIP 
+                </div>
+                <ul>
+                    <!-- <li><a href="#">
+                            <i class="fas fa-search"></i>
+                        </a></li> -->
+                    <li><a (click)="router.navigate(['/empprofile']);">
+                            <i class="fas fa-user"></i>
+                        </a></li>
+                        <li><a href="signin.html">
+                            <i class="fas fa-sign-out-alt" id="btn-logout"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <ul>
+                <li><a (click)="router.navigate(['/empdashboard']);">
+                    <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                    <span class="title">Dashboard</span>
+                </a></li>
+           
+            <li>
+                <a (click)="router.navigate(['/empprofile']);">
+                    <span class="icon"><i class="fa fa-user"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li><a href="https://www.kaartech.com/contact-us/" target="_blank">
+                <span class="icon"><i class="fa fa-address-book"></i></span>
+                <span class="title">Contact Us</span>
+            </a></li>
+            </ul>
+        </div>
+
+        <div class="main_container">
+
+            <div class="table-wrapper">
+                <div class="table-title">
+                  <div class="row">
+                    <div class="colsan">
+                      <h2><b>Total Entries - {{len}}</b></h2>
+                      <form method="post">
+                        <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
+                        <input title="Search" value="" type="submit" class="button">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+      
+                        <th scope="col">Sequence Number</th>
+                        <th scope="col" (click)="sort('SD_DOC')">Payment Type&nbsp;<i class="fa fa-sort"></i> </th>
+                        <th scope="col">Posting Period</th>
+                        <th scope="col">Payslip Date</th>
+                        <th scope="col">Bonus Date</th>
+                        <th scope="col">Valid From</th>
+                        <th scope="col">Valid Till</th>
+                        <th scope="col">Download Payslip</th>
+
+                
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of message | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+
+                        <td>{{item.SEQUENCENUMBER}}</td>
+                        <td>{{item.PAYTYPE_TEXT}}</td>
+                        <td>{{item.FPPERIOD}}</td>
+                        <td>{{item.PAYDATE}}</td>
+                        <td>{{item.BONUSDATE}}</td>
+                        <td>{{item.FPBEGIN}}</td>
+                        <td>{{item.FPEND}}</td>
+                        <td><button class="btn btn-danger" (click)="onInvoiceClick(item)">Click Here</button></td>
+                      </tr>
+                </tbody>
+              </table>
+
+              <div class="spinner-border text-danger" style="width:3rem;height:3rem;align-items: center;" role="status" [hidden]="spinner">
+
+            </div>
+              <div class="page">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+              </div>
+
+        </div>
+    </div>
+
+</body>
+

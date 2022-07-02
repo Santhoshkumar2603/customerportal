@@ -73,41 +73,31 @@
                 <table class="table table-hover">
                     <thead>
                       <tr>
-
-                        <th scope="col" (click)="sort('MATNR')">Material&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('MATNR')">Leave Entitlement&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('MATNR')">Total Leave Balance&nbsp;<i class="fa fa-sort"></i></th>
                        
-                        <th scope="col" (click)="sort('WERKS')">Plant&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('MENGE')">Quantity&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('MEINS')">Unit Of Measure&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BUKRS')">Company Code&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BELNR')">Account Number&nbsp;<i class="fa fa-sort"></i></th>        
-                        <th scope="col" (click)="sort('GJAHR')">Fiscal Year&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BUZEI')">Line Items&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('DMBTR')">Amount&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('KOART')">Account Type&nbsp;<i class="fa fa-sort"></i></th>
-                       <!-- <th scope="col" (click)="sort('KUNNR')">Customer&nbsp;<i class="fa fa-sort"></i></th> -->
-                       <th scope="col" (click)="sort('XBILK')">Indicator&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('WERKS')">Leave Type&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('MENGE')">Name of Leave Type&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('MEINS')">Time Unit&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BUKRS')">Type of Time Unit&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BELNR')">Valid From&nbsp;<i class="fa fa-sort"></i></th>        
+                        <th scope="col" (click)="sort('GJAHR')">Valid til&nbsp;<i class="fa fa-sort"></i></th>
+
                        
                       </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of credit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                        <tr *ngFor="let item of credit | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
      
-                            <!-- <td>{{item.AUGDT}}</td>
-                        <td>{{item.BDIFF}}</td> -->
-                        <td>{{item.MATNR}}</td>
-                        <td>{{item.WERKS}}</td> 
-                        <td>{{item.MENGE}}</td>
-                        <td>{{item.MEINS}}</td>
-                        <td>{{item.BUKRS}}</td>
-                        <td>{{item.BELNR}}</td>
-                        <td>{{item.GJAHR}}</td>
-                        <td>{{item.BUZEI}}</td>
-                        <td>{{item.DMBTR}}</td>
-                        <td>{{item.KOART}}</td>
-                        <!-- <td>{{item.KUNNR}}</td> -->
-                         <td>{{item.XBILK}}</td>
-                        <!-- <td>{{item.STORE_LOC}}</td> -->
+                        <td>{{item.ENTITLE}}</td>
+                        <td>{{item.QUOTANUM}}</td> 
+                        <td>{{item.QUOTATYPE}}</td>
+                        <td>{{item.QUOTATEXT}}</td>
+                        <td>{{item.TIME_UNIT}}</td>
+                        <td>{{item.TIUNITEXT}}</td>
+                        <td>{{item.QUOTABEG}}</td>
+                        <td>{{item.QUOTAEND}}</td>
+                        
                            
                           </tr>
                     </tbody>
@@ -145,40 +135,32 @@
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th scope="col" (click)="sort('MATNR')">Material&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('MATNR')">Employee Id&nbsp;<i class="fa fa-sort"></i></th>
                          
-                          <th scope="col" (click)="sort('WERKS')">Plant&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('MENGE')">Quantity&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('MEINS')">Unit Of Measure&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('BUKRS')">Company Code&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('BELNR')">Account Number&nbsp;<i class="fa fa-sort"></i></th>        
-                          <th scope="col" (click)="sort('GJAHR')">Fiscal Year&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('BUZEI')">Line Items&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('DMBTR')">Amount&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('KOART')">Account Type&nbsp;<i class="fa fa-sort"></i></th>
-                         <!-- <th scope="col" (click)="sort('KUNNR')">Customer&nbsp;<i class="fa fa-sort"></i></th> -->
-                         <th scope="col" (click)="sort('XBILK')">Indicator&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('WERKS')">Total Absence Days&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('MENGE')">Total Absence Hours&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('MEINS')">Absence Type&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('BUKRS')">Name of Absence Type&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('BELNR')">Sub Type&nbsp;<i class="fa fa-sort"></i></th>        
+                          <th scope="col" (click)="sort('GJAHR')">Valid From&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('BUZEI')">Valid Till&nbsp;<i class="fa fa-sort"></i></th>
+                         
                          
                         </tr>
                       </thead>
                       <tbody>
-                          <tr *ngFor="let item of debit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};"  class="table-hover">
+                          <tr *ngFor="let item of debit | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};"  class="table-hover">
        
-                               <!-- <td>{{item.AUGDT}}</td>
-                        <td>{{item.BDIFF}}</td> -->
-                        <td>{{item.MATNR}}</td>
-                        <td>{{item.WERKS}}</td> 
-                        <td>{{item.MENGE}}</td>
-                        <td>{{item.MEINS}}</td>
-                        <td>{{item.BUKRS}}</td>
-                        <td>{{item.BELNR}}</td>
-                        <td>{{item.GJAHR}}</td>
-                        <td>{{item.BUZEI}}</td>
-                        <td>{{item.DMBTR}}</td>
-                        <td>{{item.KOART}}</td>
-                        <!-- <td>{{item.KUNNR}}</td> -->
-                         <td>{{item.XBILK}}</td>
-                        <!-- <td>{{item.STORE_LOC}}</td> -->
+                        
+                        <td>{{item.EMPLOYEENO}}</td>
+                        <td>{{item.ABSENCEDAYS}}</td> 
+                        <td>{{item.ABSENCEHOURS}}</td>
+                        <td>{{item.ABSENCETYPE}}</td>
+                        <td>{{item.NAMEOFABSENCETYPE}}</td>
+                        <td>{{item.SUBTYPE}}</td>
+                        <td>{{item.VALIDBEGIN}}</td>
+                        <td>{{item.VALIDEND}}</td>
+                        
                              
                             </tr>
                       </tbody>

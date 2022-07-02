@@ -494,7 +494,7 @@ app.get('/login',(req,res)=>{
 //EPROFILE
 
 app.post('/eprofile',(req,res)=>{
-    var customerno = req.body.customerno;
+    var customerno = req.body.empid;
     // var password = req.body.password;
     var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/epprofile396')
     .header({

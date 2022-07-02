@@ -15,7 +15,7 @@ export class EmpleaveComponent implements OnInit {
   array:any=[]
   message:any;
   custnumber:any
-  baseUrl : string='http://localhost:3000/vendormemo';
+  baseUrl : string='http://localhost:3000/eleave';
   Data: any;
   p :number=1;  
   SD_DOC:any;
@@ -36,7 +36,7 @@ export class EmpleaveComponent implements OnInit {
   {}
 
   ngOnInit(): any {
-    this.vendorid=localStorage.getItem("vendorid")
+    this.vendorid=localStorage.getItem('empid')
     return this.http.post(this.baseUrl,{
      
       vendorid:this.vendorid
@@ -44,19 +44,12 @@ export class EmpleaveComponent implements OnInit {
           response =>{
             console.log(response)
             this.Data = JSON.parse(JSON.stringify(response));
-            this.credit=(this.Data.T_CRE.item);
-            this.debit=(this.Data.T_DEB.item);
+            this.credit=(this.Data.IT_LEAVE_BALANCE.item);
+            this.debit=(this.Data.IT_LEAVE_DETAIL.item);
 
-            for(let i=1;i<this.credit.length;i++){
-              this.credit_array[i-1]=this.credit[i]
-            }
-            for(let i=1;i<this.debit.length;i++){
-              this.debit_array[i-1]=this.debit[i]
-            }
-            console.log(this.credit_array);
-            console.log(this.debit_array);
-            this.lenc=this.credit_array.length;
-            this.lend=this.debit_array.length;
+           
+            this.lenc=this.credit.length;
+            this.lend=this.debit.length;
 
             this.spinner=true;
           }
@@ -75,20 +68,20 @@ export class EmpleaveComponent implements OnInit {
 
     public show:boolean = false;
   public hide:boolean = true;
-  public buttonName:any = 'Click to Credit Memo';
-  public title1:any= 'DEBIT MEMO';
+  public buttonName:any = 'Click to Leave Balance';
+  public title1:any= 'LEAVE DETAILS';
     toggle() {
       this.show = !this.show;
       this.hide = !this.hide;
   
       // CHANGE THE NAME OF THE BUTTON.
       if(this.show)  {
-        this.buttonName = "Click to Debit";
-        this.title1 = "CREDIT MEMO";
+        this.buttonName = "Click to Leave Details";
+        this.title1 = "LEAVE BALANCE";
       }
       else{  
-        this.buttonName = "Click to Credit";
-        this.title1 = "DEBIT MEMO"
+        this.buttonName = "Click to Leave Balance";
+        this.title1 = "LEAVE DETAILS"
     }
   }
 

@@ -36,10 +36,10 @@ export class EmploginComponent implements OnInit {
         console.log(response)
         this.Data = JSON.parse(JSON.stringify(response));
         console.log(this.Data);
-        if(this.Data.BAPIRET.TYPE === 'S'){
+        if(this.Data.RESULT === '0X02'){
   
-          localStorage.setItem('vendorid',user.toString());
-          localStorage.setItem('vendname',this.Data.NAME);
+          localStorage.setItem('empid',user.toString());
+          // localStorage.setItem('empid',this.Data.RESULT);
           this.router.navigateByUrl('/empdashboard');
         }
         else{

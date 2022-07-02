@@ -91,10 +91,10 @@ export class VendinvdetComponent implements OnInit {
 
   }
 
-  public show: boolean = false;
-  public hide: boolean = true;
-  public buttonName: any = 'Click to Credit Memo';
-  public title1: any = 'DEBIT MEMO';
+  // public show: boolean = false;
+  // public hide: boolean = true;
+  // public buttonName: any = 'Click to Credit Memo';
+  // public title1: any = 'DEBIT MEMO';
 
 
   // onInvoiceClick(data: any) {
