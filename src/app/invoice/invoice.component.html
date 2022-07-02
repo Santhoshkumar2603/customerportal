@@ -83,6 +83,8 @@
               <th class="text-center colfix">Local Currency Amount</th>
               <th class="text-center colfix">Document Currency Amount</th>
               <th class="text-center colfix">General Ledger Amount</th>
+              <th class="text-center colfix">Amount Paid</th>
+              <th class="text-center colfix">Balance Amount</th>
             </tr>
           </thead>
           <tbody>
@@ -90,14 +92,24 @@
             
               
               <td class="text-right">
-                <span class="mono">{{loccuramount}}</span>
+                <span class="mono">{{loccuramount}} INR</span>
                 <br>
                 <!-- <small class="text-muted">Before Tax</small> -->
               </td>
               <td class="text-right">
-                <span class="mono">{{doccuramount}}</span>
+                <span class="mono">{{doccuramount}} {{currencytype}}</span>
                 <br>
                 <!-- <small class="text-muted">18 Units</small> -->
+              </td>
+              <td class="text-right">
+                <span class="mono">{{generalledgeamount}}</span>
+                <br>
+                <!-- <small class="text-muted">Special -10%</small> -->
+              </td>
+              <td class="text-right">
+                <span class="mono">{{generalledgeamount}}</span>
+                <br>
+                <!-- <small class="text-muted">Special -10%</small> -->
               </td>
               <td class="text-right">
                 <span class="mono">{{generalledgeamount}}</span>
@@ -123,12 +135,12 @@
       </div>
     </div>
 
-    <!-- <div class="ui card">
+    <div class="ui card">
       <div class="content center aligned text segment">
-        <small class="ui sub header"> Amount Due (AUD): </small>
-        <p class="bigfont"> $5000.25 </p>
+        <small class="ui sub header"> Total Amount (in {{currencytype}}): </small>
+        <p class="bigfont">{{total}} {{currencytype}}</p>
       </div>
-    </div> -->
+    </div>
         <!-- <div class="ui card">
       <div class="content">
         <div class="header">Payment Details</div>

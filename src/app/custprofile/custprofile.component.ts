@@ -67,5 +67,9 @@ export class CustprofileComponent implements OnInit {
   });
     
     }
+    logout(){
+      localStorage.clear();
+      this.router.navigateByUrl('/home');
+    }
 
 }

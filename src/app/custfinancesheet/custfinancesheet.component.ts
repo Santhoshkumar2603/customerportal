@@ -31,5 +31,9 @@ export class CustfinancesheetComponent implements OnInit {
   });
     
     }
+    logout(){
+      localStorage.clear();
+      this.router.navigateByUrl('/home');
+    }
 
 }

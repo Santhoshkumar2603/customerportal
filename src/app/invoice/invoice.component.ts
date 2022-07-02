@@ -38,6 +38,7 @@ export class InvoiceComponent implements OnInit {
   generalledgeamount: any;
   invDet:any;
   custid:any;
+  total:number=0;
   livedate:any;
   constructor(private el: ElementRef, private renderer:Renderer2, private customernumber : CustomerIdService,public router:Router, private http:HttpClient, private table:TablevalueService) { }
 
@@ -60,6 +61,7 @@ export class InvoiceComponent implements OnInit {
   this.loccuramount=this.invDet.DMBTR;
   this.doccuramount=this.invDet.WRBTR;
   this.generalledgeamount=this.invDet.PSWBT;
+  this.total=parseInt(this.loccuramount)+parseInt(this.doccuramount);
 
   let curr_date = new Date();
   this.livedate=curr_date.toLocaleDateString();

@@ -17,7 +17,7 @@
                     <li><a (click)="router.navigate(['/custprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
-                        <li><a href="signin.html">
+                        <li><a (click)="logout()">
                             <i class="fas fa-sign-out-alt" id="btn-logout"></i>
                         </a></li>
                 </ul>
@@ -71,8 +71,8 @@
                 <thead>
                     <tr>
                         <th scope="col">Sales Order Item</th>
-                        <th scope="col">Record Created On</th>
-                        <th scope="col">Time</th>
+                        <th scope="col" (click)="sort('ERDAT')">Record Created On&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('ERZET')">Time&nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col">IncoTerms</th>
                         <th scope="col">Delivery Type</th>
                         <th scope="col">Delivery Date</th>
@@ -83,7 +83,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                    <tr *ngFor="let item of array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
 
                         <td>{{item.ARKTX}}</td>
                         <td>{{item.ERDAT}}</td>
@@ -92,7 +92,7 @@
                         <td>{{item.LFART}}</td>
                         <td>{{item.LFDAT_V}}</td>
                         <td>{{item.LFUHR}}</td>
-                        <td>{{item.VBELN}}</td>
+                        <td>{{item.VBELN | number}}</td>
                         <td>{{item.VKORG}}</td>
                     
                       </tr>

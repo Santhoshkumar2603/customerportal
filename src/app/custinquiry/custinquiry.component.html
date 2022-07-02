@@ -17,7 +17,7 @@
                         <li><a (click)="router.navigate(['/custprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
-                        <li><a href="signin.html">
+                        <li><a (click)="logout()">
                             <i class="fas fa-sign-out-alt" id="btn-logout"></i>
                         </a></li>
                 </ul>
@@ -71,22 +71,22 @@
                 <thead>
                     <tr>
                         <th scope="col" (click)="sort('SD_DOC')">Sales Document&nbsp;<i class="fa fa-sort"></i> </th>
-                        <th scope="col">Record Created On</th>
+                        <th scope="col" (click)="sort('ERDAT')">Record Created On&nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col">Created By</th>
-                        <th scope="col">Inquiry Valid-from Date</th>
-                        <th scope="col">Inquiry Valid-to Date</th>
-                        <th scope="col">Document Date</th>
-                        <th scope="col">Agreement valid-from Date</th>
-                        <th scope="col">Agreement valid-to Date</th>
-                        <th scope="col">Requested Delivery Date</th>
+                        <th scope="col" (click)="sort('ANGDT')">Inquiry Valid-from Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BNDDT')">Inquiry Valid-to Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('AUDAT')">Document Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('GUEBG')">Agreement valid-from Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('GUEEN')">Agreement valid-to Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('VDATU')">Requested Delivery Date&nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col">Inquiry Status</th>
                        
                       </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of message | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                    <tr *ngFor="let item of message | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
 
-                        <td>{{item.VBELN}}</td>
+                        <td>{{item.VBELN | number}}</td>
                         <td>{{item.ERDAT}}</td>
                         <td>{{item.ERNAM}}</td>
                         <td>{{item.ANGDT}}</td>

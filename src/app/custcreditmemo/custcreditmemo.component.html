@@ -17,7 +17,7 @@
                     <li><a (click)="router.navigate(['/custprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
-                        <li><a href="signin.html">
+                        <li><a (click)="logout()">
                             <i class="fas fa-sign-out-alt" id="btn-logout"></i>
                         </a></li>
                 </ul>
@@ -81,31 +81,31 @@
                             <th scope="col" (click)="sort('BELNR')">Account Number&nbsp;<i class="fa fa-sort"></i> </th>
                             <th scope="col">Company Code</th>
                             <th scope="col">Line Items</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Fiscal Year</th>
+                            <th scope="col" (click)="sort('DMBTR')">Amount&nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" (click)="sort('GJAHR')">Fiscal Year&nbsp;<i class="fa fa-sort"></i></th>
                             <th scope="col">Account Type</th>
                             <th scope="col">Customer</th>
                             <th scope="col">Material</th>
                             <th scope="col">Unit Of Measure</th>
-                            <th scope="col">Quantity</th>
+                            <th scope="col" (click)="sort('MENGE')">Quantity&nbsp;<i class="fa fa-sort"></i></th>
                             <th scope="col">Plant</th>
                             <th scope="col">Indicator</th>
                            
                           </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of credit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                        <tr *ngFor="let item of credit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
      
                             <!-- <td>{{item.AUGDT}}</td>
                             <td>{{item.BDIFF}}</td> -->
-                            <td>{{item.BELNR}}</td>
+                            <td>{{item.BELNR | number}}</td>
                             <td>{{item.BUKRS}}</td>
                             <td>{{item.BUZEI}}</td>
                             <td>{{item.DMBTR}}</td>
                             <td>{{item.GJAHR}}</td>
                             <td>{{item.KOART}}</td>
-                            <td>{{item.KUNNR}}</td>
-                            <td>{{item.MATNR}}</td>
+                            <td>{{item.KUNNR | number}}</td>
+                            <td>{{item.MATNR | number}}</td>
                             <td>{{item.MEINS}}</td>
                             <td>{{item.MENGE}}</td>
                             <td>{{item.WERKS}}</td> 
@@ -148,33 +148,33 @@
                               <!-- <th scope="col">Clearing Date</th>
                               <th scope="col">Valuation Difference</th> -->
                               <th scope="col" (click)="sort('BELNR')">Account Number&nbsp;<i class="fa fa-sort"></i> </th>
-                              <th scope="col">Company Code</th>
-                              <th scope="col">Line Items</th>
-                              <th scope="col">Amount</th>
-                              <th scope="col">Fiscal Year</th>
-                              <th scope="col">Account Type</th>
-                              <th scope="col">Customer</th>
-                              <th scope="col">Material</th>
-                              <th scope="col">Unit Of Measure</th>
-                              <th scope="col">Quantity</th>
-                              <th scope="col">Plant</th>
-                              <th scope="col">Indicator</th>
+                            <th scope="col">Company Code</th>
+                            <th scope="col">Line Items</th>
+                            <th scope="col" (click)="sort('DMBTR')">Amount&nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" (click)="sort('GJAHR')">Fiscal Year&nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col">Account Type</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Material</th>
+                            <th scope="col">Unit Of Measure</th>
+                            <th scope="col" (click)="sort('MENGE')">Quantity&nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col">Plant</th>
+                            <th scope="col">Indicator</th>
                              
                             </tr>
                       </thead>
                       <tbody>
-                          <tr *ngFor="let item of debit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};"  class="table-hover">
+                          <tr *ngFor="let item of debit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC"  class="table-hover">
        
                               <!-- <td>{{item.AUGDT}}</td>
                               <td>{{item.BDIFF}}</td> -->
-                              <td>{{item.BELNR}}</td>
+                              <td>{{item.BELNR | number}}</td>
                               <td>{{item.BUKRS}}</td>
                               <td>{{item.BUZEI}}</td>
                               <td>{{item.DMBTR}}</td>
                               <td>{{item.GJAHR}}</td>
                               <td>{{item.KOART}}</td>
-                              <td>{{item.KUNNR}}</td>
-                              <td>{{item.MATNR}}</td>
+                              <td>{{item.KUNNR | number}}</td>
+                              <td>{{item.MATNR | number}}</td>
                               <td>{{item.MEINS}}</td>
                               <td>{{item.MENGE}}</td>
                               <td>{{item.WERKS}}</td> 

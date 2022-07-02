@@ -73,15 +73,7 @@ spinner=false
     }
 
     search(){
-      if(this.SD_DOC == "")
-      {
-        this.ngOnInit();
-      }
-      else{
-        this.sales = this.sales.filter((res: { SD_DOC: string; }) =>{
-          return res.SD_DOC.toLocaleLowerCase().match(this.SD_DOC.toLocaleLowerCase());
-        })
-      }
+     
     }
 
   key : string='SD_DOC';
@@ -90,6 +82,10 @@ spinner=false
   {
     this.key=key;
     this.reverse = !this.reverse;
+  }
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
   }
     
 }

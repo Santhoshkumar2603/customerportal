@@ -60,15 +60,15 @@ export class CustdeliveryComponent implements OnInit {
     }
 
     search(){
-      if(this.SD_DOC == "")
-      {
-        this.ngOnInit();
-      }
-      else{
-        this.array = this.array.filter((res: { VBELN: string; }) =>{
-          return res.VBELN.toLocaleLowerCase().match(this.SD_DOC.toLocaleLowerCase());
-        })
-      }
+      // if(this.SD_DOC == "")
+      // {
+      //   this.ngOnInit();
+      // }
+      // else{
+      //   this.array = this.array.filter((res: { VBELN: string; }) =>{
+      //     return res.VBELN.toLocaleLowerCase().match(this.SD_DOC.toLocaleLowerCase());
+      //   })
+      // }
     }
 
   key : string='SD_DOC';
@@ -78,8 +78,10 @@ export class CustdeliveryComponent implements OnInit {
     this.key=key;
     this.reverse = !this.reverse;
   }
-
-
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
+  }
   }
   
 

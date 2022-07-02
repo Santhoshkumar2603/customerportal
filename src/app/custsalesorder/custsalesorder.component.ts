@@ -69,11 +69,15 @@ spinner=false;
       }
     }
 
-  key : string='SD_DOC';
+  key : any='SD_DOC';
   reverse:boolean = false;
-  sort(key: string)
+  sort(key: any)
   {
     this.key=key;
     this.reverse = !this.reverse;
+  }
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
   }
 }

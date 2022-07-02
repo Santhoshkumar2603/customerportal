@@ -121,4 +121,9 @@ p :number=1;
     this.reverse = !this.reverse;
   }
 
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
+  }
+
 }

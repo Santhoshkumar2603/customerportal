@@ -17,7 +17,7 @@
                     <li><a (click)="router.navigate(['/custprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
-                        <li><a href="signin.html">
+                        <li><a (click)="logout()">
                             <i class="fas fa-sign-out-alt" id="btn-logout"></i>
                         </a></li>
                 </ul>
@@ -57,7 +57,7 @@
                 <div class="table-title">
                   <div class="row">
                     <div class="colsan">
-                      <!-- <h2><b>Total Entries - {{len}}</b></h2> -->
+                      <h2><b>Total Entries - {{len}}</b></h2>
                       <form method="post">
                         <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
                         <input title="Search" value="" type="submit" class="button">
@@ -71,11 +71,11 @@
                 <thead>
                     <tr>
                         <th scope="col">Customer Id</th>
-                        <th scope="col" (click)="sort('SD_DOC')">Sales Document Number&nbsp;<i class="fa fa-sort"></i> </th>
-                        <th scope="col">Account Document Number</th>
+                        <th scope="col" (click)="sort('VBEL2')">Sales Document Number&nbsp;<i class="fa fa-sort"></i> </th>
+                        <th scope="col" (click)="sort('BELNR')">Account Document Number&nbsp;<i class="fa fa-sort"></i></th>
                         <!-- <th scope="col">Account Type</th> -->
-                        <th scope="col">Billing Date</th>
-                        <th scope="col">Due Date</th>
+                        <th scope="col" (click)="sort('ZFBDT')">Billing Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('MADAT')">Due Date&nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col">Payment Status</th>
                         <th scope="col">Aging Date</th>
                         <th scope="col">Status Description</th>
@@ -84,16 +84,16 @@
                      
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of sales | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" (click)="onInvoiceClick(item)" class="">
+                    <tr *ngFor="let item of sales | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" (click)="onInvoiceClick(item)" class="">
 
-                        <td>{{item.KUNNR}}</td>
-                        <td>{{item.VBEL2}}</td>
+                        <td>{{item.KUNNR | number}}</td>
+                        <td>{{item.VBEL2 | number}}</td>
                         <td>{{item.BELNR}}</td>
                         <td>{{item.ZFBDT}}</td>
                         <td>{{item.MADAT}}</td>
                         <!-- <td>{{aging}}</td> -->
                         <td>{{sts}}</td>
-                        <td>{{item.PSWSL}}</td>
+                        <td>{{item.PSWSL}} days</td>
                         <td>{{stsdes}}</td>
                         <!-- <td><button (click)="onInvoiceClick(item)">Click Here</button></td> -->
                       </tr>
