@@ -1,0 +1,142 @@
+<body>
+    <div class="wrapper collapsed">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <div class="top_menu">
+                <div class="logo">
+                    EMPLOYEE DASHBOARD
+                </div>
+                <ul>
+                    <!-- <li><a href="#">
+                            <i class="fas fa-search"></i>
+                        </a></li> -->
+                    <li><a (click)="router.navigate(['/empprofile']);">
+                            <i class="fas fa-user"></i>
+                        </a></li>
+                    <li><a (click)="logout()">
+                            <i class="fas fa-sign-out-alt" id="btn-logout"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <ul>
+                <li><a (click)="router.navigate(['/empdashboard']);" class=active>
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a></li>
+                <!-- <li>
+                   
+                    <a (click)="router.navigate(['/vendfinancesheet']);">
+                        <span class="icon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
+                        <span class="title">Financial Sheet</span>
+                    </a>
+                   
+                </li> -->
+                <li>
+                    <a (click)="router.navigate(['/empprofile']);">
+                        <span class="icon"><i class="fa fa-user"></i></span>
+                        <span class="title">Profile</span>
+                    </a>
+                </li>
+                <li><a href="https://www.kaartech.com/contact-us/" target="_blank">
+                    <span class="icon"><i class="fa fa-address-book"></i></span>
+                    <span class="title">Contact Us</span>
+                </a></li>
+
+            </ul>
+        </div>
+
+        <div class="main_container">
+            
+
+            <div class="m-4">
+                <div class="row row-cols-1 row-cols-md-2 g-5">
+                    <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/inquiry.svg"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                    Leave Request
+                                </div>
+                                
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                    An Employee Leave Request is used by an employee to inform an approver of a new leave request or of the updating or cancellation of a leave request already posted as an Employee Time , and (depending on the business scenario) of the need for request approval.                              </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/empleave']);">Click Here</button>
+                                <!-- <a class="logsan" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">Click Here</a> -->
+                                <!--<a class="btn btn-danger text-center" xmlns:html="http://www.w3.org/1999/xhtml" id="myLink">-->
+                                <!--	Click Here-->
+                                <!--</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="img">
+                                <img src="assets/images/sales.svg"/>
+                            </div>
+                            <div class="top-text">
+                                <div class="name">
+                                    Pay Slip
+                                </div>
+                                <!--<p>-->
+                                <!--	Apps Developer-->
+                                <!--</p>-->
+                            </div>
+                            <div class="bottom-text">
+                                <div class="text">
+                                    SAP provides a sample payslip containing information about earnings, deductions, and adjustments of an employee in a payroll period. It also provides payment details. You can use this sample as a basis to create your own payslip.
+                                </div>
+                                <button type="button" class="logsan" (click)="router.navigate(['/emppayslip']);">Click Here</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+
+            <!-- <div class="item">
+                <div class="items">
+                    <img class="icons" src="images/autismicon.jpg" alt="selfreport"> <br>
+                    <p style="color: black;">AUTISM</p>
+                    <div class="goicon"> <a class="fa fa-chevron-circle-right fa-3x" id="go6"
+                            href="autism.html"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="items">
+                    <img class="icons" src="assets/images/bk.png" alt="selfreport"> <br>
+                    <p style="color: black;">DYSCALCULIA</p>
+
+                    <div class="goicon"> 
+                        <a class="fa fa-chevron-circle-right fa-3x" id="go3"
+                            href="dyscalculia.html"></a>
+                         </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".hamburger").click(function () {
+                $(".wrapper").toggleClass("collapsed");
+            });
+        });
+    </script>
+
+</body>

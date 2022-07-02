@@ -1,0 +1,199 @@
+<body>    
+    <div class="wrapper collapsed">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+            <div class="top_menu">
+                <div class="logo">
+                    {{title1}}
+                </div>
+                <ul>
+                    <!-- <li><a href="#">
+                            <i class="fas fa-search"></i>
+                        </a></li> -->
+                    <li><a (click)="router.navigate(['/empprofile']);">
+                            <i class="fas fa-user"></i>
+                        </a></li>
+                        <li><a href="signin.html">
+                            <i class="fas fa-sign-out-alt" id="btn-logout"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+          <ul>
+            <li><a (click)="router.navigate(['/empdashboard']);">
+                <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                <span class="title">Dashboard</span>
+            </a></li>
+       
+        <li>
+            <a (click)="router.navigate(['/empprofile']);">
+                <span class="icon"><i class="fa fa-user"></i></span>
+                <span class="title">Profile</span>
+            </a>
+        </li>
+        <li><a href="https://www.kaartech.com/contact-us/" target="_blank">
+            <span class="icon"><i class="fa fa-address-book"></i></span>
+            <span class="title">Contact Us</span>
+        </a></li>
+        </ul>
+        </div>
+
+
+      
+
+       
+            <div class="main_container">
+
+                <button class="logsan" (click)="toggle()" id="bt1">
+                    {{buttonName}}
+                  </button>
+                  
+                <ng-container *ngIf="show">
+                <!-- <h1>Credit Details</h1> -->
+
+                <div class="table-wrapper">
+                    <div class="table-title">
+                      <div class="row">
+                        <div class="colsan">
+                          <h2><b>Total Entries - {{lenc}}</b></h2>
+                          <form method="post">
+                            <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC1" (ngModelChange)="search1()" class="textbox" placeholder="Search">
+                            <input title="Search" value="" type="submit" class="button">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+
+                        <th scope="col" (click)="sort('MATNR')">Material&nbsp;<i class="fa fa-sort"></i></th>
+                       
+                        <th scope="col" (click)="sort('WERKS')">Plant&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('MENGE')">Quantity&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('MEINS')">Unit Of Measure&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BUKRS')">Company Code&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BELNR')">Account Number&nbsp;<i class="fa fa-sort"></i></th>        
+                        <th scope="col" (click)="sort('GJAHR')">Fiscal Year&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BUZEI')">Line Items&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('DMBTR')">Amount&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('KOART')">Account Type&nbsp;<i class="fa fa-sort"></i></th>
+                       <!-- <th scope="col" (click)="sort('KUNNR')">Customer&nbsp;<i class="fa fa-sort"></i></th> -->
+                       <th scope="col" (click)="sort('XBILK')">Indicator&nbsp;<i class="fa fa-sort"></i></th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of credit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+     
+                            <!-- <td>{{item.AUGDT}}</td>
+                        <td>{{item.BDIFF}}</td> -->
+                        <td>{{item.MATNR}}</td>
+                        <td>{{item.WERKS}}</td> 
+                        <td>{{item.MENGE}}</td>
+                        <td>{{item.MEINS}}</td>
+                        <td>{{item.BUKRS}}</td>
+                        <td>{{item.BELNR}}</td>
+                        <td>{{item.GJAHR}}</td>
+                        <td>{{item.BUZEI}}</td>
+                        <td>{{item.DMBTR}}</td>
+                        <td>{{item.KOART}}</td>
+                        <!-- <td>{{item.KUNNR}}</td> -->
+                         <td>{{item.XBILK}}</td>
+                        <!-- <td>{{item.STORE_LOC}}</td> -->
+                           
+                          </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="spinner-border text-danger" style="width:3rem;height:3rem;align-items: center;" role="status" [hidden]="spinner">
+
+                  </div>
+
+                  <div class="page">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+                </div>
+                  </ng-container>
+                  
+          
+        
+
+              <ng-container *ngIf="hide">
+               
+                    <!-- <h1>Debit Details</h1> -->
+
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                          <div class="row">
+                            <div class="colsan">
+                              <h2><b>Total Entries - {{lend}}</b></h2>
+                              <form method="post">
+                                <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
+                                <input title="Search" value="" type="submit" class="button">
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col" (click)="sort('MATNR')">Material&nbsp;<i class="fa fa-sort"></i></th>
+                         
+                          <th scope="col" (click)="sort('WERKS')">Plant&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('MENGE')">Quantity&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('MEINS')">Unit Of Measure&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('BUKRS')">Company Code&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('BELNR')">Account Number&nbsp;<i class="fa fa-sort"></i></th>        
+                          <th scope="col" (click)="sort('GJAHR')">Fiscal Year&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('BUZEI')">Line Items&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('DMBTR')">Amount&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('KOART')">Account Type&nbsp;<i class="fa fa-sort"></i></th>
+                         <!-- <th scope="col" (click)="sort('KUNNR')">Customer&nbsp;<i class="fa fa-sort"></i></th> -->
+                         <th scope="col" (click)="sort('XBILK')">Indicator&nbsp;<i class="fa fa-sort"></i></th>
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let item of debit_array | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};"  class="table-hover">
+       
+                               <!-- <td>{{item.AUGDT}}</td>
+                        <td>{{item.BDIFF}}</td> -->
+                        <td>{{item.MATNR}}</td>
+                        <td>{{item.WERKS}}</td> 
+                        <td>{{item.MENGE}}</td>
+                        <td>{{item.MEINS}}</td>
+                        <td>{{item.BUKRS}}</td>
+                        <td>{{item.BELNR}}</td>
+                        <td>{{item.GJAHR}}</td>
+                        <td>{{item.BUZEI}}</td>
+                        <td>{{item.DMBTR}}</td>
+                        <td>{{item.KOART}}</td>
+                        <!-- <td>{{item.KUNNR}}</td> -->
+                         <td>{{item.XBILK}}</td>
+                        <!-- <td>{{item.STORE_LOC}}</td> -->
+                             
+                            </tr>
+                      </tbody>
+                    </table>
+
+                    <div class="spinner-border text-danger" style="width:3rem;height:3rem;align-items: center;" role="status" [hidden]="spinner">
+
+                    </div>
+                    <div class="page">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                    </div>
+            </ng-container>
+        </div>
+    </div>
+
+</body>
+

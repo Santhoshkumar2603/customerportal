@@ -1,1 +1,194 @@
-<p>vendinvdet works!</p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.com/libraries/pdfmake"></script>
+
+
+<div class="pdfbtn">
+  <button class="btn btn-danger" (click)="pdf()">Save as PDF
+    <i class="fas fa-file"></i>
+  </button>
+  </div>
+  
+<div class="container invoice" id="contentToConvert">
+  <!-- <div id="pdfTable" #pdfTable> -->
+  
+ 
+    <div class="invoice-header">
+    <div class="ui left aligned grid">
+      <div class="row">
+        <div class="left floated left aligned six wide column">
+          <div class="ui">
+            <h1 class = "ui header pageTitle" style="color:#b31734">Invoice</h1>
+            <h4 class="ui sub header">Date: {{livedate}}</h4>
+          </div>
+        </div>
+        <div class="right floated left aligned six wide column">
+          <div class="ui">
+            <div class="column two wide right floated">
+              <img class="logo" src="../../assets/images/kaarlogo1.png" />
+              <div class="ui">
+                <h5 class ="ui header pageTitle" class="comname">Level 8,Shyamala Towers, No 136, Arcot Road,Chennai-600093. <br>Tel: +91 (44) 4065 1500</h5>
+                <!-- <h4 class ="ui header pageTitle" class="comname">Tel: +91 (44) 4065 1500</h4> -->
+                <h5 class="ui sub header invDetails" class="website">www.kaartech.com</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui segment cards">
+    <!-- <div class="ui card customercard">
+      <div class="content">
+        <div class="header" style="color:#b31734">CUSTOMER DETAILS</div>
+      </div>
+      <div class="content">
+        <ul>
+          <li> <strong> Customer Id: </strong>{{k}} </li>
+          <li><strong> Customer Name: </strong> {{k}}</li>
+          <li><strong> Sales Document Number: </strong>{{k}}</li>
+        </ul>
+      </div>
+    </div> -->
+    <div class="ui card customercard">
+      <div class="content">
+        <div class="header" style="color:#b31734">INVOICE DETAILS</div>
+      </div>
+      <div class="content">
+        <ul>
+          <li> <strong>Document Number: </strong>{{vendorid}}</li>
+          <li><strong> Currency Type: </strong> {{curtype}}</li>
+          <li><strong> Bill Type: </strong> {{type}}</li>
+          <li><strong> Created On: </strong> {{date}}</li>
+          <li><strong> Created Time: </strong> {{time}}</li>
+          <li> <strong> Baseline Date: </strong>{{date}} </li>
+          <li><strong>  Fiscal Year: </strong> {{year}}</li>
+          <!-- <li><strong> Last Dunned Data: </strong> {{k}}</li> -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="ui card customercard">
+      <div class="content">
+        <div class="header" style="color:#b31734">PRODUCT DETAILS</div>
+      </div>
+      <div class="content">
+
+        <div class="table-wrapper">
+          <!-- <button class="btn btn-danger">Click</button> -->
+          <div class="table-title">
+            <div class="row">
+              <div class="colsan">
+                <h2><b>Total Entries - {{len}}</b></h2>
+                <!-- <form method="post">
+                  <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
+                  <input title="Search" value="" type="submit" class="button">
+                </form> -->
+              </div>
+            </div>
+          </div>
+  
+        <table class="table table-hover">
+          <!-- <caption>ACCOUNT DETAILS</caption> -->
+          <thead>
+            <tr>
+              <th scope="col">Item No</th>
+              <th scope="col">Material No</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Unit Price</th>
+              <!-- <th  scope="col">Currency</th> -->
+              <th scope="col">Plant</th>
+              <th scope="col">Cost</th>
+              <th scope="col">Tax </th>
+            </tr>
+          </thead>
+          <tbody>
+              
+              <tr *ngFor="let item of headerarray | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                       
+                <td>{{item.EBELP}}</td>
+                <td>{{item.MATNR}}</td>
+                <td>{{item.MENGE}}</td>
+                <td>{{item.BPRME}}</td>                
+                <td>{{item.WERKS}}</td>
+                <td>{{item.WRBTR}}</td>
+                <td>{{tax}} {{curtype}}</td>
+                <!-- <td>{{item.CURRENCY}}</td>
+                <td>{{item.PLANT}}</td>
+                <td>{{item.STGE_LOC}}</td>
+                <td>{{item.VENDOR}}</td> -->
+             
+               
+              </tr>
+             
+            
+
+  
+          </tbody>
+         <tfoot class="full-width">
+    <!-- <tr>
+      <th> Total: </th>
+      <th colspan="2"></th>
+      <th colspan = "1"> $500 </th>
+      <th colspan = "1"> $800 </th>
+      <th colspan = "1"> $20000.00 </th>
+    </tr> -->
+  </tfoot>
+        </table>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- <div class="ui card">
+      <div class="content center aligned text segment">
+        <small class="ui sub header"> Amount Due (AUD): </small>
+        <p class="bigfont"> $5000.25 </p>
+      </div>
+    </div> -->
+        <!-- <div class="ui card">
+      <div class="content">
+        <div class="header">Payment Details</div>
+      </div>
+      <div class="content">
+        <p> <strong> Account Name: </strong> "RJCA" </p>
+        <p> <strong> BSB: </strong> 111-111 </p>
+        <p> <strong>Account Number: </strong> 1234101 </p>
+      </div>/
+    </div> -->
+    <div class="ui card">
+      <div class="content center aligned text segment">
+        <small class="header" >Total Amount(In {{curtype}}) : </small>
+        <!-- <small class="header" >Tax(In {{curtype}}) : 0</small> -->
+        <p class="bigfont"> {{total}} {{curtype}}</p>
+      </div>
+    </div>
+        <div class="ui card">
+      <div class="content">
+        <div class="header">Payment Details</div>
+      </div>
+      <div class="content">
+        <p> <strong> Account Document Number: </strong> {{vendorid}} </p>
+        <p> <strong> Bill Type: </strong> {{type}} </p>
+        <p> <strong>Curreny Type: </strong> {{curtype}} </p>
+      </div>
+    </div>
+    <div class="ui card">
+      <div class="content">
+        <div class="header" style="color:#b31734">Greeting !!!</div>
+      </div>
+      <div class="content">
+        THANK FOR BEING A PART OF KAAR TECHNOLOGIES.
+      </div>
+    </div> 
+   
+  </div>
+  
+  
+
+  
+</div>
+<!-- </div> -->

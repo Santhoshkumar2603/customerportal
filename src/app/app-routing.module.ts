@@ -11,6 +11,11 @@ import { CustpaymentComponent } from './custpayment/custpayment.component';
 import { CustprofileComponent } from './custprofile/custprofile.component';
 import { CustsalesorderComponent } from './custsalesorder/custsalesorder.component';
 import { DummytableComponent } from './dummytable/dummytable.component';
+import { EmpdashboardComponent } from './empdashboard/empdashboard.component';
+import { EmpleaveComponent } from './empleave/empleave.component';
+import { EmploginComponent } from './emplogin/emplogin.component';
+import { EmppayslipComponent } from './emppayslip/emppayslip.component';
+import { EmpprofileComponent } from './empprofile/empprofile.component';
 import { HomeComponent } from './home/home.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { LoginComponent } from './login/login.component';
@@ -54,6 +59,11 @@ const routes: Routes = [
   {path:'vendrfq', component:VendrfqComponent},
   {path:'vendinvoice', component:VendinvoiceComponent},
   {path:'vendinvdet', component:VendinvdetComponent},
+  {path:'emplogin', component:EmploginComponent},
+  {path:'empdashboard', component:EmpdashboardComponent},
+  {path:'empprofile', component:EmpprofileComponent},
+  {path:'empleave', component:EmpleaveComponent},
+  {path:'emppayslip', component:EmppayslipComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];

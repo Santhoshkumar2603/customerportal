@@ -37,6 +37,11 @@ import { VendfinancesheetComponent } from './vendfinancesheet/vendfinancesheet.c
 import { VendrfqComponent } from './vendrfq/vendrfq.component';
 import { VendinvoiceComponent } from './vendinvoice/vendinvoice.component';
 import { VendinvdetComponent } from './vendinvdet/vendinvdet.component';
+import { EmploginComponent } from './emplogin/emplogin.component';
+import { EmpdashboardComponent } from './empdashboard/empdashboard.component';
+import { EmpprofileComponent } from './empprofile/empprofile.component';
+import { EmpleaveComponent } from './empleave/empleave.component';
+import { EmppayslipComponent } from './emppayslip/emppayslip.component';
 
 
 
@@ -73,6 +78,11 @@ import { VendinvdetComponent } from './vendinvdet/vendinvdet.component';
     VendrfqComponent,
     VendinvoiceComponent,
     VendinvdetComponent,
+    EmploginComponent,
+    EmpdashboardComponent,
+    EmpprofileComponent,
+    EmpleaveComponent,
+    EmppayslipComponent,
 
   ],
   imports: [

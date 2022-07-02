@@ -493,6 +493,8 @@
     overflow: hidden;
   } */
   
+  
+
 
   .table-wrapper {
     background: #fff;
@@ -646,7 +648,7 @@
   }
 
   .page{
-    padding-left: 240px;
+    padding-left: 470px;
     padding-top: 25px;
   }
 /* 
@@ -705,11 +707,19 @@
   form > .button:hover {
     background-color: rgba(0, 150, 136, 0.8);
   }
-
-  .btn-danger{
-
-    border-radius: 5px;
-    width:100px;
+  
+  .logsan{
+    display: inline-block;
+    padding: 0.5em 1.7em;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    background-color: #b31734;
+  }
+  .logsan:hover{
+     background-color: #db5e76;
   }
   
-  
+  #bt1{
+    margin-left: 1000px;
+  }
