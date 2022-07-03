@@ -17,7 +17,7 @@
                     <li><a (click)="router.navigate(['/empprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
-                        <li><a href="signin.html">
+                        <li><a (click)="logout()">
                             <i class="fas fa-sign-out-alt" id="btn-logout"></i>
                         </a></li>
                 </ul>
@@ -26,7 +26,7 @@
 
         <div class="sidebar">
           <ul>
-            <li><a (click)="router.navigate(['/empdashboard']);">
+            <li><a (click)="router.navigate(['/empdashboard']);" class=active>
                 <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                 <span class="title">Dashboard</span>
             </a></li>
@@ -73,21 +73,21 @@
                 <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th scope="col" (click)="sort('MATNR')">Leave Entitlement&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('MATNR')">Total Leave Balance&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('MATNR')">Leave Entitlement</th>
+                        <th scope="col" (click)="sort('MATNR')">Total Leave Balance</th>
                        
-                        <th scope="col" (click)="sort('WERKS')">Leave Type&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('MENGE')">Name of Leave Type&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('MEINS')">Time Unit&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BUKRS')">Type of Time Unit&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BELNR')">Valid From&nbsp;<i class="fa fa-sort"></i></th>        
-                        <th scope="col" (click)="sort('GJAHR')">Valid til&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('WERKS')">Leave Type</th>
+                        <th scope="col" (click)="sort('MENGE')">Name of Leave Type</th>
+                        <th scope="col" (click)="sort('MEINS')">Time Unit</th>
+                        <th scope="col" (click)="sort('BUKRS')">Type of Time Unit</th>
+                        <th scope="col" (click)="sort('QUOTABEG')">Valid From&nbsp;<i class="fa fa-sort"></i></th>        
+                        <th scope="col" (click)="sort('QUOTAEND')">Valid til&nbsp;<i class="fa fa-sort"></i></th>
 
                        
                       </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of credit | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                        <tr *ngFor="let item of credit | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
      
                         <td>{{item.ENTITLE}}</td>
                         <td>{{item.QUOTANUM}}</td> 
@@ -135,24 +135,24 @@
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th scope="col" (click)="sort('MATNR')">Employee Id&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('MATNR')">Employee Id</th>
                          
-                          <th scope="col" (click)="sort('WERKS')">Total Absence Days&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('MENGE')">Total Absence Hours&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('MEINS')">Absence Type&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('BUKRS')">Name of Absence Type&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('BELNR')">Sub Type&nbsp;<i class="fa fa-sort"></i></th>        
-                          <th scope="col" (click)="sort('GJAHR')">Valid From&nbsp;<i class="fa fa-sort"></i></th>
-                          <th scope="col" (click)="sort('BUZEI')">Valid Till&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('ABSENCEDAYS')">Total Absence Days&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('ABSENCEHOURS')">Total Absence Hours&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('MEINS')">Absence Type</th>
+                          <th scope="col" (click)="sort('BUKRS')">Name of Absence Type</th>
+                          <th scope="col" (click)="sort('BELNR')">Sub Type</th>        
+                          <th scope="col" (click)="sort('VALIDBEGIN')">Valid From&nbsp;<i class="fa fa-sort"></i></th>
+                          <th scope="col" (click)="sort('VALIDEND')">Valid Till&nbsp;<i class="fa fa-sort"></i></th>
                          
                          
                         </tr>
                       </thead>
                       <tbody>
-                          <tr *ngFor="let item of debit | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};"  class="table-hover">
+                          <tr *ngFor="let item of debit | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC"  class="table-hover">
        
                         
-                        <td>{{item.EMPLOYEENO}}</td>
+                        <td>{{item.EMPLOYEENO | number}}</td>
                         <td>{{item.ABSENCEDAYS}}</td> 
                         <td>{{item.ABSENCEHOURS}}</td>
                         <td>{{item.ABSENCETYPE}}</td>

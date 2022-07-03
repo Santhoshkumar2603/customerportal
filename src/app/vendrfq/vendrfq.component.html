@@ -17,7 +17,7 @@
                         <li><a (click)="router.navigate(['/vendprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
-                        <li><a href="signin.html">
+                        <li><a (click)="logout()">
                             <i class="fas fa-sign-out-alt" id="btn-logout"></i>
                         </a></li>
                 </ul>
@@ -55,7 +55,7 @@
 
             <ng-container *ngIf="show">
                 <button class="logsan" (click)="toggle()" id="bt1">
-                  {{buttonName}}
+                 Back to RFQ
                 </button>
               </ng-container>
 
@@ -76,23 +76,21 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col" (click)="sort('EBELN')">Customer &nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BELNR')">Purchase Order &nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('EBELP')">Document Typen&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('VGABE')">Document Date &nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col">Customer</th>
+                        <th scope="col" (click)="sort('PO_NUMBER')">Purchase Order &nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col">Document Type</th>
+                        <th scope="col" (click)="sort('DOC_DATE')">Document Date &nbsp;<i class="fa fa-sort"></i></th>
                         
-                        <th scope="col" (click)="sort('CPUDT')">Purchase Organization &nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('CPUDT')">Purchase Group&nbsp;<i class="fa fa-sort"></i></th>
-                     
-                        
-                        <th scope="col" (click)="sort('BWART')">Company Code&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BEWTP')">Quotation Start Date&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BEWTP')">Quotation End Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" >Purchase Organization</th>
+                        <th scope="col" >Purchase Group</th>            
+                        <th scope="col" >Company Code</th>
+                        <th scope="col" (click)="sort('QUOT_DATE')">Quotation Start Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('QUOT_DEAD')">Quotation End Date&nbsp;<i class="fa fa-sort"></i></th>
                        
                        </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of headerarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" (click)="onInvoiceClick(item)" class="">
+                    <tr *ngFor="let item of headerarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" (click)="onInvoiceClick(item)" class="">
                        
                        
                         <td>{{item.CUSTOMER | number}}</td>
@@ -127,7 +125,7 @@
                     <div class="table-title">
                       <div class="row">
                         <div class="colsan">
-                          <h2><b>Total Entries - {{len}}</b></h2>
+                          <h2><b>Total Entries - {{len1}}</b></h2>
                           <form method="post">
                             <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
                             <input title="Search" value="" type="submit" class="button">
@@ -139,23 +137,23 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" (click)="sort('EBELN')">Purchase Doc Number&nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" >Purchase Doc Number</th>
                          
-                            <th scope="col" (click)="sort('EBELP')">Target Quantity&nbsp;<i class="fa fa-sort"></i></th>
-                            <th scope="col" (click)="sort('VGABE')">Material&nbsp;<i class="fa fa-sort"></i></th>
-                            <th scope="col" (click)="sort('BELNR')">Material Type&nbsp;<i class="fa fa-sort"></i></th>
-                            <th scope="col" (click)="sort('CPUDT')">Material Group&nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" >Target Quantity</th>
+                            <th scope="col">Material</th>
+                            <th scope="col" >Material Type</th>
+                            <th scope="col" >Material Group</th>
                          
-                            <th scope="col" (click)="sort('CPUTM')">Net Price &nbsp;<i class="fa fa-sort"></i></th>
-                            <th scope="col" (click)="sort('BWART')">Quantity &nbsp;<i class="fa fa-sort"></i></th>
-                            <th scope="col" (click)="sort('BEWTP')">Serial Number &nbsp;<i class="fa fa-sort"></i></th>
-                            <th scope="col" (click)="sort('BEWTP')">Description &nbsp;<i class="fa fa-sort"></i></th>
-                            <th scope="col" (click)="sort('BEWTP')">Storage Location &nbsp;<i class="fa fa-sort"></i></th>
+                            <th scope="col" >Net Price </th>
+                            <th scope="col" >Quantity </th>
+                            <th scope="col">Serial Number</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Storage Location</th>
                            
                            </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of listarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                        <tr *ngFor="let item of listarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
                            
                            
                             <td>{{item.PO_NUMBER}}</td>

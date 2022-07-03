@@ -36,7 +36,7 @@ export class EmploginComponent implements OnInit {
         console.log(response)
         this.Data = JSON.parse(JSON.stringify(response));
         console.log(this.Data);
-        if(this.Data.RESULT === '0X02'){
+        if(this.Data.RESULT === 'S'){
   
           localStorage.setItem('empid',user.toString());
           // localStorage.setItem('empid',this.Data.RESULT);

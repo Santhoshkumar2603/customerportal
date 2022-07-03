@@ -53,5 +53,9 @@ baseUrl : string='http://localhost:3000/eprofile';
       )
    
   }
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
+  }
 
 }

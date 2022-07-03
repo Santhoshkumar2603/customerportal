@@ -27,6 +27,7 @@ export class VendgoodsComponent implements OnInit {
  list:any=[];
  listarray:any=[];
  k:number=0;
+ len1:any;
   constructor(private el: ElementRef, private renderer:Renderer2, private http:HttpClient,public router:Router, private customernumber:CustomerIdService) 
   {}
 
@@ -45,6 +46,7 @@ export class VendgoodsComponent implements OnInit {
            for(let i=1;i<this.header.length;i++){
             this.headerarray[i-1]=this.header[i];
            }
+           this.len=this.headerarray.length;
            this.k=0;
            this.listarray=[];
            console.log(this.headerarray);
@@ -87,6 +89,8 @@ for(let i=0;i<this.list.length;i++){
   if(this.list[i].MAT_DOC === data["MAT_DOC"]){
     this.listarray[this.k++]=this.list[i];
   }
+
+  this.len1=this.listarray.length;
 }
 this.spinner=true;
   }
@@ -128,6 +132,11 @@ this.spinner=true;
       this.hide = !this.hide;
   
       // CHANGE THE NAME OF THE BUTTON.
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
   }
 
 

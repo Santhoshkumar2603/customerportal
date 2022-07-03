@@ -24,6 +24,7 @@ export class VendrfqComponent implements OnInit {
   vendorid: any;
   header: any;
   headerarray: any = [];
+  len1:any;
 
   list: any = [];
   listarray: any = [];
@@ -43,7 +44,9 @@ export class VendrfqComponent implements OnInit {
         // console.log(this.header);
         for (let i = 1; i < this.header.length; i++) {
           this.headerarray[i - 1] = this.header[i]
+          this.headerarray[i-1].PO_NUMBER = parseInt(this.headerarray[i-1].PO_NUMBER)
         }
+        this.len=this.headerarray.length;
         console.log(this.headerarray);
         this.k = 0;
         this.listarray = [];
@@ -89,6 +92,7 @@ export class VendrfqComponent implements OnInit {
         this.listarray[this.k++] = this.list[i];
       }
     }
+    this.len1=this.listarray.length;
     this.spinner = true;
   }
 
@@ -127,6 +131,9 @@ export class VendrfqComponent implements OnInit {
     this.key = key;
     this.reverse = !this.reverse;
   }
-
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
+  }
 
 }

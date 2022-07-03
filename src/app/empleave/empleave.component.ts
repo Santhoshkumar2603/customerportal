@@ -47,6 +47,11 @@ export class EmpleaveComponent implements OnInit {
             this.credit=(this.Data.IT_LEAVE_BALANCE.item);
             this.debit=(this.Data.IT_LEAVE_DETAIL.item);
 
+            for(let i=0;i<this.debit;i++){
+              this.debit[i].ABSENCEDAYS=parseInt(this.debit[i].ABSENCEDAYS)
+              this.debit[i].ABSENCEHOURS=parseInt(this.debit[i].ABSENCEHOURS)
+            }
+
            
             this.lenc=this.credit.length;
             this.lend=this.debit.length;
@@ -115,6 +120,9 @@ export class EmpleaveComponent implements OnInit {
     this.key=key;
     this.reverse = !this.reverse;
   }
-
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
+  }
 
 }

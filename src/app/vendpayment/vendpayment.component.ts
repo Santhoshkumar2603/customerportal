@@ -24,7 +24,7 @@ export class VendpaymentComponent implements OnInit {
   vendorid: any;
   header: any;
   headerarray: any = [];
-
+  len1:any;
   list: any = [];
   listarray: any = [];
   k: number = 0;
@@ -41,6 +41,22 @@ export class VendpaymentComponent implements OnInit {
         this.Data = JSON.parse(JSON.stringify(response));
         this.header = this.Data.T_CLOSE.item;
         this.list = this.Data.T_OPEN.item;
+
+        for(let i=0;i<this.header;i++){
+          this.header[i].DOC_NO = parseInt(this.header[i].DOC_NO);
+          this.header[i].AMT_DOCCUR = parseInt(this.header[i].AMT_DOCCUR);
+          this.header[i].LC_AMOUNT = parseInt(this.header[i].LC_AMOUNT);
+          this.header[i].NET_AMOUNT = parseInt(this.header[i].NET_AMOUNT);
+        }
+        for(let i=0;i<this.list;i++){
+          this.list[i].DOC_NO = parseInt(this.list[i].DOC_NO);
+          this.list[i].AMT_DOCCUR = parseInt(this.list[i].AMT_DOCCUR);
+          this.list[i].LC_AMOUNT = parseInt(this.list[i].LC_AMOUNT);
+          this.list[i].NET_AMOUNT = parseInt(this.list[i].NET_AMOUNT);
+        }
+
+        this.len=this.header.length
+        this.len1=this.list.length
 
         for(let i=0;i<this.list.length;i++)
         {
@@ -126,7 +142,10 @@ export class VendpaymentComponent implements OnInit {
     this.reverse = !this.reverse;
   }
 
-
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
+  }
 
 
 }

@@ -35,6 +35,10 @@ export class CustinquiryComponent implements OnInit {
             this.Data = JSON.parse(JSON.stringify(response));
             
             this.message=(this.Data.INQ_DET.item);
+            for(let i=0;i<this.message.length;i++)
+            {
+              this.message[i].VBELN=parseInt(this.message[i].VBELN)
+            }
             this.len=this.message.length;
             console.log(this.message);
             this.spinner=true;

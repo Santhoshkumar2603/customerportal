@@ -22,7 +22,7 @@ export class VendinvoiceComponent implements OnInit {
 spinner=false
  p :number=1;  
   SD_DOC:any;
-  len:any;
+  len1:number=0;
   vendorid:any
 
   constructor(private el: ElementRef, private renderer:Renderer2, private http:HttpClient,public router:Router, private customernumber:CustomerIdService, private table:TablevalueService) 
@@ -38,6 +38,8 @@ spinner=false
             this.Data = JSON.parse(JSON.stringify(response));
             
             this.message=(this.Data.INV_LIST.item);
+            this.len1=this.message.length;
+            console.log(this.len1)
             let k = 0;
         // for (let i = 0; i < this.message.length; i++) {
         //   if (this.message[i].KOART === "S") {
@@ -45,8 +47,7 @@ spinner=false
         //   }
         // }
         this.spinner=true
-        this.len=this.sales.length;
-            console.log(this.message);
+        
 
           }
         )
@@ -96,6 +97,10 @@ spinner=false
   {
     this.key=key;
     this.reverse = !this.reverse;
+  }
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
   }
 
 }

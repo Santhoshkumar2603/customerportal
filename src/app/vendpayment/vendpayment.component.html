@@ -17,7 +17,7 @@
                         <li><a (click)="router.navigate(['/vendprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
-                        <li><a href="signin.html">
+                        <li><a (click)="logout()">
                             <i class="fas fa-sign-out-alt" id="btn-logout"></i>
                         </a></li>
                 </ul>
@@ -26,13 +26,13 @@
 
         <div class="sidebar">
             <ul>
-                <li><a (click)="router.navigate(['/venddashboard']);" class=active>
+                <li><a (click)="router.navigate(['/venddashboard']);">
                     <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                     <span class="title">Dashboard</span>
                 </a></li>
             <li>
                 <!-- <button class="dashsan" (click)="router.navigate(['/custfinancesheet']);"> -->
-                <a (click)="router.navigate(['/vendfinancesheet']);">
+                <a (click)="router.navigate(['/vendfinancesheet']);" class=active>
                     <span class="icon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
                     <span class="title">Financial Sheet</span>
                 </a>
@@ -76,26 +76,26 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col" (click)="sort('EBELN')">Document Number &nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BELNR')">Document Date&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('EBELP')">Document Type&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('DOC_NO')">Document Number &nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('DOC_DATE')">Document Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('EBELP')">Document Type</th>
                         <!-- <th scope="col" (click)="sort('VGABE')">Document Date &nbsp;<i class="fa fa-sort"></i></th> -->
                         
-                        <th scope="col" (click)="sort('CPUDT')">Company Code&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('CPUDT')">Payment Method&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('CPUDT')">Company Code</th>
+                        <th scope="col" (click)="sort('CPUDT')">Payment Method</th>
                      
                         
-                        <th scope="col" (click)="sort('BWART')">Fiscal Year&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BEWTP')">Document Currency Amount&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BEWTP')">Local Currency Amount&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BWART')">Net Amount&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BEWTP')">Baseline Date&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('BEWTP')">Payment Status&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BWART')">Fiscal Year</th>
+                        <th scope="col" (click)="sort('AMT_DOCCUR')">Document Currency Amount&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('LC_AMOUNT')">Local Currency Amount&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('NET_AMOUNT')">Net Amount&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BLINE_DATE')">Baseline Date&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('BEWTP')">Payment Status</th>
                        
                        </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of header | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                    <tr *ngFor="let item of header | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
                        
                        
                         <td>{{item.DOC_NO}}</td>
@@ -133,7 +133,7 @@
                     <div class="table-title">
                       <div class="row">
                         <div class="colsan">
-                          <h2><b>Total Entries - {{len}}</b></h2>
+                          <h2><b>Total Entries - {{len1}}</b></h2>
                           <form method="post">
                             <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
                             <input title="Search" value="" type="submit" class="button">
@@ -145,27 +145,26 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col" (click)="sort('EBELN')">Document Number &nbsp;<i class="fa fa-sort"></i></th>
-                                <th scope="col" (click)="sort('BELNR')">Document Date&nbsp;<i class="fa fa-sort"></i></th>
-                                <th scope="col" (click)="sort('EBELP')">Document Type&nbsp;<i class="fa fa-sort"></i></th>
-                                <!-- <th scope="col" (click)="sort('VGABE')">Document Date &nbsp;<i class="fa fa-sort"></i></th> -->
-                                
-                                <th scope="col" (click)="sort('CPUDT')">Company Code&nbsp;<i class="fa fa-sort"></i></th>
-                                <th scope="col" (click)="sort('CPUDT')">Payment Method&nbsp;<i class="fa fa-sort"></i></th>
-                             
-                                
-                                <th scope="col" (click)="sort('BWART')">Fiscal Year&nbsp;<i class="fa fa-sort"></i></th>
-                                <th scope="col" (click)="sort('BEWTP')">Document Currency Amount&nbsp;<i class="fa fa-sort"></i></th>
-                                <th scope="col" (click)="sort('BEWTP')">Local Currency Amount&nbsp;<i class="fa fa-sort"></i></th>
-                                <th scope="col" (click)="sort('BWART')">Net Amount&nbsp;<i class="fa fa-sort"></i></th>
-                                <th scope="col" (click)="sort('BEWTP')">Baseline Date&nbsp;<i class="fa fa-sort"></i></th>
-                                <th scope="col" (click)="sort('BEWTP')">Aging Date&nbsp;<i class="fa fa-sort"></i></th>
-                                <th scope="col" (click)="sort('BEWTP')">Payment Status&nbsp;<i class="fa fa-sort"></i></th>
+                              <th scope="col" (click)="sort('DOC_NO')">Document Number &nbsp;<i class="fa fa-sort"></i></th>
+                              <th scope="col" (click)="sort('DOC_DATE')">Document Date&nbsp;<i class="fa fa-sort"></i></th>
+                              <th scope="col" (click)="sort('EBELP')">Document Type</th>
+                              <!-- <th scope="col" (click)="sort('VGABE')">Document Date &nbsp;<i class="fa fa-sort"></i></th> -->
+                              
+                              <th scope="col" (click)="sort('CPUDT')">Company Code</th>
+                              <th scope="col" (click)="sort('CPUDT')">Payment Method</th>
+                           
+                              
+                              <th scope="col" (click)="sort('BWART')">Fiscal Year</th>
+                              <th scope="col" (click)="sort('AMT_DOCCUR')">Document Currency Amount&nbsp;<i class="fa fa-sort"></i></th>
+                              <th scope="col" (click)="sort('LC_AMOUNT')">Local Currency Amount&nbsp;<i class="fa fa-sort"></i></th>
+                              <th scope="col" (click)="sort('NET_AMOUNT')">Net Amount&nbsp;<i class="fa fa-sort"></i></th>
+                              <th scope="col" (click)="sort('BLINE_DATE')">Baseline Date&nbsp;<i class="fa fa-sort"></i></th>
+                              <th scope="col" (click)="sort('BEWTP')">Payment Status</th>
                                
                                </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of list | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                            <tr *ngFor="let item of list | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
                                
                                
                                 <td>{{item.DOC_NO}}</td>

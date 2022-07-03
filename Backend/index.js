@@ -468,12 +468,12 @@ var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/VENDINV
 app.post('/elogin',(req,res)=>{
     var username = req.body.username;
     var password = req.body.password;
-    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/eplogin396')
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/EMPLOGINSK2608')
     .header({
         'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
         'Context-Type':'application/json'
     })
-    .send('<?xml version="1.0" encoding="UTF-8"?> <ns0:ZFM_LOGIN_EP_SAN xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><PASSWORD>'+ username +'</PASSWORD><UID>'+ password+'</UID><PROFILE_DET><item><COMP_CODE/><COMP_NAME/><CITY/><COUNTRY/><CURRENCY/><LANGU/><CHRT_ACCTS/><FY_VARIANT/><VAT_REG_NO/><COMPANY/><ADDR_NO/><COUNTRY_ISO/><CURRENCY_ISO/><LANGU_ISO/></item></PROFILE_DET></ns0:ZFM_LOGIN_EP_SAN>')   
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_EP_LOGIN_SK xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><PASSWORD>'+password+'</PASSWORD><UID>'+username+'</UID><PROFILE_DET><item><COMP_CODE/><COMP_NAME/><CITY/><COUNTRY/><CURRENCY/><LANGU/><CHRT_ACCTS/><FY_VARIANT/><VAT_REG_NO/><COMPANY/><ADDR_NO/><COUNTRY_ISO/><CURRENCY_ISO/><LANGU_ISO/></item></PROFILE_DET></ns0:ZFM_EP_LOGIN_SK>')   
     .end(function(result){
         if(result.error){
             console.log(result.error);
@@ -496,12 +496,12 @@ app.get('/login',(req,res)=>{
 app.post('/eprofile',(req,res)=>{
     var customerno = req.body.empid;
     // var password = req.body.password;
-    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/epprofile396')
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/EMPPROFILESK2608')
     .header({
         'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
         'Context-Type':'application/json'
     })
-    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_PROFILE_EP_SAN xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+customerno+'</EMPID><COMPANY><item><COMP_CODE/><COMP_NAME/><CITY/><COUNTRY/><CURRENCY/><LANGU/><CHRT_ACCTS/><FY_VARIANT/><VAT_REG_NO/><COMPANY/><ADDR_NO/><COUNTRY_ISO/><CURRENCY_ISO/><LANGU_ISO/></item></COMPANY><COMPANY_ADDRESS><item><ADDR_NO/><FORMOFADDR/><NAME/><NAME_2/><NAME_3/><NAME_4/><C_O_NAME/><CITY/><DISTRICT/><CITY_NO/><POSTL_COD1/><POSTL_COD2/><POSTL_COD3/><PO_BOX/><PO_BOX_CIT/><DELIV_DIS/><STREET/><STREET_NO/><STR_ABBR/><HOUSE_NO/><STR_SUPPL1/><STR_SUPPL2/><LOCATION/><BUILDING/><FLOOR/><ROOM_NO/><COUNTRY/><LANGU/><REGION/><SORT1/><SORT2/><TIME_ZONE/><TAXJURCODE/><ADR_NOTES/><COMM_TYPE/><TEL1_NUMBR/><TEL1_EXT/><FAX_NUMBER/><FAX_EXTENS/></item></COMPANY_ADDRESS></ns0:ZFM_PROFILE_EP_SAN>')   
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_EP_PROFILE_SK xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+customerno+'</EMPID><COMPANY><item><COMP_CODE/><COMP_NAME/><CITY/><COUNTRY/><CURRENCY/><LANGU/><CHRT_ACCTS/><FY_VARIANT/><VAT_REG_NO/><COMPANY/><ADDR_NO/><COUNTRY_ISO/><CURRENCY_ISO/><LANGU_ISO/></item></COMPANY><COMPANY_ADDRESS><item><ADDR_NO/><FORMOFADDR/><NAME/><NAME_2/><NAME_3/><NAME_4/><C_O_NAME/><CITY/><DISTRICT/><CITY_NO/><POSTL_COD1/><POSTL_COD2/><POSTL_COD3/><PO_BOX/><PO_BOX_CIT/><DELIV_DIS/><STREET/><STREET_NO/><STR_ABBR/><HOUSE_NO/><STR_SUPPL1/><STR_SUPPL2/><LOCATION/><BUILDING/><FLOOR/><ROOM_NO/><COUNTRY/><LANGU/><REGION/><SORT1/><SORT2/><TIME_ZONE/><TAXJURCODE/><ADR_NOTES/><COMM_TYPE/><TEL1_NUMBR/><TEL1_EXT/><FAX_NUMBER/><FAX_EXTENS/></item></COMPANY_ADDRESS></ns0:ZFM_EP_PROFILE_SK>')   
     .end(function(result){
         if(result.error){
             console.log(result.error);
@@ -521,12 +521,12 @@ app.post('/eprofile',(req,res)=>{
 app.post('/eleave',(req,res)=>{
     var customerno = req.body.vendorid;
     // var password = req.body.password;
-    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/epleave396')
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/EMPLEAVESK2608')
     .header({
         'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
         'Context-Type':'application/json'
     })
-    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_LEAVE_EP_SAN xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+ customerno +'</EMPID><IT_LEAVE_BALANCE><item><QUOTATYPE/><LEAVETYPE/><QUOTATEXT/><QUOTAEND/><QUOTABEG/><ENTITLE/><DEDUCT/><ORDERED/><QUOTANUM/><TIME_UNIT/><TIUNITEXT/></item></IT_LEAVE_BALANCE><IT_LEAVE_DETAIL><item><EMPLOYEENO/><SUBTYPE/><OBJECTID/><LOCKINDIC/><VALIDEND/><VALIDBEGIN/><RECORDNR/><START/><END/><ABSENCETYPE/><NAMEOFABSENCETYPE/><ABSENCEDAYS/><ABSENCEHOURS/></item></IT_LEAVE_DETAIL><IT_LEAVE_TYPE><item><MANDT/><SPRSL/><MOABW/><AWART/><ATEXT/></item></IT_LEAVE_TYPE></ns0:ZFM_LEAVE_EP_SAN>')   
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_EP_LEAVE_SK xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+customerno+'</EMPID><IT_LEAVE_BALANCE><item><QUOTATYPE/><LEAVETYPE/><QUOTATEXT/><QUOTAEND/><QUOTABEG/><ENTITLE/><DEDUCT/><ORDERED/><QUOTANUM/><TIME_UNIT/><TIUNITEXT/></item></IT_LEAVE_BALANCE><IT_LEAVE_DETAIL><item><EMPLOYEENO/><SUBTYPE/><OBJECTID/><LOCKINDIC/><VALIDEND/><VALIDBEGIN/><RECORDNR/><START/><END/><ABSENCETYPE/><NAMEOFABSENCETYPE/><ABSENCEDAYS/><ABSENCEHOURS/></item></IT_LEAVE_DETAIL><IT_LEAVE_TYPE><item><MANDT/><SPRSL/><MOABW/><AWART/><ATEXT/></item></IT_LEAVE_TYPE></ns0:ZFM_EP_LEAVE_SK>')   
     .end(function(result){
         if(result.error){
             console.log(result.error);
@@ -547,12 +547,12 @@ app.post('/eleave',(req,res)=>{
 app.post('/epaydet',(req,res)=>{
     var invoiceno = req.body.invoiceno;
     // var password = req.body.password;
-    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/eppsdet396')
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/EMPSLIPSK2608')
     .header({
         'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
         'Context-Type':'application/json'
     })
-    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_PSDET_EP_SAN xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+invoiceno+'</EMPID><PAYSLIP_DET><item><SEQUENCENUMBER/><FPPERIOD/><FPBEGIN/><FPEND/><BONUSDATE/><PAYDATE/><PAYTYPE/><PAYID/><OCREASON/><PAYTYPE_TEXT/><OCREASON_TEXT/></item></PAYSLIP_DET></ns0:ZFM_PSDET_EP_SAN>')   
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_EP_PAYSLIP_SK xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+invoiceno+'</EMPID><PAYSLIP_DET><item><SEQUENCENUMBER/><FPPERIOD/><FPBEGIN/><FPEND/><BONUSDATE/><PAYDATE/><PAYTYPE/><PAYID/><OCREASON/><PAYTYPE_TEXT/><OCREASON_TEXT/></item></PAYSLIP_DET></ns0:ZFM_EP_PAYSLIP_SK>')   
     .end(function(result){
         if(result.error){
             console.log(result.error);
@@ -572,12 +572,12 @@ app.post('/epaydet',(req,res)=>{
 app.post('/epaypdf',(req,res)=>{
     var empId = req.body.empId;
      var seqnumber = req.body.seqnumber;
-    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/eppspdf396')
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/EMPPDFSK2608')
     .header({
         'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
         'Context-Type':'application/json'
     })
-    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_PSPDF_EP_SAN xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+empId+'</EMPID><SEQNO>'+seqnumber+'</SEQNO><PAYSLIP_HTML><item><LINE/></item></PAYSLIP_HTML><PAYSLIP_TAB><item><FORMAT_COL/><TEXT_COL/></item></PAYSLIP_TAB></ns0:ZFM_PSPDF_EP_SAN>')   
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_EP_PAYPDF1_SK xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+empId+'</EMPID><SEQNO>'+seqnumber+'</SEQNO><PAYSLIP_HTML><item><LINE/></item></PAYSLIP_HTML><PAYSLIP_TAB><item><FORMAT_COL/><TEXT_COL/></item></PAYSLIP_TAB></ns0:ZFM_EP_PAYPDF1_SK>')   
     .end(function(result){
         if(result.error){
             console.log(result.error);

@@ -37,6 +37,12 @@ spinner=false;
           console.log(response)
           this.Data = JSON.parse(JSON.stringify(response));
           this.salesdet=(this.Data.E_SALESORDER.item);
+          for(let i=0;i<this.salesdet.length;i++)
+          {
+            this.salesdet[i].NET_VALUE=parseInt(this.salesdet[i].NET_VALUE)
+            this.salesdet[i].ITM_NUMBER=parseInt(this.salesdet[i].ITM_NUMBER)
+            this.salesdet[i].REQ_QTY=parseInt(this.salesdet[i].REQ_QTY)
+          }
           this.len=this.salesdet.length;
           console.log(this.salesdet);
           this.spinner=true;
@@ -69,11 +75,13 @@ spinner=false;
       }
     }
 
-  key : any='SD_DOC';
+  key : any='hhh';
   reverse:boolean = false;
   sort(key: any)
   {
-    this.key=key;
+
+    this.key=(key);
+    console.log(this.key)
     this.reverse = !this.reverse;
   }
   logout(){

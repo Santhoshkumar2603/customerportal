@@ -17,7 +17,7 @@
                     <li><a (click)="router.navigate(['/empprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
-                        <li><a href="signin.html">
+                        <li><a (click)="logout()">
                             <i class="fas fa-sign-out-alt" id="btn-logout"></i>
                         </a></li>
                 </ul>
@@ -26,7 +26,7 @@
 
         <div class="sidebar">
             <ul>
-                <li><a (click)="router.navigate(['/empdashboard']);">
+                <li><a (click)="router.navigate(['/empdashboard']);" class=active>
                     <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
                     <span class="title">Dashboard</span>
                 </a></li>
@@ -64,21 +64,21 @@
                     <tr>
       
                         <th scope="col">Sequence Number</th>
-                        <th scope="col" (click)="sort('SD_DOC')">Payment Type&nbsp;<i class="fa fa-sort"></i> </th>
+                        <th scope="col">Payment Type </th>
                         <th scope="col">Posting Period</th>
                         <th scope="col">Payslip Date</th>
                         <th scope="col">Bonus Date</th>
-                        <th scope="col">Valid From</th>
-                        <th scope="col">Valid Till</th>
+                        <th scope="col" (click)="sort('FPBEGIN')">Valid From&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('FPEND')">Valid Till&nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col">Download Payslip</th>
 
                 
                       </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of message | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" class="">
+                    <tr *ngFor="let item of message | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
 
-                        <td>{{item.SEQUENCENUMBER}}</td>
+                        <td>{{item.SEQUENCENUMBER | number}}</td>
                         <td>{{item.PAYTYPE_TEXT}}</td>
                         <td>{{item.FPPERIOD}}</td>
                         <td>{{item.PAYDATE}}</td>

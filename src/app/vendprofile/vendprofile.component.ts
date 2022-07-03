@@ -47,5 +47,8 @@ baseUrl : string='http://localhost:3000/vendorprofile';
       )
    
   }
-
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
+  }
 }

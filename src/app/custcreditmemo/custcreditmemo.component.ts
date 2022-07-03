@@ -42,9 +42,18 @@ p :number=1;
 
             for(let i=1;i<this.credit.length;i++){
               this.credit_array[i-1]=this.credit[i]
+              this.credit_array[i-1].BELNR=parseInt(this.credit_array[i-1].BELNR);
+              this.credit_array[i-1].DMBTR=parseInt(this.credit_array[i-1].DMBTR);
+              this.credit_array[i-1].GJAHR=parseInt(this.credit_array[i-1].GJAHR);
+              this.credit_array[i-1].MENGE=parseInt(this.credit_array[i-1].MENGE);
+
             }
             for(let i=1;i<this.debit.length;i++){
               this.debit_array[i-1]=this.debit[i]
+              this.debit_array[i-1].BELNR=parseInt(this.debit_array[i-1].BELNR);
+              this.debit_array[i-1].DMBTR=parseInt(this.debit_array[i-1].DMBTR);
+              this.debit_array[i-1].GJAHR=parseInt(this.debit_array[i-1].GJAHR);
+              this.debit_array[i-1].MENGE=parseInt(this.debit_array[i-1].MENGE);
             }
             this.lenc=this.credit_array.length;
             this.lend=this.debit_array.length;

@@ -28,6 +28,7 @@ export class VendpurchaseComponent implements OnInit {
   list: any = [];
   listarray: any = [];
   k: number = 0;
+  len1:any;
   constructor(private el: ElementRef, private renderer: Renderer2, private http: HttpClient, public router: Router, private customernumber: CustomerIdService) { }
 
   ngOnInit(): any {
@@ -44,6 +45,7 @@ export class VendpurchaseComponent implements OnInit {
         for (let i = 1; i < this.header.length; i++) {
           this.headerarray[i - 1] = this.header[i]
         }
+        this.len=this.headerarray.length;
         console.log(this.headerarray);
         this.k = 0;
         this.listarray = [];
@@ -89,6 +91,7 @@ export class VendpurchaseComponent implements OnInit {
         this.listarray[this.k++] = this.list[i];
       }
     }
+    this.len1=this.listarray.length;
     this.spinner = true;
   }
 
@@ -126,6 +129,10 @@ export class VendpurchaseComponent implements OnInit {
   sort(key: string) {
     this.key = key;
     this.reverse = !this.reverse;
+  }
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
   }
 
 }

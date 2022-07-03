@@ -18,7 +18,7 @@
                         <li><a (click)="router.navigate(['/vendprofile']);">
                             <i class="fas fa-user"></i>
                         </a></li>
-                        <li><a href="signin.html">
+                        <li><a (click)="logout()">
                             <i class="fas fa-sign-out-alt" id="btn-logout"></i>
                         </a></li>
                 </ul>
@@ -87,14 +87,14 @@
                         <th scope="col" (click)="sort('DOC_YEAR')" >Doc Year  &nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col" (click)="sort('PSTNG_DATE')">Posting Date &nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col" (click)="sort('ENTRY_TIME')">Entry Time&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('TR_EV_TYPE')">Type&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('USERNAME')">Username &nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('VER_GR_GI_SLIP')">Vendor slip&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col">Type</th>
+                        <th scope="col" >Username</th>
+                        <th scope="col" >Vendor slip</th>
                         
                        </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of headerarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" (click)="onInvoiceClick(item)" class="">
+                    <tr *ngFor="let item of headerarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" (click)="onInvoiceClick(item)" class="">
                        
                         <td>{{item.MAT_DOC}}</td>
                         <td>{{item.DOC_YEAR}}</td>
@@ -129,7 +129,7 @@
                 <div class="table-title">
                   <div class="row">
                     <div class="colsan">
-                      <h2><b>Total Entries - {{len}}</b></h2>
+                      <h2><b>Total Entries - {{len1}}</b></h2>
                       <form method="post">
                         <input type="text" class="form-control" name="SD_DOC" [(ngModel)]="SD_DOC" (ngModelChange)="search()" class="textbox" placeholder="Search">
                         <input title="Search" value="" type="submit" class="button">
@@ -142,21 +142,21 @@
                 <thead>
                     <tr>
     
-                        <th scope="col" (click)="sort('MAT_DOC')">Material Document&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('DOC_YEAR')" >Doc Year&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('PSTNG_DATE')">No of Quantity&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('ENTRY_TIME')">Movement Type&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('TR_EV_TYPE')">Purchase Order&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('USERNAME')">Purchase Item&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('VER_GR_GI_SLIP')">Currency Type&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('ENTRY_TIME')">Plant&nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('TR_EV_TYPE')">Storage Location &nbsp;<i class="fa fa-sort"></i></th>
-                        <th scope="col" (click)="sort('USERNAME')">Vendor&nbsp;<i class="fa fa-sort"></i></th>
+                        <th scope="col" (click)="sort('MAT_DOC')">Material Document</th>
+                        <th scope="col" (click)="sort('DOC_YEAR')" >Doc Year</th>
+                        <th scope="col" (click)="sort('PSTNG_DATE')">No of Quantity</th>
+                        <th scope="col" (click)="sort('ENTRY_TIME')">Movement Type</th>
+                        <th scope="col" (click)="sort('TR_EV_TYPE')">Purchase Order</th>
+                        <th scope="col" (click)="sort('USERNAME')">Purchase Item</th>
+                        <th scope="col" (click)="sort('VER_GR_GI_SLIP')">Currency Type</th>
+                        <th scope="col" (click)="sort('ENTRY_TIME')">Plant</th>
+                        <th scope="col" (click)="sort('TR_EV_TYPE')">Storage Location</th>
+                        <th scope="col" (click)="sort('USERNAME')">Vendor</th>
                         
                        </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of listarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p};" (click)="onInvoiceClick(item)" class="">
+                    <tr *ngFor="let item of listarray | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" (click)="onInvoiceClick(item)" class="">
                        
                         <td>{{item.MAT_DOC}}</td>
                         <td>{{item.DOC_YEAR}}</td>

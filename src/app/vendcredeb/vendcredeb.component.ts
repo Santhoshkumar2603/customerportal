@@ -49,9 +49,15 @@ export class VendcredebComponent implements OnInit {
 
             for(let i=1;i<this.credit.length;i++){
               this.credit_array[i-1]=this.credit[i]
+              this.credit_array[i-1].MATNR=parseInt(this.credit_array[i-1].MATNR)
+              this.credit_array[i-1].MENGE=parseInt(this.credit_array[i-1].MENGE)
+              this.credit_array[i-1].DMBTR=parseInt(this.credit_array[i-1].DMBTR)
             }
             for(let i=1;i<this.debit.length;i++){
               this.debit_array[i-1]=this.debit[i]
+              this.debit_array[i-1].MATNR=parseInt(this.debit_array[i-1].MATNR)
+              this.debit_array[i-1].MENGE=parseInt(this.debit_array[i-1].MENGE)
+              this.debit_array[i-1].DMBTR=parseInt(this.debit_array[i-1].DMBTR)
             }
             console.log(this.credit_array);
             console.log(this.debit_array);
@@ -121,6 +127,11 @@ export class VendcredebComponent implements OnInit {
   {
     this.key=key;
     this.reverse = !this.reverse;
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
   }
 
 }
