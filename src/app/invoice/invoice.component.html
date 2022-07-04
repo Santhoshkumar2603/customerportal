@@ -61,9 +61,12 @@
           <li> <strong> Accounting Document Number: </strong> {{accdocnum}}</li>
           <li><strong> Account Type: </strong> {{acctyp}}</li>
           <li><strong> Fiscal Year: </strong> {{fiscalyear}}</li>
-          <li><strong> Credit/ Debit: </strong> {{cord}}</li>
-          <li><strong> Line Item Count: </strong> {{lineitemnum}}</li>
-          <li> <strong> Currency Type: </strong>{{currencytype}} </li>
+          <li><strong> Local Currency Amount: </strong> {{loccuramount}} INR</li>
+          <li><strong> Document Currency Amount: </strong>{{doccuramount}} {{currencytype}}</li>
+          <li><strong> General Ledger Amount: </strong> {{generalledgeamount}}</li>
+          <!-- <li><strong> Credit/ Debit: </strong> {{cord}}</li> -->
+          <!-- <li><strong> Line Item Count: </strong> {{lineitemnum}}</li> -->
+          <!-- <li> <strong> Currency Type: </strong>{{currencytype}} </li> -->
           <li><strong> Base Line Data: </strong> {{balsedate}}</li>
           <li><strong> Last Dunned Data: </strong> {{lastduneddate}}</li>
         </ul>
@@ -72,7 +75,7 @@
 
     <div class="ui card customercard">
       <div class="content">
-        <div class="header" style="color:#b31734">AMOUNT DETAILS</div>
+        <div class="header" style="color:#b31734">TRANSACTION DETAILS</div>
       </div>
       <div class="content">
   
@@ -80,11 +83,13 @@
           <!-- <caption>ACCOUNT DETAILS</caption> -->
           <thead>
             <tr>
-              <th class="text-center colfix">Local Currency Amount</th>
-              <th class="text-center colfix">Document Currency Amount</th>
-              <th class="text-center colfix">General Ledger Amount</th>
-              <th class="text-center colfix">Amount Paid</th>
-              <th class="text-center colfix">Balance Amount</th>
+              <th class="text-center colfix">Net Quantity</th>
+              <th class="text-center colfix">Amount Paid (in {{currencytype}})</th>
+              <th class="text-center colfix">Balance Amount (in {{currencytype}})</th>
+              <th class="text-center colfix">Tax Amount (in {{currencytype}})</th>
+              <th class="text-center colfix">Credit/ Debit</th>
+              <th class="text-center colfix">Currency Type</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -92,27 +97,32 @@
             
               
               <td class="text-right">
-                <span class="mono">{{loccuramount}} INR</span>
+                <span class="mono">{{lineitemnum | number}}</span>
                 <br>
                 <!-- <small class="text-muted">Before Tax</small> -->
               </td>
               <td class="text-right">
-                <span class="mono">{{doccuramount}} {{currencytype}}</span>
+                <span class="mono">{{loccuramount}}</span>
                 <br>
                 <!-- <small class="text-muted">18 Units</small> -->
               </td>
               <td class="text-right">
-                <span class="mono">{{generalledgeamount}}</span>
+                <span class="mono">{{doccuramount}}</span>
                 <br>
                 <!-- <small class="text-muted">Special -10%</small> -->
               </td>
               <td class="text-right">
-                <span class="mono">{{generalledgeamount}}</span>
+                <span class="mono">0.00</span>
                 <br>
                 <!-- <small class="text-muted">Special -10%</small> -->
               </td>
               <td class="text-right">
-                <span class="mono">{{generalledgeamount}}</span>
+                <span class="mono">{{cord}}</span>
+                <br>
+                <!-- <small class="text-muted">Special -10%</small> -->
+              </td>
+              <td class="text-right">
+                <span class="mono">{{currencytype}}</span>
                 <br>
                 <!-- <small class="text-muted">Special -10%</small> -->
               </td>
@@ -138,19 +148,19 @@
     <div class="ui card">
       <div class="content center aligned text segment">
         <small class="ui sub header"> Total Amount (in {{currencytype}}): </small>
-        <p class="bigfont">{{total}} {{currencytype}}</p>
+        <p class="bigfont">{{total}}.00 {{currencytype}}</p>
       </div>
     </div>
-        <!-- <div class="ui card">
+        <div class="ui card">
       <div class="content">
-        <div class="header">Payment Details</div>
+        <div class="header" style="color:#b31734">Payment Details</div>
       </div>
       <div class="content">
-        <p> <strong> Account Name: </strong> "RJCA" </p>
-        <p> <strong> BSB: </strong> 111-111 </p>
-        <p> <strong>Account Number: </strong> 1234101 </p>
+        <p> <strong> Account Document Number: </strong> {{accdocnum}} </p>
+        <p> <strong> Account Type: </strong> {{acctyp}} </p>
+        <p> <strong>Currency Type: </strong> {{currencytype} </p>
       </div>
-    </div> -->
+    </div>
     <div class="ui card">
       <div class="content">
         <div class="header" style="color:#b31734">Greeting !!!</div>
