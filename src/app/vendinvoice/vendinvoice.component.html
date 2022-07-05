@@ -82,11 +82,12 @@
                         <th scope="col" (click)="sort('SD_DOC')">Currency Type</th>
                         <th scope="col" (click)="sort('SD_DOC')">Bill Type</th>
                         <th scope="col" (click)="sort('SD_DOC')">Vendor </th>
-                
+                        <th scope="col">Invoive Slip</th>
+                 
                       </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of message | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" (click)="onInvoiceClick(item)" class="">
+                    <tr *ngFor="let item of message | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
 
                         <td>{{item.BELNR}}</td>
                         <td>{{item.BUKRS}}</td>
@@ -98,6 +99,7 @@
                         <td>{{item.WAERS}}</td>
                         <td>{{item.XRECH}}</td>
                         <td>{{item.LIFNR}}</td>
+                        <td><button class="btn btn-danger" (click)="onInvoiceClick(item)">Click Here</button></td>
 
                         </tr>
                 </tbody>
