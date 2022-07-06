@@ -4,6 +4,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <div class="pdfbtn">
+  <div class="wrap">
+    <a (click)="router.navigate(['/custpayment']);" class="hover-fx"><i class="fa fa-arrow-left"></i></a>
+  </div>
   <button class="btn btn-danger" (click)="pdf()">Save as PDF
     <i class="fas fa-file"></i>
   </button>

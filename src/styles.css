@@ -9,3 +9,9 @@ tbody tr:hover {
     transform: scale(1.04);
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
 }
+
+.spinner-border{
+    position: relative;
+    left:45%;
+    margin-top: 3%;
+}

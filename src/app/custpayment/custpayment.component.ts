@@ -108,7 +108,7 @@ export class CustpaymentComponent implements OnInit {
     console.log(this.kunnr,data.VBEL2)
     this.tablevalue.setMessage(this.kunnr,data.VBEL2)
     
-    this.router.navigateByUrl('/custpaybill');
+    // this.router.navigateByUrl('/custpaybill');
   }
 
 

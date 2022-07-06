@@ -29,6 +29,7 @@ export class VendrfqComponent implements OnInit {
   list: any = [];
   listarray: any = [];
   k: number = 0;
+  f=true;
   constructor(private el: ElementRef, private renderer: Renderer2, private http: HttpClient, public router: Router, private customernumber: CustomerIdService) { }
 
   ngOnInit(): any {
@@ -41,11 +42,23 @@ export class VendrfqComponent implements OnInit {
         this.Data = JSON.parse(JSON.stringify(response));
         this.header = this.Data.RFQ_HEAD.item;
         this.list = this.Data.RFQ_VALUES.item;
+        console.log(this.header.length)
+        if(this.header.length === undefined)
+        {
+          this.f=false;
+          setTimeout(() => {
+            console.log('Test');
+            this.f=true
+            // this.timeout();
+        }, 3000);
+        }
+
         // console.log(this.header);
         for (let i = 1; i < this.header.length; i++) {
           this.headerarray[i - 1] = this.header[i]
           this.headerarray[i-1].PO_NUMBER = parseInt(this.headerarray[i-1].PO_NUMBER)
         }
+        
         this.len=this.headerarray.length;
         console.log(this.headerarray);
         this.k = 0;
