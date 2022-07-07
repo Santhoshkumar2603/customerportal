@@ -111,8 +111,8 @@
               
               <tr *ngFor="let item of headerarray | paginate:{itemsPerPage:10,currentPage:p};" class="">
                        
-                <td>{{item.EBELP}}</td>
-                <td>{{item.MATNR}}</td>
+                <td>{{item.EBELP | number}}</td>
+                <td>{{item.MATNR | number}}</td>
                 <td>{{item.MENGE}}</td>
                 <td>{{item.BPRME}}</td>                
                 <td>{{item.WERKS}}</td>
