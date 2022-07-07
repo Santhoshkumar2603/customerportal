@@ -24,7 +24,8 @@ export class EmpdashboardComponent implements OnInit {
     
     }
     logout(){
-      localStorage.clear();
+      // localStorage.clear();
+      localStorage.removeItem('empid');
       this.router.navigateByUrl('/home');
     }
 

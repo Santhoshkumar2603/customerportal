@@ -19,6 +19,9 @@ import { EmpprofileComponent } from './empprofile/empprofile.component';
 import { HomeComponent } from './home/home.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './shared/auth.guard';
+import { EmpGuard } from './shared/emp.guard';
+import { VendorGuard } from './shared/vendor.guard';
 import { VendcredebComponent } from './vendcredeb/vendcredeb.component';
 import { VenddashboardComponent } from './venddashboard/venddashboard.component';
 import { VendfinancesheetComponent } from './vendfinancesheet/vendfinancesheet.component';
@@ -36,34 +39,34 @@ import { VendrfqComponent } from './vendrfq/vendrfq.component';
 const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'login', component:LoginComponent},
-  {path:'custdashboard', component:CustdashboardComponent},
-  {path:'custsalesorder',component:CustsalesorderComponent},
-  {path:'custdelivery', component:CustdeliveryComponent},
-  {path:'custpayment', component:CustpaymentComponent},
-  {path:'custcreditmemo', component:CustcreditmemoComponent},
-  {path:'custfinancesheet', component:CustfinancesheetComponent},
+  {path:'custdashboard', component:CustdashboardComponent, canActivate:[AuthGuard]},
+  {path:'custsalesorder',component:CustsalesorderComponent, canActivate:[AuthGuard]},
+  {path:'custdelivery', component:CustdeliveryComponent, canActivate:[AuthGuard]},
+  {path:'custpayment', component:CustpaymentComponent, canActivate:[AuthGuard]},
+  {path:'custcreditmemo', component:CustcreditmemoComponent, canActivate:[AuthGuard]},
+  {path:'custfinancesheet', component:CustfinancesheetComponent, canActivate:[AuthGuard]},
   {path:'dummytable', component:DummytableComponent},
-  {path:'custprofile', component:CustprofileComponent},
-  {path:'custinquiry', component:CustinquiryComponent},
-  {path:'custinvoice', component:CustinvoiceComponent},
-  {path:'invoice', component:InvoiceComponent},
-  {path:'custpaybill', component:CustpaybillComponent},
-  {path:'vendpurchase', component:VendpurchaseComponent},
+  {path:'custprofile', component:CustprofileComponent, canActivate:[AuthGuard]},
+  {path:'custinquiry', component:CustinquiryComponent, canActivate:[AuthGuard]},
+  {path:'custinvoice', component:CustinvoiceComponent, canActivate:[AuthGuard]},
+  {path:'invoice', component:InvoiceComponent, canActivate:[AuthGuard]},
+  {path:'custpaybill', component:CustpaybillComponent, canActivate:[AuthGuard]},
+  {path:'vendpurchase', component:VendpurchaseComponent, canActivate:[VendorGuard]},
   {path:'vendlogin', component:VendloginComponent},
-  {path:'vendgoods', component:VendgoodsComponent},
-  {path:'vendpayment', component:VendpaymentComponent},
-  {path:'vendcredeb', component:VendcredebComponent},
-  {path:'vendprofile', component:VendprofileComponent},
-  {path:'venddashboard', component:VenddashboardComponent},
-  {path:'vendfinancesheet', component:VendfinancesheetComponent},
-  {path:'vendrfq', component:VendrfqComponent},
-  {path:'vendinvoice', component:VendinvoiceComponent},
-  {path:'vendinvdet', component:VendinvdetComponent},
+  {path:'vendgoods', component:VendgoodsComponent, canActivate:[VendorGuard]},
+  {path:'vendpayment', component:VendpaymentComponent, canActivate:[VendorGuard]},
+  {path:'vendcredeb', component:VendcredebComponent, canActivate:[VendorGuard]},
+  {path:'vendprofile', component:VendprofileComponent, canActivate:[VendorGuard]},
+  {path:'venddashboard', component:VenddashboardComponent, canActivate:[VendorGuard]},
+  {path:'vendfinancesheet', component:VendfinancesheetComponent, canActivate:[VendorGuard]},
+  {path:'vendrfq', component:VendrfqComponent, canActivate:[VendorGuard]},
+  {path:'vendinvoice', component:VendinvoiceComponent, canActivate:[VendorGuard]},
+  {path:'vendinvdet', component:VendinvdetComponent, canActivate:[VendorGuard]},
   {path:'emplogin', component:EmploginComponent},
-  {path:'empdashboard', component:EmpdashboardComponent},
-  {path:'empprofile', component:EmpprofileComponent},
-  {path:'empleave', component:EmpleaveComponent},
-  {path:'emppayslip', component:EmppayslipComponent},
+  {path:'empdashboard', component:EmpdashboardComponent, canActivate:[EmpGuard]},
+  {path:'empprofile', component:EmpprofileComponent, canActivate:[EmpGuard]},
+  {path:'empleave', component:EmpleaveComponent, canActivate:[EmpGuard]},
+  {path:'emppayslip', component:EmppayslipComponent, canActivate:[EmpGuard]},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];

@@ -38,6 +38,15 @@ export class LoginComponent implements OnInit {
     this.getLoginRes(parseInt(this.login.value.username), parseInt(this.login.value.password));
   }
   getLoginRes(user: Number , password: Number ){
+    if(user === NaN || password === NaN){
+      this.f=false;
+      setTimeout(() => {
+        console.log('Test');
+        this.f=true
+        // this.timeout();
+    }, 3000);
+
+    }
     return this.http.post(this.baseUrl,{
       username:user,
       password:password

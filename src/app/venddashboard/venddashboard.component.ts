@@ -24,7 +24,8 @@ export class VenddashboardComponent implements OnInit {
     
     }
     logout(){
-      localStorage.clear();
+      // localStorage.clear();
+      localStorage.removeItem('vendorid');
       this.router.navigateByUrl('/home');
     }
 }

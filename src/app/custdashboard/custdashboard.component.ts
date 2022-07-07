@@ -24,7 +24,8 @@ export class CustdashboardComponent implements OnInit {
     
     }
     logout(){
-      localStorage.clear();
+      // localStorage.clear();
+      localStorage.removeItem('userid');
       this.router.navigateByUrl('/home');
     }
     // salesorder(){
