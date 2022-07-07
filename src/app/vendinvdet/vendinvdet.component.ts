@@ -67,6 +67,7 @@ export class VendinvdetComponent implements OnInit {
           this.total+=parseInt(this.header[i].WRBTR)
         }
       }
+      this.len=this.headerarray.length
         // console.log(this.headerarray);
         this.k = 0;
         this.listarray = [];

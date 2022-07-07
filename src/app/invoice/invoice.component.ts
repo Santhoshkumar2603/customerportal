@@ -39,6 +39,8 @@ export class InvoiceComponent implements OnInit {
   invDet:any;
   custid:any;
   total:number=0;
+  amountpaid:number=0;
+  balance:number=0;
   livedate:any;
   constructor(private el: ElementRef, private renderer:Renderer2, private customernumber : CustomerIdService,public router:Router, private http:HttpClient, private table:TablevalueService) { }
 
@@ -62,16 +64,21 @@ export class InvoiceComponent implements OnInit {
   this.doccuramount=this.invDet.WRBTR;
   this.generalledgeamount=this.invDet.PSWBT;
   this.total=parseInt(this.loccuramount)+parseInt(this.doccuramount);
+  
 
   let curr_date = new Date();
   this.livedate=curr_date.toLocaleDateString();
 
   if(this.invDet.SHKZG === 'S')
   {
-    this.cord="Credit"
+    this.cord="Credit";
+    this.amountpaid=this.loccuramount;
+    this.balance=this.doccuramount;
   }
   else if(this.invDet.SHKZG === 'H'){
-    this.cord="Debit"
+    this.cord="Debit";
+    this.amountpaid=this.total;
+    this.balance=0.00;
   }
 
   if(this.invDet.KOART === 'A')
