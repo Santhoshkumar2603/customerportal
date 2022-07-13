@@ -63,7 +63,7 @@ paypdf:any;
               this.Data1 = JSON.parse(JSON.stringify(response));
               const linkSource = `data:application/pdf;base64,${this.Data1.BASE64}`; 
               const downloadLink = document.createElement("a"); 
-              const fileName = "payslip.pdf"; 
+              const fileName = "Salary_Payslip.pdf"; 
               downloadLink.href = linkSource; 
               downloadLink.download = fileName; downloadLink.click();
               

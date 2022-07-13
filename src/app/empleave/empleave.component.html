@@ -87,7 +87,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of credit | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
+                        <tr *ngFor="let item of bal | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
      
                         <td>{{item.ENTITLE | number}}</td>
                         <td>{{item.QUOTANUM | number}}</td> 

@@ -31,6 +31,7 @@ export class EmpleaveComponent implements OnInit {
   SD_DOC1: any;
   lenc:any
   lend:any
+  bal:any=[];
 
   constructor(private el: ElementRef, private renderer:Renderer2, private http:HttpClient,public router:Router, private customernumber:CustomerIdService) 
   {}
@@ -46,6 +47,7 @@ export class EmpleaveComponent implements OnInit {
             this.Data = JSON.parse(JSON.stringify(response));
             this.credit=(this.Data.IT_LEAVE_BALANCE.item);
             this.debit=(this.Data.IT_LEAVE_DETAIL.item);
+            this.bal[0]=this.credit[1];
 
             for(let i=0;i<this.debit;i++){
               this.debit[i].ABSENCEDAYS=parseInt(this.debit[i].ABSENCEDAYS)
@@ -53,7 +55,7 @@ export class EmpleaveComponent implements OnInit {
             }
 
            
-            this.lenc=this.credit.length;
+            this.lenc=this.bal.length;
             this.lend=this.debit.length;
 
             this.spinner=true;
