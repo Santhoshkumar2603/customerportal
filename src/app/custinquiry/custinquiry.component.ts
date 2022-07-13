@@ -40,6 +40,16 @@ export class CustinquiryComponent implements OnInit {
               this.message[i].VBELN=parseInt(this.message[i].VBELN)
             }
             this.len=this.message.length;
+            for(let i=0;i<this.len;i++){
+              for(let j=i+1;j<this.len;j++){
+                if(this.message[i].VBELN < this.message[j].VBELN){
+                  let t=this.message[i]
+                  this.message[i]=this.message[j]
+                  this.message[j]=t
+                }
+              }
+            }
+            
             console.log(this.message);
             this.spinner=true;
           }
