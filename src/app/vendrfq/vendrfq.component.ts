@@ -57,6 +57,10 @@ export class VendrfqComponent implements OnInit {
         for (let i = 1; i < this.header.length; i++) {
           this.headerarray[i - 1] = this.header[i]
           this.headerarray[i-1].PO_NUMBER = parseInt(this.headerarray[i-1].PO_NUMBER)
+          if(this.header[i]["QUOT_DATE"] === "0000-00-00")
+          {
+            this.headerarray[i-1]["QUOT_DATE"]="NA";
+          }
         }
         
         this.len=this.headerarray.length;

@@ -67,7 +67,7 @@
     <tbody>
         <tr *ngFor="let item of salesdet" class="">
            
-            <td>{{item.VBEL2}}</td>
+            <td>{{item.VBEL2 | number}}</td>
             <td>{{item.BELNR}}</td>
             <td>{{item.SHKZG}}</td>
             <!-- <td>{{item.PSWSL}}</td> -->
@@ -126,8 +126,8 @@
           <thead>
             <tr>
               <th class="text-center colfix">Net Quantity</th>
-              <th class="text-center colfix">Amount Paid</th>
-              <th class="text-center colfix">Balance Amount</th>
+              <th class="text-center colfix">Amount Paid (In EUR)</th>
+              <th class="text-center colfix">Balance Amount (In EUR)</th>
               <th class="text-center colfix">Currency Type</th>
               <th class="text-center colfix">Payment Aging Date</th>
               <!-- <th class="text-center colfix">General</th> -->
@@ -138,7 +138,7 @@
             
               
               <td class="text-right">
-                <span class="mono">{{lineitemnum}}</span>
+                <span class="mono">{{lineitemnum | number}}</span>
                 <br>
                 <!-- <small class="text-muted">Before Tax</small> -->
               </td>
@@ -184,8 +184,8 @@
 
     <div class="ui card">
       <div class="content center aligned text segment">
-        <small class="header" >Total Amount(In Rs) : </small>
-        <p class="bigfont"> Rs.{{generalledgeamount}}</p>
+        <small class="header" >Total Amount(In EUR) : </small>
+        <p class="bigfont">{{generalledgeamount}} EUR</p>
       </div>
     </div>
         <div class="ui card">

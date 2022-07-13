@@ -52,6 +52,8 @@ export class VendcredebComponent implements OnInit {
               this.credit_array[i-1].MATNR=parseInt(this.credit_array[i-1].MATNR)
               this.credit_array[i-1].MENGE=parseInt(this.credit_array[i-1].MENGE)
               this.credit_array[i-1].DMBTR=parseInt(this.credit_array[i-1].DMBTR)
+             
+              
             }
             for(let i=1;i<this.debit.length;i++){
               this.debit_array[i-1]=this.debit[i]

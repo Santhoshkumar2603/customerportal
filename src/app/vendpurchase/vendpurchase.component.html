@@ -100,10 +100,10 @@
                         <td>{{item.PO_NUMBER}}</td>
                         <td>{{item.DOC_COND}}</td>
                         <td>{{item.DOC_TYPE}}</td>
-                        <td>{{item.PURCH_ORG}}</td>
-                        <td>{{item.PUR_GROUP}}</td>
+                        <td>{{item.PURCH_ORG | number}}</td>
+                        <td>{{item.PUR_GROUP | number}}</td>
                         <td>{{item.CUSTOMER | number}}</td>
-                        <td>{{item.CO_CODE}}</td>  
+                        <td>{{item.CO_CODE | number}}</td>  
                         <td>{{item.CURRENCY}}</td>
                         <td>{{item.EXPORT_NO | number}}</td>
                        
@@ -161,7 +161,7 @@
                            
                             <td>{{item.PO_NUMBER}}</td>
                             <td>{{item.INFO_REC}}</td>
-                            <td>{{item.MATERIAL}}</td>
+                            <td>{{item.MATERIAL | number}}</td>
                             <td>{{item.MAT_TYPE}}</td>
                             <td>{{item.MAT_GRP}}</td>
                             <td>{{item.NET_PRICE}}</td>

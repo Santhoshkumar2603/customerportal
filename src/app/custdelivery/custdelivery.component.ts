@@ -41,6 +41,13 @@ export class CustdeliveryComponent implements OnInit {
             console.log(this.message);
             for(let i=1;i<this.message.length;i++){
               this.array[i-1]=this.message[i]
+              if(this.message[i]["LFDAT_V"] === "0000-00-00")
+              {
+                this.array[i-1]["LFDAT_V"]="NA";
+              }
+              if(this.message[i]["LFUHR"] === "00:00:00"){
+                this.array[i-1]["LFUHR"]="NA";
+              }
             }
             this.total=this.array.length;
             console.log(this.array.VBELN);

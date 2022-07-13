@@ -90,7 +90,7 @@
                     <tr *ngFor="let item of message | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
 
                         <td>{{item.BELNR}}</td>
-                        <td>{{item.BUKRS}}</td>
+                        <td>{{item.BUKRS | number}}</td>
                         <td>{{item.GJAHR}}</td>
                         <td>{{item.CPUDT}}</td>
                         <td>{{item.CPUTM}}</td>

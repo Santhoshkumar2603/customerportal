@@ -89,11 +89,11 @@
                     <tbody>
                         <tr *ngFor="let item of credit | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
      
-                        <td>{{item.ENTITLE}}</td>
-                        <td>{{item.QUOTANUM}}</td> 
+                        <td>{{item.ENTITLE | number}}</td>
+                        <td>{{item.QUOTANUM | number}}</td> 
                         <td>{{item.QUOTATYPE}}</td>
                         <td>{{item.QUOTATEXT}}</td>
-                        <td>{{item.TIME_UNIT}}</td>
+                        <td>{{item.TIME_UNIT | number}}</td>
                         <td>{{item.TIUNITEXT}}</td>
                         <td>{{item.QUOTABEG}}</td>
                         <td>{{item.QUOTAEND}}</td>
@@ -153,8 +153,8 @@
        
                         
                         <td>{{item.EMPLOYEENO | number}}</td>
-                        <td>{{item.ABSENCEDAYS}}</td> 
-                        <td>{{item.ABSENCEHOURS}}</td>
+                        <td>{{item.ABSENCEDAYS | number}}</td> 
+                        <td>{{item.ABSENCEHOURS | number}}</td>
                         <td>{{item.ABSENCETYPE}}</td>
                         <td>{{item.NAMEOFABSENCETYPE}}</td>
                         <td>{{item.SUBTYPE}}</td>

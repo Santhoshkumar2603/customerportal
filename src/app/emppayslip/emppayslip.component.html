@@ -67,7 +67,7 @@
                         <th scope="col">Payment Type </th>
                         <th scope="col">Posting Period</th>
                         <th scope="col">Payslip Date</th>
-                        <th scope="col">Bonus Date</th>
+                        <!-- <th scope="col">Bonus Date</th> -->
                         <th scope="col" (click)="sort('FPBEGIN')">Valid From&nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col" (click)="sort('FPEND')">Valid Till&nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col">Download Payslip</th>
@@ -82,7 +82,7 @@
                         <td>{{item.PAYTYPE_TEXT}}</td>
                         <td>{{item.FPPERIOD}}</td>
                         <td>{{item.PAYDATE}}</td>
-                        <td>{{item.BONUSDATE}}</td>
+                        <!-- <td>{{item.BONUSDATE}}</td> -->
                         <td>{{item.FPBEGIN}}</td>
                         <td>{{item.FPEND}}</td>
                         <td><button class="btn btn-danger" (click)="onInvoiceClick(item)">Click Here</button></td>

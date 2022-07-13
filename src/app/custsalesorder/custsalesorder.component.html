@@ -79,7 +79,7 @@
                         <th scope="col" (click)="sort('CREATION_DATE')">Creation Date&nbsp;<i class="fa fa-sort"></i></th>
                         <th scope="col">Unit Of Measure</th>
                         <th scope="col">Currency</th>
-                        <th scope="col">Document Type</th>
+                        <!-- <th scope="col">Document Type</th> -->
                         <th scope="col">Document Status</th>
                         <th scope="col" (click)="sort('ITM_NUMBER')">Item Number&nbsp;<i class="fa fa-sort"></i></th>
                         <!-- <th scope="col">Material</th> -->
@@ -94,18 +94,18 @@
                     <tr *ngFor="let item of salesdet | orderBy : key : reverse | paginate:{itemsPerPage:10,currentPage:p} | filter:SD_DOC" class="">
                        
                         <td>{{item.SD_DOC | number}}</td>
-                        <td>{{item.PLANT}}</td>
+                        <td>{{item.PLANT | number}}</td>
                         <td>{{item.CREATION_DATE}}</td>
                         <td>{{item.BASE_UOM}}</td>
                         <td>{{item.CURRENCY}}</td>
-                        <td>{{item.DOC_TYPE}}</td>
+                        <!-- <td>{{item.DOC_TYPE}}</td> -->
                         <td>{{item.DOC_STATUS}}</td>
                         <td>{{item.ITM_NUMBER | number}}</td>
                         <!-- <td>{{item.MATERIAL}}</td> -->
                         <td>{{item.NET_VALUE | number }}</td>
                         <!-- <td>{{item.PURCH_NO}}</td> -->
                         <td>{{item.REQ_QTY | number}}</td>
-                        <td>{{item.SALES_ORG}}</td>
+                        <td>{{item.SALES_ORG | number}}</td>
                        
                       </tr>
                 </tbody>
