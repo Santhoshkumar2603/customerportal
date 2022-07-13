@@ -45,7 +45,7 @@ spinner=false
           }
         }
         this.spinner=true
-        this.len=this.sales.length;
+        this.len=this.message.length;
             console.log(this.message);
 
           }
